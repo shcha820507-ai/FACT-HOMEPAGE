@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ECEEEE">
+<title>FACT | 미래건축 융합기술 연구센터 | KAIST</title>
+<meta name="description" content="KAIST 문화기술연구소 미래건축 융합기술 연구센터(FACT). 모빌리티 통합 건축, 메타버스와 디지털트윈 건축, 인간-공간 인터랙션 및 반응형 공간을 연구합니다.">
+<meta property="og:title" content="FACT Research Center | KAIST">
+<meta property="og:description" content="Future Architecture Convergence Technology (FACT) Research Center, KAIST Culture Technology Research Institute">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064.00%2064.00%22%20width%3D%2264.00%22%20height%3D%2264.00%22%3E%0A%3Cg%20class%3D%22fact-mark%22%3E%0A%3Cg%20class%3D%22pl%20pl-ground%22%3E%0A%3Cpolygon%20class%3D%22f-left%22%20points%3D%2210.684%2C45.058%2041.275%2C62.720%2041.275%2C60.465%2010.684%2C42.804%22%20fill%3D%22%231F3FDB%22/%3E%0A%3Cpolygon%20class%3D%22f-right%22%20points%3D%2253.316%2C55.768%2041.275%2C62.720%2041.275%2C60.465%2053.316%2C53.513%22%20fill%3D%22%231730A8%22/%3E%0A%3Cpolygon%20class%3D%22f-top%22%20points%3D%2222.725%2C35.852%2053.316%2C53.513%2041.275%2C60.465%2010.684%2C42.804%22%20fill%3D%22%234E6DF5%22/%3E%0A%3C/g%3E%0A%3Cg%20class%3D%22pl%20pl-core%22%3E%0A%3Cpolygon%20class%3D%22f-left%22%20points%3D%2215.566%2C42.992%2022.725%2C47.125%2022.725%2C9.547%2015.566%2C5.414%22%20fill%3D%22%231D222A%22/%3E%0A%3Cpolygon%20class%3D%22f-right%22%20points%3D%2229.885%2C42.992%2022.725%2C47.125%2022.725%2C9.547%2029.885%2C5.414%22%20fill%3D%22%230F1317%22/%3E%0A%3Cpolygon%20class%3D%22f-top%22%20points%3D%2222.725%2C1.280%2029.885%2C5.414%2022.725%2C9.547%2015.566%2C5.414%22%20fill%3D%22%234A525C%22/%3E%0A%3C/g%3E%0A%3Cg%20class%3D%22pl%20pl-mid%22%3E%0A%3Cpolygon%20class%3D%22f-left%22%20points%3D%2222.725%2C29.839%2036.719%2C37.919%2036.719%2C33.785%2022.725%2C25.706%22%20fill%3D%22%231F3FDB%22/%3E%0A%3Cpolygon%20class%3D%22f-right%22%20points%3D%2243.878%2C33.785%2036.719%2C37.919%2036.719%2C33.785%2043.878%2C29.651%22%20fill%3D%22%231730A8%22/%3E%0A%3Cpolygon%20class%3D%22f-top%22%20points%3D%2229.885%2C21.572%2043.878%2C29.651%2036.719%2C33.785%2022.725%2C25.706%22%20fill%3D%22%234E6DF5%22/%3E%0A%3C/g%3E%0A%3Cg%20class%3D%22pl%20pl-top%22%3E%0A%3Cpolygon%20class%3D%22f-left%22%20points%3D%2222.725%2C13.681%2042.251%2C24.954%2042.251%2C20.821%2022.725%2C9.547%22%20fill%3D%22%231F3FDB%22/%3E%0A%3Cpolygon%20class%3D%22f-right%22%20points%3D%2249.411%2C20.821%2042.251%2C24.954%2042.251%2C20.821%2049.411%2C16.687%22%20fill%3D%22%231730A8%22/%3E%0A%3Cpolygon%20class%3D%22f-top%22%20points%3D%2229.885%2C5.414%2049.411%2C16.687%2042.251%2C20.821%2022.725%2C9.547%22%20fill%3D%22%234E6DF5%22/%3E%0A%3C/g%3E%0A%3C/g%3E%0A%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --concrete:#ECEEEE; --paper:#F7F8F8; --ink:#14171C; --steel:#5C6672; --line:#CBD1D6; --line-strong:#9AA3AD;
+  --blue:#1F3FDB; --blue-deep:#1730A8; --blue-tint:#E4EAFF; --blue-top:#4E6DF5; --night:#0F1317; --night-2:#1B2027;
+  --font-ko:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;
+  --font-en:'Archivo',var(--font-ko);
+  --max:1200px; --gutter:clamp(20px,4vw,48px);
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--concrete);color:var(--ink);font-family:var(--font-ko);font-size:16px;line-height:1.75;font-feature-settings:'ss01','cv01';word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px}
+img,svg{display:block;max-width:100%}
+[hidden]{display:none !important}
+ul{margin:0;padding:0;list-style:none}
+p{margin:0}
+h1,h2,h3,h4{margin:0;font-family:var(--font-en);font-weight:600;line-height:1.15;letter-spacing:-.01em}
+h1 [lang=ko],h2 [lang=ko],h3 [lang=ko]{letter-spacing:-.02em}
+[lang=en]{font-variation-settings:'wdth' 100}
+h1[lang=en],h2[lang=en],.wide{font-variation-settings:'wdth' 112}
+
+/* language switching */
+[data-lang="ko"] [lang="en"]{display:none !important}
+[data-lang="en"] [lang="ko"]{display:none !important}
+[data-lang="en"] body{font-family:var(--font-ko)}
+
+/* skip link */
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 12px;z-index:100}
+.skip:focus{left:8px}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{font-family:var(--font-en);font-variation-settings:'wdth' 80;font-weight:600;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--blue)}
+.section{padding:clamp(64px,9vw,120px) 0;border-top:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px 48px;align-items:end;margin-bottom:clamp(32px,5vw,56px)}
+.section-head h2{font-size:clamp(1.65rem,2.8vw,2.35rem);margin-top:14px}
+.section-head .lead{color:var(--steel);font-size:1.03rem;max-width:56ch}
+@media (max-width:860px){.section-head{grid-template-columns:1fr}}
+
+/* header */
+.header{position:sticky;top:0;z-index:50;background:rgba(236,238,238,.86);backdrop-filter:saturate(1.2) blur(10px);-webkit-backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--line)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand svg{height:36px;width:auto;flex:none}
+.brand .wm{font-family:var(--font-en);font-variation-settings:'wdth' 112;font-weight:700;font-size:1.35rem;letter-spacing:-.01em;line-height:1}
+.brand .sub{font-size:.74rem;color:var(--steel);line-height:1.2;margin-top:3px;white-space:nowrap}
+.nav{display:flex;align-items:center;gap:26px;font-size:.92rem;font-weight:500}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{white-space:nowrap}
+.nav a{padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s}
+.nav a:hover{border-color:var(--ink)}
+.lang{white-space:nowrap;font-family:var(--font-en);font-variation-settings:'wdth' 90;font-weight:600;font-size:.78rem;letter-spacing:.06em;border:1px solid var(--line-strong);border-radius:999px;padding:6px 12px;background:transparent;cursor:pointer;color:var(--ink);display:inline-flex;gap:6px;align-items:center}
+.lang span{opacity:.45}
+.lang span.on{opacity:1}
+.menu-btn{display:none;background:none;border:1px solid var(--line-strong);border-radius:6px;padding:6px 10px;font:inherit;font-size:.85rem;cursor:pointer}
+@media (max-width:960px){
+  .nav-links{display:none;position:absolute;left:0;right:0;top:68px;background:var(--concrete);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:8px var(--gutter) 16px}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 0;border-bottom:1px solid var(--line)}
+  .menu-btn{display:inline-block}
+  .brand .sub{display:none}
+}
+
+/* hero */
+.hero{padding:clamp(48px,7vw,96px) 0 clamp(40px,6vw,80px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:40px 56px;align-items:center}
+.hero-copy .kicker{font-family:var(--font-en);font-variation-settings:'wdth' 90;font-weight:500;font-size:.86rem;color:var(--steel);letter-spacing:.02em;display:flex;flex-wrap:wrap;gap:8px 14px;margin-bottom:28px}
+.hero-copy .kicker b{color:var(--ink);font-weight:600}
+.hero h1{font-size:clamp(2rem,4.3vw,3.55rem);line-height:1.15;font-weight:700}
+.hero h1[lang=en]{font-size:clamp(1.8rem,3.4vw,2.9rem);line-height:1.08;letter-spacing:-.02em}
+.hero .lede{margin-top:24px;font-size:1.08rem;color:var(--steel);max-width:58ch}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:6px;font-weight:600;font-size:.94rem;border:1px solid var(--ink);transition:background .2s,color .2s,transform .2s}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.primary:hover{background:var(--blue);border-color:var(--blue)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn svg{width:14px;height:14px}
+.hero-fig{position:relative}
+.hero-fig svg{width:100%;height:auto}
+.hero-fig .lbl{font-family:var(--font-ko);font-size:15px;fill:var(--ink);font-weight:600}
+.hero-fig .lbl.en{font-family:var(--font-en);font-variation-settings:'wdth' 100}
+.hero-fig .lbl-sub{font-size:12.5px;fill:var(--steel);font-weight:500}
+.hero-fig .lbl-tag{font-family:var(--font-en);font-variation-settings:'wdth' 90;font-weight:600;font-size:11.5px;letter-spacing:.12em;fill:var(--blue)}
+.hero-fig .lead-line{stroke:var(--line-strong);stroke-width:1;fill:none}
+.hero-fig .lead-dot{fill:var(--blue)}
+.hero-note{margin-top:14px;font-size:.8rem;color:var(--steel);text-align:right}
+@media (max-width:960px){.hero .wrap{grid-template-columns:1fr}.hero-fig{max-width:560px}}
+.hero-legend{display:none;margin-top:14px;border-top:1px solid var(--line);padding-top:12px;gap:8px}
+.hero-legend li{display:grid;grid-template-columns:64px 1fr;gap:10px;font-size:.88rem;line-height:1.5}
+.hero-legend b{font-family:var(--font-en);font-variation-settings:'wdth' 90;font-weight:600;font-size:.7rem;letter-spacing:.12em;color:var(--blue);padding-top:3px}
+@media (max-width:640px){.hero-fig .lbl-g,.hero-fig .lead-line,.hero-fig .lead-dot{display:none}.hero-legend{display:grid}.hero-note{text-align:left}}
+
+/* mark animation */
+.hero-mark .pl{transform-box:fill-box;transform-origin:center}
+.intro .hero-mark .pl{opacity:0;animation:rise .9s var(--ease) forwards}
+.hero-mark .pl-ground{animation-delay:.05s}
+.hero-mark .pl-core{animation-delay:.25s}
+.hero-mark .pl-mid{animation-delay:.5s}
+.hero-mark .pl-top{animation-delay:.7s}
+.intro .hero-fig .lbl-g{opacity:0;animation:fadein .6s var(--ease) forwards;animation-delay:1.15s}
+@keyframes rise{from{opacity:0;transform:translateY(-22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadein{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.hero-mark .pl,.hero-fig .lbl-g{animation:none;opacity:1}}
+.pl{transition:opacity .25s ease,filter .25s ease}
+.dim .pl:not(.pl-core){opacity:.22}
+.dim .pl.on{opacity:1}
+.pl.on .f-top{filter:brightness(1.12)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px 64px;align-items:start}
+.about-text p+p{margin-top:18px}
+.about-text .big{font-size:1.15rem;line-height:1.7}
+.purpose{margin-top:34px;display:grid;gap:14px}
+.purpose li{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:16px 0;border-top:1px solid var(--line)}
+.purpose li:last-child{border-bottom:1px solid var(--line)}
+.purpose .n{font-family:var(--font-en);font-variation-settings:'wdth' 90;font-weight:600;font-size:.8rem;letter-spacing:.08em;color:var(--blue);padding-top:5px}
+.purpose h3{font-size:1.02rem;font-weight:700;margin-bottom:4px;font-family:var(--font-ko)}
+.purpose p{color:var(--steel);font-size:.95rem}
+.facts{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:6px 24px}
+.facts dl{margin:0}
+.facts .row{display:grid;grid-template-columns:104px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+.facts .row:first-child{border-top:0}
+.facts dt{font-family:var(--font-en);font-variation-settings:'wdth' 90;font-size:.78rem;letter-spacing:.06em;color:var(--steel);font-weight:600;padding-top:3px}
+.facts dd{margin:0;font-size:.97rem}
+.facts dd small{display:block;color:var(--steel);font-size:.82rem;line-height:1.5;margin-top:2px}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr}}
+
+/* research */
+.research-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:40px 56px;align-items:start}
+.research-fig{position:sticky;top:96px}
+.research-fig svg{width:100%;max-width:360px;height:auto}
+.research-fig .legend{margin-top:16px;font-size:.84rem;color:var(--steel);max-width:36ch}
+.groups{display:grid;gap:18px}
+.grp{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:26px 28px;transition:border-color .2s,transform .2s;position:relative}
+.grp::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;background:var(--blue);border-radius:2px;opacity:0;transition:opacity .2s}
+.grp:hover,.grp.on{border-color:var(--blue)}
+.grp:hover::before,.grp.on::before{opacity:1}
+.grp .g-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px}
+.grp .g-num{font-family:var(--font-en);font-variation-settings:'wdth' 90;font-weight:600;font-size:.78rem;letter-spacing:.12em;color:var(--blue)}
+.grp h3{font-size:1.25rem;font-weight:700;font-family:var(--font-ko)}
+.grp h3[lang=en]{font-family:var(--font-en);font-variation-settings:'wdth' 108;font-weight:650}
+.grp .g-sum{margin-top:8px;color:var(--steel);font-size:.96rem}
+.grp .topics{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:6px 20px}
+.grp .topics li{position:relative;padding-left:16px;font-size:.93rem;line-height:1.6}
+.grp .topics li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;background:var(--blue-top);transform:skewX(-20deg)}
+.grp .g-fac{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;padding:4px 10px;border:1px solid var(--line-strong);border-radius:999px;color:var(--ink);background:#fff}
+.tag i{font-style:normal;color:var(--steel);font-family:var(--font-en);font-variation-settings:'wdth' 90;font-size:.7rem;letter-spacing:.06em}
+@media (max-width:960px){.research-grid{grid-template-columns:1fr}.research-fig{position:static}.research-fig svg{max-width:220px}}
+
+/* people */
+.director{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:28px 32px;margin-bottom:22px}
+.director h3{font-size:1.4rem;font-weight:700;font-family:var(--font-ko)}
+.director .role{color:var(--steel);margin-top:4px}
+.director .bio{margin-top:14px;font-size:.96rem;max-width:64ch}
+.director .links{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+.link{font-size:.86rem;font-weight:600;border-bottom:1px solid var(--line-strong);padding-bottom:1px}
+.link:hover{border-color:var(--blue);color:var(--blue)}
+.people{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.person{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:20px 22px}
+.person h3{font-size:1.08rem;font-weight:700;font-family:var(--font-ko)}
+.person .en-name{font-family:var(--font-en);font-variation-settings:'wdth' 100;font-weight:500;color:var(--steel);font-size:.82rem;margin-top:1px}
+.person .dept{font-size:.86rem;color:var(--steel);margin-top:6px}
+.person .gs{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.gs b{font-family:var(--font-en);font-variation-settings:'wdth' 90;font-weight:600;font-size:.68rem;letter-spacing:.08em;color:var(--blue-deep);background:var(--blue-tint);border-radius:4px;padding:3px 7px}
+.recruit{margin-top:22px;border:1px dashed var(--line-strong);border-radius:8px;padding:22px 26px;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:16px 40px;align-items:start}
+.recruit h3{font-size:1.02rem;font-weight:700;font-family:var(--font-ko)}
+.recruit ul{display:grid;gap:8px;font-size:.94rem;color:var(--ink)}
+.recruit li{display:grid;grid-template-columns:auto 1fr;gap:12px}
+.recruit li b{font-family:var(--font-en);font-variation-settings:'wdth' 90;font-weight:600;font-size:.74rem;letter-spacing:.08em;color:var(--blue);padding-top:5px}
+@media (max-width:960px){.people{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.people{grid-template-columns:1fr}.recruit{grid-template-columns:1fr}}
+
+/* projects */
+.projects{border-top:1px solid var(--line-strong)}
+.proj{display:grid;grid-template-columns:52px minmax(0,6fr) minmax(0,4fr) 120px;gap:14px 24px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.proj .g{font-family:var(--font-en);font-variation-settings:'wdth' 90;font-weight:600;font-size:.72rem;letter-spacing:.1em;color:var(--blue)}
+.proj .t{font-weight:600;font-size:.98rem}
+.proj .s{color:var(--steel);font-size:.88rem}
+.proj .y{font-family:var(--font-en);font-variation-settings:'wdth' 95;font-size:.86rem;color:var(--steel);text-align:right;font-variant-numeric:tabular-nums}
+.proj-note{margin-top:18px;font-size:.84rem;color:var(--steel)}
+@media (max-width:860px){.proj{grid-template-columns:52px 1fr;gap:6px 16px}.proj .s,.proj .y{grid-column:2;text-align:left}}
+
+/* partners */
+.partners{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.pcol{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:22px 24px}
+.pcol h3{font-size:.8rem;font-family:var(--font-en);font-variation-settings:'wdth' 90;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);font-weight:600;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.pcol h3[lang=ko]{text-transform:none;letter-spacing:0;font-family:var(--font-ko);font-size:.9rem;color:var(--ink)}
+.pcol li{padding:6px 0;font-size:.95rem}
+.partners-note{margin-top:18px;font-size:.84rem;color:var(--steel)}
+
+/* roadmap */
+.timeline{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:9px;height:1px;background:var(--line-strong)}
+.tl{position:relative;padding-top:28px}
+.tl::before{content:"";position:absolute;left:0;top:4px;width:11px;height:11px;background:var(--concrete);border:2px solid var(--blue);border-radius:50%}
+.tl.done::before{background:var(--blue)}
+.tl .d{font-family:var(--font-en);font-variation-settings:'wdth' 95;font-weight:600;font-size:.86rem;color:var(--blue-deep);font-variant-numeric:tabular-nums}
+.tl .t{font-weight:600;font-size:.96rem;margin-top:6px}
+.tl .s{font-size:.86rem;color:var(--steel);margin-top:4px}
+.recurring{margin-top:36px;padding-top:24px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px 32px;font-size:.94rem;color:var(--steel)}
+.recurring b{color:var(--ink);display:block;font-weight:700;margin-bottom:2px}
+@media (max-width:960px){.timeline{grid-template-columns:repeat(3,minmax(0,1fr))}.timeline::before{display:none}}
+@media (max-width:640px){.timeline{grid-template-columns:1fr;gap:0}.tl{padding:14px 0 14px 28px;border-left:1px solid var(--line-strong)}.tl::before{left:-6px;top:20px}}
+
+/* news */
+.news-list{border-top:1px solid var(--line-strong)}
+.news{display:grid;grid-template-columns:120px 96px minmax(0,1fr) auto;gap:8px 24px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.news .d{font-family:var(--font-en);font-variation-settings:'wdth' 95;font-weight:600;font-size:.86rem;color:var(--blue-deep);font-variant-numeric:tabular-nums}
+.news .c{font-size:.74rem;font-weight:600;letter-spacing:.04em;color:var(--steel);border:1px solid var(--line-strong);border-radius:999px;padding:3px 10px;justify-self:start;white-space:nowrap}
+.news .t{font-weight:700;font-size:1.02rem;line-height:1.5}
+.news .b{grid-column:3;color:var(--steel);font-size:.93rem;line-height:1.65}
+.news .l{grid-column:4;grid-row:1;font-size:.86rem;font-weight:600;white-space:nowrap;border-bottom:1px solid var(--line-strong);padding-bottom:1px}
+.news .l:hover{color:var(--blue);border-color:var(--blue)}
+.news-more{margin-top:22px;text-align:center}
+@media (max-width:860px){.news{grid-template-columns:96px 1fr;gap:6px 14px}.news .t{grid-column:1/3}.news .b{grid-column:1/3}.news .l{grid-column:1/3;grid-row:auto;justify-self:start}}
+
+/* empty state */
+.empty{border:1px dashed var(--line-strong);border-radius:8px;padding:34px 28px;text-align:center;color:var(--steel);font-size:.96rem}
+.empty p{max-width:52ch;margin:0 auto}
+
+/* contact / footer */
+.contact .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:32px 64px}
+.contact h2{font-size:clamp(1.65rem,2.8vw,2.35rem);margin-top:14px}
+.contact .addr{font-size:1rem;line-height:1.8}
+.contact .addr b{font-weight:700}
+.contact .rows{display:grid;gap:14px;margin-top:8px}
+.contact .row{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.contact .row:last-child{border-bottom:1px solid var(--line)}
+.contact .row dt{font-family:var(--font-en);font-variation-settings:'wdth' 90;font-size:.78rem;letter-spacing:.06em;color:var(--steel);font-weight:600;padding-top:4px}
+.contact .row dd{margin:0}
+@media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
+.footer{background:var(--night);color:#C9D0DA;padding:48px 0 40px;font-size:.88rem}
+.footer .wrap{display:grid;grid-template-columns:auto 1fr auto;gap:24px 40px;align-items:center}
+.footer svg{height:52px;width:auto}
+.footer .fl a{color:#fff;margin-right:18px;border-bottom:1px solid transparent}
+.footer .fl a:hover{border-color:#fff}
+.footer .copy{opacity:.7}
+@media (max-width:860px){.footer .wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="intro">
+<a class="skip" href="#main"><span lang="ko">본문으로 건너뛰기</span><span lang="en">Skip to content</span></a>
+
+<header class="header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="FACT Research Center">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 69.4 100" aria-hidden="true" focusable="false"><g class="fact-mark ">
+<g class="pl pl-ground" data-plate="ground">
+<polygon class="f-left" points="0.00,71.25 49.79,100.00 49.79,96.33 0.00,67.58" fill="#1F3FDB"/>
+<polygon class="f-right" points="69.39,88.69 49.79,100.00 49.79,96.33 69.39,85.02" fill="#1730A8"/>
+<polygon class="f-top" points="19.60,56.27 69.39,85.02 49.79,96.33 0.00,67.58" fill="#4E6DF5"/>
+</g>
+<g class="pl pl-core" data-plate="core">
+<polygon class="f-left" points="7.95,67.89 19.60,74.62 19.60,13.46 7.95,6.73" fill="#1D222A"/>
+<polygon class="f-right" points="31.25,67.89 19.60,74.62 19.60,13.46 31.25,6.73" fill="#0F1317"/>
+<polygon class="f-top" points="19.60,0.00 31.25,6.73 19.60,13.46 7.95,6.73" fill="#4A525C"/>
+</g>
+<g class="pl pl-mid" data-plate="mid">
+<polygon class="f-left" points="19.60,46.48 42.37,59.63 42.37,52.91 19.60,39.76" fill="#1F3FDB"/>
+<polygon class="f-right" points="54.03,52.91 42.37,59.63 42.37,52.91 54.03,46.18" fill="#1730A8"/>
+<polygon class="f-top" points="31.25,33.03 54.03,46.18 42.37,52.91 19.60,39.76" fill="#4E6DF5"/>
+</g>
+<g class="pl pl-top" data-plate="top">
+<polygon class="f-left" points="19.60,20.18 51.38,38.53 51.38,31.80 19.60,13.46" fill="#1F3FDB"/>
+<polygon class="f-right" points="63.03,31.80 51.38,38.53 51.38,31.80 63.03,25.08" fill="#1730A8"/>
+<polygon class="f-top" points="31.25,6.73 63.03,25.08 51.38,31.80 19.60,13.46" fill="#4E6DF5"/>
+</g>
+</g></svg>
+      <span>
+        <span class="wm">FACT</span>
+        <span class="sub" lang="ko">미래건축 융합기술 연구센터</span>
+        <span class="sub" lang="en">Future Architecture Convergence Technology Research Center</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <div class="nav-links" id="navLinks">
+        <a href="#about"><span lang="ko">소개</span><span lang="en">About</span></a>
+        <a href="#research"><span lang="ko">연구</span><span lang="en">Research</span></a>
+        <a href="#people"><span lang="ko">구성원</span><span lang="en">People</span></a>
+        <a href="#projects"><span lang="ko">과제</span><span lang="en">Projects</span></a>
+        <a href="#news"><span lang="ko">소식</span><span lang="en">News</span></a>
+        <a href="#partners"><span lang="ko">협력</span><span lang="en">Partners</span></a>
+        <a href="#roadmap"><span lang="ko">일정</span><span lang="en">Roadmap</span></a>
+        <a href="#contact"><span lang="ko">연락처</span><span lang="en">Contact</span></a>
+      </div>
+      <button class="lang" id="langBtn" type="button" aria-label="Switch language"><span class="on" data-l="ko">KO</span>/<span data-l="en">EN</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navLinks"><span lang="ko">메뉴</span><span lang="en">Menu</span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1 lang="ko">인간과 공간의 상호작용을 중심으로,<br>미래 건축의 융합기술을<br>연구하고 실증합니다.</h1>
+      <h1 lang="en" class="wide">Convergence technologies for future architecture, built around how people and space interact.</h1>
+      <p class="lede" lang="ko">로봇, UAM, 자율주행차 등 새로운 모빌리티와 메타버스, 디지털트윈 기술이 건축과 도시 공간에 통합되는 시대를 대비합니다. 문화기술대학원, 산업디자인학과, 건설및환경공학과의 역량을 모아 핵심 융합기술을 연구하고 실증하며, 그 성과가 산업 전반으로 확산되도록 지원합니다.</p>
+      <p class="lede" lang="en">Robots, urban air mobility and autonomous vehicles, together with metaverse and digital twin technologies, are becoming part of buildings and cities. FACT brings together KAIST's Graduate School of Culture Technology, Department of Industrial Design and Department of Civil and Environmental Engineering to research and demonstrate the core technologies this shift requires, and to help the results reach industry.</p>
+      <div class="cta">
+        <a class="btn primary" href="#research"><span lang="ko">연구 그룹 보기</span><span lang="en">See research groups</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></a>
+        <a class="btn ghost" href="#contact"><span lang="ko">협력 문의</span><span lang="en">Work with us</span></a>
+      </div>
+    </div>
+    <div class="hero-fig" id="heroFig" aria-hidden="false">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 450" role="img" aria-label="FACT center diagram"><g class="fact-mark hero-mark">
+<g class="pl pl-ground" data-plate="ground">
+<polygon class="f-left" points="146.00,298.76 335.20,408.00 335.20,394.06 146.00,284.82" fill="#1F3FDB"/>
+<polygon class="f-right" points="409.67,365.00 335.20,408.00 335.20,394.06 409.67,351.06" fill="#1730A8"/>
+<polygon class="f-top" points="220.47,241.82 409.67,351.06 335.20,394.06 146.00,284.82" fill="#4E6DF5"/>
+</g>
+<g class="pl pl-core" data-plate="core">
+<polygon class="f-left" points="176.19,285.98 220.47,311.55 220.47,79.13 176.19,53.57" fill="#1D222A"/>
+<polygon class="f-right" points="264.75,285.98 220.47,311.55 220.47,79.13 264.75,53.57" fill="#0F1317"/>
+<polygon class="f-top" points="220.47,28.00 264.75,53.57 220.47,79.13 176.19,53.57" fill="#4A525C"/>
+</g>
+<g class="pl pl-mid" data-plate="mid">
+<polygon class="f-left" points="220.47,204.64 307.02,254.61 307.02,229.04 220.47,179.07" fill="#1F3FDB"/>
+<polygon class="f-right" points="351.30,229.04 307.02,254.61 307.02,229.04 351.30,203.47" fill="#1730A8"/>
+<polygon class="f-top" points="264.75,153.50 351.30,203.47 307.02,229.04 220.47,179.07" fill="#4E6DF5"/>
+</g>
+<g class="pl pl-top" data-plate="top">
+<polygon class="f-left" points="220.47,104.70 341.24,174.42 341.24,148.86 220.47,79.13" fill="#1F3FDB"/>
+<polygon class="f-right" points="385.52,148.86 341.24,174.42 341.24,148.86 385.52,123.29" fill="#1730A8"/>
+<polygon class="f-top" points="264.75,53.57 385.52,123.29 341.24,148.86 220.47,79.13" fill="#4E6DF5"/>
+</g>
+</g><polyline class="lead-line" points="363.4,136.1 418.0,138.1 440.0,138.1"/>
+<circle class="lead-dot" cx="363.4" cy="136.1" r="3"/>
+<polyline class="lead-line" points="329.2,216.3 418.0,234.3 440.0,234.3"/>
+<circle class="lead-dot" cx="329.2" cy="216.3" r="3"/>
+<polyline class="lead-line" points="368.4,369.1 418.0,381.1 440.0,381.1"/>
+<circle class="lead-dot" cx="368.4" cy="369.1" r="3"/>
+<polyline class="lead-line" points="176.2,53.6 172.2,55.6"/>
+<circle class="lead-dot" cx="176.2" cy="53.6" r="3"/><g class="lbl-g" lang="ko">
+<text class="lbl-tag" x="452.0" y="121.1" text-anchor="start">GROUP 1</text>
+<text class="lbl" x="452.0" y="140.1" text-anchor="start">모빌리티 통합 건축</text>
+<text class="lbl lbl-sub" x="452.0" y="158.1" text-anchor="start">로봇, UAM, 자율주행차를 수용하는 건축</text>
+</g>
+<g class="lbl-g" lang="en">
+<text class="lbl-tag" x="452.0" y="121.1" text-anchor="start">GROUP 1</text>
+<text class="lbl en" x="452.0" y="140.1" text-anchor="start">Mobility-Integrated</text>
+<text class="lbl en" x="452.0" y="158.1" text-anchor="start">Architecture</text>
+<text class="lbl lbl-sub en" x="452.0" y="176.1" text-anchor="start">buildings that host robots, UAM and AVs</text>
+</g>
+<g class="lbl-g" lang="ko">
+<text class="lbl-tag" x="452.0" y="217.3" text-anchor="start">GROUP 2</text>
+<text class="lbl" x="452.0" y="236.3" text-anchor="start">메타버스와 디지털트윈 건축</text>
+<text class="lbl lbl-sub" x="452.0" y="254.3" text-anchor="start">가상과 실공간을 잇는 운영 플랫폼</text>
+</g>
+<g class="lbl-g" lang="en">
+<text class="lbl-tag" x="452.0" y="217.3" text-anchor="start">GROUP 2</text>
+<text class="lbl en" x="452.0" y="236.3" text-anchor="start">Metaverse and Digital Twin</text>
+<text class="lbl en" x="452.0" y="254.3" text-anchor="start">Architecture</text>
+<text class="lbl lbl-sub en" x="452.0" y="272.3" text-anchor="start">platforms linking virtual and real space</text>
+</g>
+<g class="lbl-g" lang="ko">
+<text class="lbl-tag" x="452.0" y="364.1" text-anchor="start">GROUP 3</text>
+<text class="lbl" x="452.0" y="383.1" text-anchor="start">인간-공간 인터랙션 및 반응형 공간</text>
+<text class="lbl lbl-sub" x="452.0" y="401.1" text-anchor="start">사람과 로봇이 함께 쓰는 공간</text>
+</g>
+<g class="lbl-g" lang="en">
+<text class="lbl-tag" x="452.0" y="364.1" text-anchor="start">GROUP 3</text>
+<text class="lbl en" x="452.0" y="383.1" text-anchor="start">Human-Space Interaction</text>
+<text class="lbl en" x="452.0" y="401.1" text-anchor="start">and Responsive Space</text>
+<text class="lbl lbl-sub en" x="452.0" y="419.1" text-anchor="start">spaces shared by people and robots</text>
+</g>
+<g class="lbl-g" lang="ko">
+<text class="lbl-tag" x="160.2" y="38.6" text-anchor="end">CORE</text>
+<text class="lbl" x="160.2" y="57.6" text-anchor="end">FACT 연구센터</text>
+<text class="lbl lbl-sub" x="160.2" y="75.6" text-anchor="end">세 그룹을 잇는 하나의 축</text>
+</g>
+<g class="lbl-g" lang="en">
+<text class="lbl-tag" x="160.2" y="38.6" text-anchor="end">CORE</text>
+<text class="lbl en" x="160.2" y="57.6" text-anchor="end">FACT Research Center</text>
+<text class="lbl lbl-sub en" x="160.2" y="75.6" text-anchor="end">one axis, three groups</text>
+</g></svg>
+      <ul class="hero-legend" aria-hidden="true">
+        <li><b>CORE</b><span lang="ko">FACT 연구센터, 세 그룹을 잇는 하나의 축</span><span lang="en">FACT Research Center, one axis across three groups</span></li>
+        <li><b>GROUP 1</b><span lang="ko">모빌리티 통합 건축</span><span lang="en">Mobility-Integrated Architecture</span></li>
+        <li><b>GROUP 2</b><span lang="ko">메타버스와 디지털트윈 건축</span><span lang="en">Metaverse and Digital Twin Architecture</span></li>
+        <li><b>GROUP 3</b><span lang="ko">인간-공간 인터랙션 및 반응형 공간</span><span lang="en">Human-Space Interaction and Responsive Space</span></li>
+      </ul>
+      <p class="hero-note" lang="ko">하나의 코어를 관통하는 세 개의 수평면. 세 연구 그룹이 만나 하나의 센터를 이룹니다.</p>
+      <p class="hero-note" lang="en">Three planes on one core: three research groups forming a single center.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span lang="ko">센터 소개</span><span lang="en">About</span></div>
+        <h2 lang="ko">세 학과의 역량을 모은<br>개방형 연구 허브</h2>
+        <h2 lang="en" class="wide">An open research hub across three KAIST departments</h2>
+      </div>
+      <p class="lead" lang="ko">모빌리티, AI, 메타버스 같은 첨단 기술이 건축물 단위의 실공간에 융합되는 흐름은 개별 학과나 단일 기술 연구로 대응하기 어렵습니다. FACT는 건축, 디자인, 토목, AI를 아우르는 다학제 융합 연구 조직으로 이 흐름에 대응합니다.</p>
+      <p class="lead" lang="en">When mobility, AI and the metaverse converge inside real buildings, no single department or discipline can respond alone. FACT is a multidisciplinary organization spanning architecture, design, civil engineering and AI, built to meet that shift.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="big" lang="ko">미래 건축 융합 분야의 원천 기술과 표준, 인증 체계를 선도하고, 국토교통부 <span style="white-space:nowrap">「스마트+빌딩 활성화 로드맵」</span>과 같은 국가 정책과 대형 연구개발 과제에 대응하는 상시 연구 거점이 되는 것이 센터의 역할입니다.</p>
+        <p class="big" lang="en">The center's role is to lead core technologies, standards and certification schemes for future architecture, and to serve as a standing base for national policy and large-scale R&amp;D programs such as the Ministry of Land, Infrastructure and Transport's Smart+Building roadmap.</p>
+        <ul class="purpose">
+          <li><span class="n">01</span><div><h3 lang="ko">연구와 실증, 산업 확산</h3><h3 lang="en">Research, demonstration, diffusion</h3><p lang="ko">인간과 공간의 상호작용을 중심으로 미래 건축의 핵심 융합기술을 선도적으로 연구하고 실증하며, 성과가 산업 전반으로 확산되도록 지원합니다.</p><p lang="en">Research and demonstrate the core convergence technologies of future architecture with human-space interaction at the center, and support their diffusion across industry.</p></div></li>
+          <li><span class="n">02</span><div><h3 lang="ko">가상과 실공간을 잇는 원천 기술</h3><h3 lang="en">Core technology linking virtual and real space</h3><p lang="ko">메타버스와 디지털트윈을 활용한 가상-실공간 융합 건축의 설계와 운영 기술을 개발하고, 원천 기술과 특허를 확보합니다.</p><p lang="en">Develop design and operation technologies for architecture that fuses virtual and physical space through the metaverse and digital twins, securing core technologies and patents.</p></div></li>
+          <li><span class="n">03</span><div><h3 lang="ko">산학연 협력 R&amp;D 허브</h3><h3 lang="en">A hub for academia-industry-government R&amp;D</h3><p lang="ko">문화기술대학원, 산업디자인학과, 건설및환경공학과 간 융합 연구 협력을 넓히고, 국내외 산학연 협력의 거점 역할을 합니다.</p><p lang="en">Deepen collaboration among the Graduate School of Culture Technology, Industrial Design, and Civil and Environmental Engineering, and act as a hub for domestic and international partnerships.</p></div></li>
+        </ul>
+      </div>
+      <aside class="facts" aria-label="Key facts">
+        <dl>
+          <div class="row"><dt lang="ko">명칭</dt><dt lang="en">Name</dt><dd><span lang="ko">미래건축 융합기술 연구센터<small>Future Architecture Convergence Technology (FACT) Research Center</small></span><span lang="en">Future Architecture Convergence Technology (FACT) Research Center<small>미래건축 융합기술 연구센터</small></span></dd></div>
+          <div class="row"><dt lang="ko">설치일</dt><dt lang="en">Established</dt><dd><span lang="ko">2026년 6월 30일</span><span lang="en">June 30, 2026</span></dd></div>
+          <div class="row"><dt lang="ko">소속</dt><dt lang="en">Affiliation</dt><dd><span lang="ko">KAIST 문화기술연구소<small>문화기술대학원</small></span><span lang="en">KAIST Culture Technology Research Institute<small>Graduate School of Culture Technology</small></span></dd></div>
+          <div class="row"><dt lang="ko">센터장</dt><dt lang="en">Director</dt><dd><span lang="ko">차승현<small>문화기술대학원 부교수</small></span><span lang="en">Seung Hyun Cha<small>Associate Professor, Graduate School of Culture Technology</small></span></dd></div>
+          <div class="row"><dt lang="ko">참여 학과</dt><dt lang="en">Departments</dt><dd><span lang="ko">문화기술대학원, 산업디자인학과, 건설및환경공학과</span><span lang="en">Graduate School of Culture Technology; Industrial Design; Civil and Environmental Engineering</span></dd></div>
+          <div class="row"><dt lang="ko">구성</dt><dt lang="en">Structure</dt><dd><span lang="ko">참여교수 7인, 연구 그룹 3개<small>연구교수, 박사후연구원, 대학원생 별도 운영</small></span><span lang="en">7 faculty members, 3 research groups<small>Research professors, postdocs and graduate students join through the groups</small></span></dd></div>
+          <div class="row"><dt lang="ko">위치</dt><dt lang="en">Location</dt><dd><span lang="ko">KAIST N5 문화기술대학원, 미래공간연구실</span><span lang="en">KAIST N5, Graduate School of Culture Technology (Future Space Lab)</span></dd></div>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="section" id="research">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span lang="ko">연구</span><span lang="en">Research</span></div>
+        <h2 lang="ko">세 개의 연구 그룹</h2>
+        <h2 lang="en" class="wide">Three research groups</h2>
+      </div>
+      <p class="lead" lang="ko">새로운 모빌리티의 건축 통합, 메타버스와 디지털트윈 기반의 가상-실공간 융합, 인간-공간 인터랙션과 반응형 공간. 세 그룹이 주제별 융합 연구 프로젝트를 수행하며, 센터장이 세 그룹 모두에 참여해 연결합니다.</p>
+      <p class="lead" lang="en">Integrating new mobility into architecture, fusing virtual and physical space through the metaverse and digital twins, and human-space interaction with responsive space. Each group runs its own convergence projects, and the director works across all three to connect them.</p>
+    </div>
+    <div class="research-grid">
+      <div class="research-fig" id="researchFig">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208.2 300" role="img" aria-label="FACT diagram"><g class="fact-mark ">
+<g class="pl pl-ground" data-plate="ground">
+<polygon class="f-left" points="0.00,213.76 149.37,300.00 149.37,288.99 0.00,202.75" fill="#1F3FDB"/>
+<polygon class="f-right" points="208.16,266.06 149.37,300.00 149.37,288.99 208.16,255.05" fill="#1730A8"/>
+<polygon class="f-top" points="58.79,168.81 208.16,255.05 149.37,288.99 0.00,202.75" fill="#4E6DF5"/>
+</g>
+<g class="pl pl-core" data-plate="core">
+<polygon class="f-left" points="23.84,203.67 58.79,223.85 58.79,40.37 23.84,20.18" fill="#1D222A"/>
+<polygon class="f-right" points="93.75,203.67 58.79,223.85 58.79,40.37 93.75,20.18" fill="#0F1317"/>
+<polygon class="f-top" points="58.79,0.00 93.75,20.18 58.79,40.37 23.84,20.18" fill="#4A525C"/>
+</g>
+<g class="pl pl-mid" data-plate="mid">
+<polygon class="f-left" points="58.79,139.45 127.12,178.90 127.12,158.72 58.79,119.27" fill="#1F3FDB"/>
+<polygon class="f-right" points="162.08,158.72 127.12,178.90 127.12,158.72 162.08,138.53" fill="#1730A8"/>
+<polygon class="f-top" points="93.75,99.08 162.08,138.53 127.12,158.72 58.79,119.27" fill="#4E6DF5"/>
+</g>
+<g class="pl pl-top" data-plate="top">
+<polygon class="f-left" points="58.79,60.55 154.14,115.60 154.14,95.41 58.79,40.37" fill="#1F3FDB"/>
+<polygon class="f-right" points="189.10,95.41 154.14,115.60 154.14,95.41 189.10,75.23" fill="#1730A8"/>
+<polygon class="f-top" points="93.75,20.18 189.10,75.23 154.14,95.41 58.79,40.37" fill="#4E6DF5"/>
+</g>
+</g></svg>
+        <p class="legend" lang="ko">수평면 하나가 연구 그룹 하나입니다. 그룹을 가리키면 해당 면이 강조됩니다.</p>
+        <p class="legend" lang="en">Each plane is one research group. Point at a group to highlight its plane.</p>
+      </div>
+      <div class="groups">
+        <article class="grp" data-plate="top" id="g1">
+          <div class="g-head"><span class="g-num"><span lang="ko">그룹 1</span><span lang="en">Group 1</span></span><h3 lang="ko">모빌리티 통합 건축</h3><h3 lang="en">Mobility-Integrated Architecture</h3></div>
+          <p class="g-sum" lang="ko">로봇, UAM, 자율주행차를 수용하는 건축 백본과 가변형 인프라, 모빌리티 친화적 공간 디자인, 그리고 이에 필요한 인허가와 인증 체계.</p>
+          <p class="g-sum" lang="en">Building backbones and adaptable infrastructure that host robots, UAM and autonomous vehicles, mobility-friendly spatial design, and the permitting and certification schemes they require.</p>
+          <ul class="topics">
+            <li lang="ko">로봇 친화형 건축물 설계, 시공, 운영 핵심 기술</li><li lang="en">Core technologies for designing, building and operating robot-friendly buildings</li>
+            <li lang="ko">UAM 버티포트 및 자율주행차 건축 인터페이스</li><li lang="en">UAM vertiports and building interfaces for autonomous vehicles</li>
+            <li lang="ko">가변형 인프라 및 표준 인터페이스 기반 건축 백본</li><li lang="en">Adaptable infrastructure and standard-interface building backbones</li>
+            <li lang="ko">AI 스마트빌딩 테스트베드 플랫폼 기술</li><li lang="en">AI smart building testbed platform technology</li>
+            <li lang="ko">모빌리티 친화 건축 인허가, 인증 체계 및 법제도</li><li lang="en">Permitting, certification and regulation for mobility-friendly buildings</li>
+          </ul>
+          <div class="g-fac"><span class="tag">김영철<i>CEE</i></span><span class="tag">임리사<i>CEE</i></span><span class="tag">차승현<i>CT</i></span></div>
+        </article>
+        <article class="grp" data-plate="mid" id="g2">
+          <div class="g-head"><span class="g-num"><span lang="ko">그룹 2</span><span lang="en">Group 2</span></span><h3 lang="ko">메타버스와 디지털트윈 건축</h3><h3 lang="en">Metaverse and Digital Twin Architecture</h3></div>
+          <p class="g-sum" lang="ko">디지털트윈 기반 통합 운영 플랫폼, 가상공간과 실공간을 연계한 시뮬레이션, BIM과 XR의 상호운용, 그리고 설계부터 시공과 운영까지 아우르는 AI 활용 기술.</p>
+          <p class="g-sum" lang="en">Digital-twin operation platforms, simulation that links virtual and physical space, BIM-XR interoperability, and AI applied from design through construction and operation.</p>
+          <ul class="topics">
+            <li lang="ko">디지털트윈 기반 통합 운영 플랫폼 및 상호운용 기술</li><li lang="en">Digital-twin-based integrated operation platforms and interoperability</li>
+            <li lang="ko">BIM-XR 연동 가상-실공간 시뮬레이션</li><li lang="en">BIM-XR linked simulation across virtual and physical space</li>
+            <li lang="ko">메타버스 건축 공간 디자인 및 사용자 경험</li><li lang="en">Metaverse architectural space design and user experience</li>
+            <li lang="ko">AI 기반 건축 설계 자동화 및 생성형 디자인</li><li lang="en">AI-based design automation and generative design</li>
+            <li lang="ko">데이터 거버넌스 및 표준 API 기반 데이터 연계</li><li lang="en">Data governance and standard-API data integration</li>
+          </ul>
+          <div class="g-fac"><span class="tag">우운택<i>CT</i></span><span class="tag">배석형<i>ID</i></span><span class="tag">차승현<i>CT</i></span></div>
+        </article>
+        <article class="grp" data-plate="ground" id="g3">
+          <div class="g-head"><span class="g-num"><span lang="ko">그룹 3</span><span lang="en">Group 3</span></span><h3 lang="ko">인간-공간 인터랙션 및 반응형 공간</h3><h3 lang="en">Human-Space Interaction and Responsive Space</h3></div>
+          <p class="g-sum" lang="ko">사용자 상태를 인지해 반응하는 공간, 다중감각 VR을 활용한 공간 평가, 인간과 로봇이 공존하는 환경, 그리고 AI 에이전트 기반의 공간 행동 시뮬레이션.</p>
+          <p class="g-sum" lang="en">Spaces that sense and respond to their occupants, multisensory VR for spatial evaluation, environments where people and robots coexist, and AI-agent simulation of spatial behavior.</p>
+          <ul class="topics">
+            <li lang="ko">사용자 상태 인지 기반 반응-전환형 공간 기술</li><li lang="en">Responsive and transformable space driven by user-state sensing</li>
+            <li lang="ko">다중감각 VR 기반 시공 전 공간 평가</li><li lang="en">Multisensory VR evaluation of spaces before construction</li>
+            <li lang="ko">인간-로봇 공존 환경 설계 및 안전성 검증</li><li lang="en">Design and safety verification of human-robot coexistence environments</li>
+            <li lang="ko">공간 미디어 아트 및 몰입형 공간 경험</li><li lang="en">Spatial media art and immersive spatial experience</li>
+            <li lang="ko">AI 에이전트 기반 공간 행동 시뮬레이션</li><li lang="en">AI-agent-based simulation of spatial behavior</li>
+          </ul>
+          <div class="g-fac"><span class="tag">이진준<i>CT</i></span><span class="tag">윤상호<i>CT</i></span><span class="tag">차승현<i>CT</i></span></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PEOPLE -->
+<section class="section" id="people">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span lang="ko">구성원</span><span lang="en">People</span></div>
+        <h2 lang="ko">참여교수</h2>
+        <h2 lang="en" class="wide">Faculty</h2>
+      </div>
+      <p class="lead" lang="ko">문화기술대학원 네 명, 산업디자인학과 한 명, 건설및환경공학과 두 명. 일곱 명의 교수가 세 그룹에 나뉘어 참여하고, 대학원생은 각 참여교수 연구실 소속으로 그룹별 연구에 함께합니다.</p>
+      <p class="lead" lang="en">Four faculty from Culture Technology, one from Industrial Design and two from Civil and Environmental Engineering. Seven professors work across three groups; graduate students take part through their advisors' labs.</p>
+    </div>
+    <div class="director">
+      <div>
+        <div class="eyebrow" style="margin-bottom:10px"><span lang="ko">센터장</span><span lang="en">Director</span></div>
+        <h3><span lang="ko">차승현</span><span lang="en">Seung Hyun Cha</span></h3>
+        <p class="role" lang="ko">KAIST 문화기술대학원 부교수, 미래공간연구실(Future Space Lab)</p>
+        <p class="role" lang="en">Associate Professor, KAIST Graduate School of Culture Technology; Future Space Lab</p>
+        <p class="bio" lang="ko">AI 기반 건축 설계, 디지털트윈, 인간-로봇 공존 환경, 미래 모빌리티에 대응하는 건축과 공간 컴퓨팅을 연구합니다. 로봇 친화형 건축물 핵심기술 개발, AI 스마트빌딩 테스트베드 기획, 반응-전환형 공간 기술 개발 등 국가 연구개발 과제를 이끌며, 세 연구 그룹 모두에 참여해 센터의 연구를 연결합니다.</p>
+        <p class="bio" lang="en">Research on AI-driven architectural design, digital twins, human-robot coexistence and architecture responsive to future mobility. Leads national R&amp;D programs on robot-friendly buildings, the AI smart building testbed and responsive space technology, and takes part in all three groups to connect the center's work.</p>
+        <div class="links">
+          <a class="link" href="https://fsl.kaist.ac.kr" target="_blank" rel="noopener">Future Space Lab</a>
+          <a class="link" href="https://ct.kaist.ac.kr" target="_blank" rel="noopener"><span lang="ko">문화기술대학원</span><span lang="en">Graduate School of Culture Technology</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="people">
+      <article class="person"><div><h3><span lang="ko">우운택</span><span lang="en">Woontack Woo</span></h3><p class="en-name"><span lang="ko">Woontack Woo</span><span lang="en">우운택</span></p><p class="dept" lang="ko">문화기술대학원 교수</p><p class="dept" lang="en">Professor, Graduate School of Culture Technology</p><div class="gs"><b>G2</b></div></div></article>
+      <article class="person"><div><h3><span lang="ko">이진준</span><span lang="en">Jinjoon Lee</span></h3><p class="en-name"><span lang="ko">Jinjoon Lee</span><span lang="en">이진준</span></p><p class="dept" lang="ko">문화기술대학원 부교수</p><p class="dept" lang="en">Associate Professor, Graduate School of Culture Technology</p><div class="gs"><b>G3</b></div></div></article>
+      <article class="person"><div><h3><span lang="ko">윤상호</span><span lang="en">Sang Ho Yoon</span></h3><p class="en-name"><span lang="ko">Sang Ho Yoon</span><span lang="en">윤상호</span></p><p class="dept" lang="ko">문화기술대학원 부교수</p><p class="dept" lang="en">Associate Professor, Graduate School of Culture Technology</p><div class="gs"><b>G3</b></div></div></article>
+      <article class="person"><div><h3><span lang="ko">배석형</span><span lang="en">Seok-Hyung Bae</span></h3><p class="en-name"><span lang="ko">Seok-Hyung Bae</span><span lang="en">배석형</span></p><p class="dept" lang="ko">산업디자인학과 부교수</p><p class="dept" lang="en">Associate Professor, Department of Industrial Design</p><div class="gs"><b>G2</b></div></div></article>
+      <article class="person"><div><h3><span lang="ko">김영철</span><span lang="en">Youngchul Kim</span></h3><p class="en-name"><span lang="ko">Youngchul Kim</span><span lang="en">김영철</span></p><p class="dept" lang="ko">건설및환경공학과 부교수</p><p class="dept" lang="en">Associate Professor, Department of Civil and Environmental Engineering</p><div class="gs"><b>G1</b></div></div></article>
+      <article class="person"><div><h3><span lang="ko">임리사</span><span lang="en">Lisa Lim</span></h3><p class="en-name"><span lang="ko">Lisa Lim</span><span lang="en">임리사</span></p><p class="dept" lang="ko">건설및환경공학과 부교수</p><p class="dept" lang="en">Associate Professor, Department of Civil and Environmental Engineering</p><div class="gs"><b>G1</b></div></div></article>
+    </div>
+    <div class="recruit">
+      <div>
+        <h3 lang="ko">함께할 연구자를 찾습니다</h3>
+        <h3 lang="en">Join the center</h3>
+        <p lang="ko" style="color:var(--steel);font-size:.9rem;margin-top:6px">채용 공고는 확정되는 대로 이 페이지와 문화기술대학원 홈페이지에 게시합니다.</p>
+        <p lang="en" style="color:var(--steel);font-size:.9rem;margin-top:6px">Openings will be posted here and on the Graduate School of Culture Technology website.</p>
+      </div>
+      <ul>
+        <li><b lang="ko">연구교수</b><b lang="en">Research faculty</b><span lang="ko">미래 건축 융합 분야 박사학위 소지자 1~2명 초빙 예정</span><span lang="en">One to two positions planned for PhDs in future architecture convergence fields</span></li>
+        <li><b lang="ko">박사후연구원</b><b lang="en">Postdocs</b><span lang="ko">2~3명 선발 예정</span><span lang="en">Two to three positions planned</span></li>
+        <li><b lang="ko">대학원생</b><b lang="en">Graduate students</b><span lang="ko">참여교수 연구실 소속으로 그룹별 박사, 석사 과정 운영</span><span lang="en">PhD and master's students join through participating faculty labs</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span lang="ko">연구과제</span><span lang="en">Projects</span></div>
+        <h2 lang="ko">센터의 연구를 이끄는<br>대표 과제</h2>
+        <h2 lang="en" class="wide">Representative projects</h2>
+      </div>
+      <p class="lead" lang="ko">센터의 연구는 참여교수가 수행 중인 국가 연구개발 과제 위에서 출발합니다. 그룹별 대표 과제입니다.</p>
+      <p class="lead" lang="en">The center's research builds on national R&amp;D programs led by participating faculty. Representative projects by group.</p>
+    </div>
+    <div class="projects">
+      <div class="proj"><span class="g">G1</span><span class="t" lang="ko">로봇 친화형 건축물 설계·시공 및 운영·관리 핵심기술 개발</span><span class="t" lang="en">Core technologies for the design, construction, operation and management of robot-friendly buildings</span><span class="s" lang="ko">국토교통부 / 국토교통과학기술진흥원, 스마트+빌딩 핵심기술 개발 사업</span><span class="s" lang="en">MOLIT / KAIA, Smart+Building Core Technology Program</span><span class="y">2025~2029</span></div>
+      <div class="proj"><span class="g">G1</span><span class="t" lang="ko">AI 스마트빌딩 테스트베드 플랫폼 건축기술 개발 기획</span><span class="t" lang="en">Planning study for AI smart building testbed platform technologies</span><span class="s" lang="ko">국토교통부 / 국토교통과학기술진흥원, 국토교통연구기획사업</span><span class="s" lang="en">MOLIT / KAIA, R&amp;D Planning Program</span><span class="y">2025~2026</span></div>
+      <div class="proj"><span class="g">G1</span><span class="t" lang="ko">생성형 도시 인공지능 개발을 위한 공간-지식 융합 그래프 이론</span><span class="t" lang="en">Space-knowledge fusion graph theory for generative urban AI</span><span class="s" lang="ko">한국연구재단, 이공분야기초연구사업</span><span class="s" lang="en">National Research Foundation of Korea, Basic Research Program</span><span class="y">2025~2026</span></div>
+      <div class="proj"><span class="g">G2</span><span class="t" lang="ko">Generative Agent Simulation 기반 국제 표준 건축 설계 네트워크 구축</span><span class="t" lang="en">International network for standard architectural design based on generative agent simulation</span><span class="s" lang="ko">한국연구재단, 국제협력사업</span><span class="s" lang="en">National Research Foundation of Korea, International Cooperation Program</span><span class="y">2024~2025</span></div>
+      <div class="proj"><span class="g">G2</span><span class="t" lang="ko">초시공간 교류를 위한 AR-AI-인지-건축 융합연구</span><span class="t" lang="en">AR-AI-cognition-architecture convergence research for exchange beyond time and space</span><span class="s" lang="ko">한국연구재단, STEAM연구</span><span class="s" lang="en">National Research Foundation of Korea, STEAM Research Program</span><span class="y">2024~2025</span></div>
+      <div class="proj"><span class="g">G3</span><span class="t" lang="ko">미래 공간 혁신을 위한 AI 기반 반응-전환형 공간 기술 개발 연구</span><span class="t" lang="en">AI-based responsive and transformable space technology for future spatial innovation</span><span class="s" lang="ko">한국연구재단, 이공분야기초연구사업 개척연구</span><span class="s" lang="en">National Research Foundation of Korea, Pioneer Research Program</span><span class="y">2025~2028</span></div>
+      <div class="proj"><span class="g">G3</span><span class="t" lang="ko">다중감각 가상현실 기반 시공 전 공간 평가 시스템 개발</span><span class="t" lang="en">Multisensory VR system for evaluating spaces before construction</span><span class="s" lang="ko">과학기술정보통신부 / 한국연구재단, 개인기초연구</span><span class="s" lang="en">MSIT / NRF, Individual Basic Research Program</span><span class="y">2023~2028</span></div>
+    </div>
+    <p class="proj-note" lang="ko">과제명은 연구 협약 기준입니다.</p>
+    <p class="proj-note" lang="en">Project titles follow the funding agreements.</p>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="section" id="news">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span lang="ko">소식</span><span lang="en">News</span></div>
+        <h2 lang="ko">센터 소식</h2>
+        <h2 lang="en" class="wide">News and notices</h2>
+      </div>
+      <p class="lead" lang="ko">공지, 행사, 연구 성과, 언론 보도, 채용 소식을 최신순으로 안내합니다.</p>
+      <p class="lead" lang="en">Notices, events, research results, press coverage and openings, newest first.</p>
+    </div>
+    <div class="news-list" id="newsList" aria-live="polite"></div>
+    <div class="news-more"><button type="button" class="btn ghost" id="newsMore" hidden><span lang="ko">이전 소식 더 보기</span><span lang="en">Show earlier news</span></button></div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="section" id="partners">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span lang="ko">협력</span><span lang="en">Partners</span></div>
+        <h2 lang="ko">산학연 협력 네트워크</h2>
+        <h2 lang="en" class="wide">Collaboration network</h2>
+      </div>
+      <p class="lead" lang="ko">국토교통부, 한국연구재단, 산업체 연구개발 컨소시엄과 국내외 건축, 도시, 디자인, AI 기관과 협업합니다.</p>
+      <p class="lead" lang="en">FACT works with government R&amp;D programs, industry consortia and architecture, urban, design and AI institutions in Korea and abroad.</p>
+    </div>
+    <div class="empty">
+      <p lang="ko">협력 기관과 산업체 명단은 협의를 마치는 대로 이 자리에 게시합니다.</p>
+      <p lang="en">Partner institutions and companies will be listed here as agreements are finalized.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="section" id="roadmap">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span lang="ko">추진 일정</span><span lang="en">Roadmap</span></div>
+        <h2 lang="ko">센터 운영 일정</h2>
+        <h2 lang="en" class="wide">Center roadmap</h2>
+      </div>
+      <p class="lead" lang="ko">워크숍, 세미나, 심포지엄과 그룹별 연구 일정을 이곳에서 안내합니다.</p>
+      <p class="lead" lang="en">Workshops, seminars, symposia and group research schedules will be announced here.</p>
+    </div>
+    <div class="empty">
+      <p lang="ko">추진 일정은 운영위원회에서 확정하는 대로 게시합니다.</p>
+      <p lang="en">The schedule will be posted once confirmed by the steering committee.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow"><span lang="ko">연락처</span><span lang="en">Contact</span></div>
+      <h2 lang="ko">협력과 참여를<br>환영합니다</h2>
+      <h2 lang="en" class="wide">Collaboration and inquiries</h2>
+      <p class="lead" lang="ko" style="margin-top:16px;color:var(--steel)">공동 연구, 산학 과제, 자문, 방문과 채용에 관한 문의를 받습니다.</p>
+      <p class="lead" lang="en" style="margin-top:16px;color:var(--steel)">Joint research, industry projects, advisory work, visits and positions.</p>
+    </div>
+    <div>
+      <dl class="rows">
+        <div class="row"><dt lang="ko">주소</dt><dt lang="en">Address</dt><dd class="addr"><span lang="ko"><b>KAIST 문화기술대학원 (N5) 미래공간연구실</b><br>34141 대전광역시 유성구 대학로 291</span><span lang="en"><b>Future Space Lab, Graduate School of Culture Technology (N5), KAIST</b><br>291 Daehak-ro, Yuseong-gu, Daejeon 34141, Republic of Korea</span></dd></div>
+        <div class="row"><dt lang="ko">센터장</dt><dt lang="en">Director</dt><dd><span lang="ko">차승현 교수 (문화기술대학원)</span><span lang="en">Prof. Seung Hyun Cha, Graduate School of Culture Technology</span></dd></div>
+        <div class="row"><dt lang="ko">이메일</dt><dt lang="en">Email</dt><dd><span lang="ko">센터 대표 이메일은 개설 후 게시합니다. 그 전까지는 미래공간연구실을 통해 문의해 주세요.</span><span lang="en">The center's address will be posted once set up. Until then, please reach us through the Future Space Lab.</span></dd></div>
+        <div class="row"><dt lang="ko">링크</dt><dt lang="en">Links</dt><dd style="display:flex;flex-wrap:wrap;gap:8px 18px"><a class="link" href="https://fsl.kaist.ac.kr" target="_blank" rel="noopener">Future Space Lab</a><a class="link" href="https://ct.kaist.ac.kr/pages/sub/factrc" target="_blank" rel="noopener"><span lang="ko">문화기술대학원 센터 소개</span><span lang="en">Center page at GSCT</span></a><a class="link" href="https://ct.kaist.ac.kr/pages/sub/sub0103" target="_blank" rel="noopener"><span lang="ko">오시는 길</span><span lang="en">Directions</span></a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <svg aria-label="FACT Research Center" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 431.99 164.00">
+<g class="fact-mark">
+<g class="pl pl-ground">
+<polygon class="f-left" points="16.000,110.055 81.723,148.000 81.723,143.156 16.000,105.211" fill="#5F7CFF"/>
+<polygon class="f-right" points="107.592,133.064 81.723,148.000 81.723,143.156 107.592,128.220" fill="#3A55D9"/>
+<polygon class="f-top" points="41.870,90.275 107.592,128.220 81.723,143.156 16.000,105.211" fill="#8FA4FF"/>
+</g>
+<g class="pl pl-core">
+<polygon class="f-left" points="26.488,105.615 41.870,114.495 41.870,33.761 26.488,24.881" fill="#DDE2E9"/>
+<polygon class="f-right" points="57.251,105.615 41.870,114.495 41.870,33.761 57.251,24.881" fill="#B4BCC7"/>
+<polygon class="f-top" points="41.870,16.000 57.251,24.881 41.870,33.761 26.488,24.881" fill="#FFFFFF"/>
+</g>
+<g class="pl pl-mid">
+<polygon class="f-left" points="41.870,77.358 71.934,94.716 71.934,85.835 41.870,68.477" fill="#5F7CFF"/>
+<polygon class="f-right" points="87.316,85.835 71.934,94.716 71.934,85.835 87.316,76.954" fill="#3A55D9"/>
+<polygon class="f-top" points="57.251,59.596 87.316,76.954 71.934,85.835 41.870,68.477" fill="#8FA4FF"/>
+</g>
+<g class="pl pl-top">
+<polygon class="f-left" points="41.870,42.642 83.820,66.862 83.820,57.982 41.870,33.761" fill="#5F7CFF"/>
+<polygon class="f-right" points="99.202,57.982 83.820,66.862 83.820,57.982 99.202,49.101" fill="#3A55D9"/>
+<polygon class="f-top" points="57.251,24.881 99.202,49.101 83.820,57.982 41.870,33.761" fill="#8FA4FF"/>
+</g>
+</g>
+<g transform="translate(137.592 76.104) scale(0.088000)"><path fill="#F5F6F8" d="M83.9783428311348 0.0V-686.7443881630898H663.4607139825821V-559.5063170790672H240.7013517022133V-394.29079526662827H620.0379742980003V-267.6859266757965H240.7013517022133V0.0Z M648.2360332608223 0.0 949.8287897109985 -686.7443881630898H1134.4304504990578L1436.4527689814568 0.0H1266.378445148468L1210.9343601465225 -131.82114320993423H864.7440627217293L809.383470416069 0.0ZM916.5683695673943 -256.0486686825752H1158.770948767662L1090.419399857521 -422.1926301121712Q1086.1064047813416 -432.60304749011993 1079.1074287891388 -450.45067498087883Q1072.108452796936 -468.2983024716377 1064.8112030923367 -488.3042432665825Q1057.5139533877373 -508.31018406152725 1051.05142557621 -526.1067504882812Q1044.5888977646828 -543.9033169150352 1041.265306353569 -553.1785379052162H1034.6374851465225Q1027.6289368271828 -533.6099309921265 1018.1621348559856 -508.2152742743492Q1008.6953328847885 -482.82061755657196 999.8363173007965 -459.4554289281368Q990.9773017168045 -436.0902402997017 984.9199184775352 -421.7961423397064Z M1850.8853388428688 12.0Q1727.6455859541893 12.0 1642.999708533287 -26.951304137706757Q1558.3538311123848 -65.90260827541351 1515.0382810533047 -144.93129989504814Q1471.7227309942245 -223.95999151468277 1471.7227309942245 -343.57043796777725Q1471.7227309942245 -518.9218580126762 1569.965947598219 -608.833123087883Q1668.2091642022133 -698.7443881630898 1850.6558364629745 -698.7443881630898Q1952.2260642647743 -698.7443881630898 2031.077150374651 -667.0416904091835Q2109.9282364845276 -635.3389926552773 2154.9602748453617 -574.1049126386642Q2199.992313206196 -512.8708326220512 2199.992313206196 -423.371541261673H2044.6591054201126Q2044.6591054201126 -471.298068523407 2020.1126491725445 -504.36136198043823Q1995.5661929249763 -537.4246554374695 1951.866162031889 -554.6802672743797Q1908.1661311388016 -571.93587911129 1849.9010689258575 -571.93587911129Q1779.3767939209938 -571.93587911129 1730.8089821636677 -546.7125650644302Q1682.2411704063416 -521.4892510175705 1657.5139229297638 -473.60792714357376Q1632.786675453186 -425.726603269577 1632.786675453186 -357.43000638484955V-330.19085001945496Q1632.786675453186 -261.2351887226105 1657.5591516792774 -213.11387461423874Q1682.3316279053688 -164.992560505867 1730.7124347388744 -139.9005347788334Q1779.09324157238 -114.80850905179977 1849.6991782188416 -114.80850905179977Q1911.3051760196686 -114.80850905179977 1956.0226595699787 -131.47714579105377Q2000.7401431202888 -148.14578253030777 2025.1753305792809 -181.08035454154015Q2049.610518038273 -214.01492655277252 2049.610518038273 -261.4545085430145H2200.3888009786606Q2200.3888009786606 -173.179585814476 2156.2011806070805 -112.07770964503288Q2112.0135602355003 -50.97583347558975 2033.4059467613697 -19.487916737794876Q1954.798333287239 12.0 1850.8853388428688 12.0Z M2506.8747051358223 0.0V-553.803439617157H2247.0485873818398V-686.7443881630898H2923.762936294079V-553.803439617157H2663.597714006901V0.0Z"/></g>
+<g transform="translate(139.592 112.104) scale(0.024000)"><path fill="#F5F6F8" d="M86 -755V-132H531V-755ZM401 -650V-237H217V-650ZM676 -839V90H809V-839Z M984 -747V-642H1207V-494H986V-116H1051C1164 -116 1264 -118 1382 -138L1372 -246C1280 -232 1200 -227 1115 -225V-389H1335V-747ZM1422 -822V45H1545V-381H1629V88H1756V-838H1629V-488H1545V-822Z M2363 -568V-460H2522V-161H2656V-838H2522V-568ZM1939 -768V-662H2227C2205 -526 2084 -417 1891 -356L1946 -250C2215 -335 2370 -518 2370 -768ZM2049 -228V73H2679V-34H2182V-228Z M2893 -198V-93H3404V88H3537V-198H3285V-276H3638V-382H2800V-276H3152V-198ZM2880 -753V-651H3141C3126 -587 3037 -526 2836 -514L2875 -414C3045 -426 3161 -475 3218 -548C3276 -475 3392 -426 3562 -414L3601 -514C3400 -526 3310 -587 3295 -651H3557V-753H3285V-837H3152V-753Z M4417 -149C4541 -149 4604 -126 4604 -79C4604 -32 4541 -11 4417 -11C4293 -11 4230 -32 4230 -79C4230 -126 4293 -149 4417 -149ZM4419 -822C4215 -822 4084 -755 4084 -644C4084 -533 4215 -466 4419 -466C4624 -466 4755 -533 4755 -644C4755 -755 4624 -822 4419 -822ZM4419 -721C4546 -721 4617 -696 4617 -644C4617 -592 4546 -567 4419 -567C4293 -567 4222 -592 4222 -644C4222 -696 4293 -721 4419 -721ZM4000 -422V-317H4186V-207C4128 -178 4096 -135 4096 -79C4096 28 4217 90 4417 90C4617 90 4739 28 4739 -79C4739 -134 4708 -176 4653 -205V-317H4838V-422ZM4417 -249C4382 -249 4349 -247 4319 -243V-317H4520V-243C4489 -247 4454 -249 4417 -249Z M5047 -259V79H5649V-259H5518V-190H5179V-259ZM5179 -90H5518V-25H5179ZM5193 -628C5059 -628 4965 -562 4965 -464C4965 -366 5059 -300 5193 -300C5327 -300 5421 -366 5421 -464C5421 -562 5327 -628 5193 -628ZM5193 -531C5253 -531 5293 -507 5293 -464C5293 -420 5253 -396 5193 -396C5134 -396 5093 -420 5093 -464C5093 -507 5134 -531 5193 -531ZM5516 -837V-295H5649V-506H5772V-615H5649V-837ZM5127 -845V-757H4921V-652H5465V-757H5259V-845Z M6479 -838V88H6612V-838ZM5893 -742V-636H6202C6182 -431 6079 -286 5843 -173L5913 -68C6242 -227 6337 -458 6337 -742Z M7111 -832V-815C7111 -726 7010 -633 6801 -612L6845 -513C7005 -530 7120 -590 7179 -674C7238 -590 7353 -530 7513 -513L7557 -612C7348 -633 7247 -726 7247 -815V-832ZM6857 -18V83H7521V-18H6989V-70H7496V-311H7244V-370H7598V-475H6760V-370H7112V-311H6856V-212H7365V-163H6857Z M8216 -666C8284 -666 8334 -620 8334 -543C8334 -466 8284 -420 8216 -420C8149 -420 8098 -466 8098 -543C8098 -620 8149 -666 8216 -666ZM8602 -602V-484H8454C8459 -503 8461 -522 8461 -543C8461 -564 8459 -583 8454 -602ZM8216 -782C8079 -782 7972 -682 7972 -543C7972 -404 8079 -303 8216 -303C8288 -303 8352 -331 8396 -377H8602V-160H8736V-837H8602V-709H8396C8352 -755 8288 -782 8216 -782ZM8124 -226V73H8757V-34H8257V-226Z M8881 -390V-282H9228V89H9362V-282H9719V-390H9597C9620 -520 9620 -615 9620 -702V-784H8977V-679H9489C9489 -598 9487 -508 9464 -390Z M10464 -837V-145H10590V-837ZM10279 -822V-626H10169V-519H10279V-172H10403V-822ZM9966 -225V73H10613V-34H10100V-225ZM9964 -776V-657C9964 -546 9915 -427 9788 -365L9860 -263C9941 -301 9996 -368 10029 -447C10059 -377 10108 -320 10180 -286L10252 -387C10137 -444 10092 -549 10092 -657V-776Z M11206 -512V-404H11365V90H11498V-839H11365V-512ZM10762 -761V-119H10837C10993 -119 11113 -122 11247 -144L11234 -249C11121 -232 11020 -227 10895 -226V-399H11160V-503H10895V-653H11191V-761Z"/></g>
+<g transform="translate(139.592 131.604) scale(0.012000)"><path fill="#C9D0DA" d="M80.28076171875 0.0V-686.0H570.362060546875V-587.258544921875H195.49267578125V-388.081298828125H534.556640625V-289.534423828125H195.49267578125V0.0Z M1032.16748046875 12.0Q943.3349609375 12.0 879.307861328125 -16.61083984375Q815.28076171875 -45.2216796875 781.169921875 -105.11083984375Q747.05908203125 -165.0 747.05908203125 -256.3349609375V-686.0H862.465576171875V-254.49755859375Q862.465576171875 -171.022216796875 906.88427734375 -128.576416015625Q951.302978515625 -86.130615234375 1032.16748046875 -86.130615234375Q1113.61572265625 -86.130615234375 1159.3262939453125 -128.576416015625Q1205.036865234375 -171.022216796875 1205.036865234375 -254.49755859375V-686.0H1320.05419921875V-256.3349609375Q1320.05419921875 -165.0 1285.443359375 -105.11083984375Q1250.83251953125 -45.2216796875 1186.5135498046875 -16.61083984375Q1122.194580078125 12.0 1032.16748046875 12.0Z M1705.28076171875 0.0V-586.453125H1479.470458984375V-686.0H2047.692138671875V-586.453125H1820.49267578125V0.0Z M2492.16748046875 12.0Q2403.3349609375 12.0 2339.307861328125 -16.61083984375Q2275.28076171875 -45.2216796875 2241.169921875 -105.11083984375Q2207.05908203125 -165.0 2207.05908203125 -256.3349609375V-686.0H2322.465576171875V-254.49755859375Q2322.465576171875 -171.022216796875 2366.88427734375 -128.576416015625Q2411.302978515625 -86.130615234375 2492.16748046875 -86.130615234375Q2573.61572265625 -86.130615234375 2619.3262939453125 -128.576416015625Q2665.036865234375 -171.022216796875 2665.036865234375 -254.49755859375V-686.0H2780.05419921875V-256.3349609375Q2780.05419921875 -165.0 2745.443359375 -105.11083984375Q2710.83251953125 -45.2216796875 2646.5135498046875 -16.61083984375Q2582.194580078125 12.0 2492.16748046875 12.0Z M2997.28076171875 0.0V-686.0H3358.086181640625Q3431.751220703125 -686.0 3480.194580078125 -660.194580078125Q3528.637939453125 -634.38916015625 3552.859619140625 -587.556640625Q3577.081298828125 -540.72412109375 3577.081298828125 -478.05908203125Q3577.081298828125 -409.50244140625 3546.1083984375 -358.197021484375Q3515.135498046875 -306.8916015625 3458.1083984375 -282.4482421875L3601.081298828125 0.0H3475.036865234375L3345.923583984375 -262.783203125H3112.49267578125V0.0ZM3112.49267578125 -359.913818359375H3348.475341796875Q3401.783203125 -359.913818359375 3431.0208740234375 -391.443359375Q3460.258544921875 -422.972900390625 3460.258544921875 -478.253662109375Q3460.258544921875 -513.199462890625 3447.480224609375 -537.256103515625Q3434.701904296875 -561.312744140625 3409.95068359375 -574.28564453125Q3385.199462890625 -587.258544921875 3348.475341796875 -587.258544921875H3112.49267578125Z M3778.28076171875 0.0V-686.0H4310.362060546875V-587.258544921875H3893.49267578125V-400.16259765625H4266.362060546875V-301.421142578125H3893.49267578125V-98.741455078125H4316.362060546875V0.0Z M4701.972900390625 0.0 4970.72412109375 -686.0H5117.990234375L5387.546875 0.0H5262.697021484375L5202.83251953125 -156.1181640625H4880.27099609375L4820.60107421875 0.0ZM4917.184814453125 -254.05419921875H5165.11328125L5090.081298828125 -452.312744140625Q5086.27587890625 -461.923583984375 5080.6785888671875 -477.5208740234375Q5075.081298828125 -493.1181640625 5068.692138671875 -512.1046142578125Q5062.302978515625 -531.091064453125 5055.8165283203125 -550.6748046875Q5049.330078125 -570.258544921875 5043.94091796875 -586.036865234375H5038.357177734375Q5032.16259765625 -566.2314453125 5023.3707275390625 -540.2314453125Q5014.578857421875 -514.2314453125 5006.189697265625 -490.5504150390625Q4997.800537109375 -466.869384765625 4992.216796875 -452.312744140625Z M5534.28076171875 0.0V-686.0H5895.086181640625Q5968.751220703125 -686.0 6017.194580078125 -660.194580078125Q6065.637939453125 -634.38916015625 6089.859619140625 -587.556640625Q6114.081298828125 -540.72412109375 6114.081298828125 -478.05908203125Q6114.081298828125 -409.50244140625 6083.1083984375 -358.197021484375Q6052.135498046875 -306.8916015625 5995.1083984375 -282.4482421875L6138.081298828125 0.0H6012.036865234375L5882.923583984375 -262.783203125H5649.49267578125V0.0ZM5649.49267578125 -359.913818359375H5885.475341796875Q5938.783203125 -359.913818359375 5968.0208740234375 -391.443359375Q5997.258544921875 -422.972900390625 5997.258544921875 -478.253662109375Q5997.258544921875 -513.199462890625 5984.480224609375 -537.256103515625Q5971.701904296875 -561.312744140625 5946.95068359375 -574.28564453125Q5922.199462890625 -587.258544921875 5885.475341796875 -587.258544921875H5649.49267578125Z M6604.38916015625 12.0Q6499.38916015625 12.0 6425.472900390625 -25.583740234375Q6351.556640625 -63.16748046875 6312.640380859375 -141.7647705078125Q6273.72412109375 -220.362060546875 6273.72412109375 -343.0Q6273.72412109375 -523.027099609375 6361.140380859375 -610.5135498046875Q6448.556640625 -698.0 6604.7783203125 -698.0Q6690.94580078125 -698.0 6759.251220703125 -669.194580078125Q6827.556640625 -640.38916015625 6867.3756103515625 -582.3756103515625Q6907.194580078125 -524.362060546875 6907.194580078125 -435.3349609375H6789.56640625Q6789.56640625 -489.61572265625 6766.509765625 -526.1588134765625Q6743.453125 -562.701904296875 6702.0479736328125 -581.3829345703125Q6660.642822265625 -600.06396484375 6606.0 -600.06396484375Q6536.248779296875 -600.06396484375 6488.330078125 -572.8829345703125Q6440.411376953125 -545.701904296875 6416.576416015625 -490.977783203125Q6392.741455078125 -436.253662109375 6392.741455078125 -352.83251953125V-331.027099609375Q6392.741455078125 -247.7734375 6416.576416015625 -193.4384765625Q6440.411376953125 -139.103515625 6487.9273681640625 -112.519775390625Q6535.443359375 -85.93603515625 6606.194580078125 -85.93603515625Q6663.05908203125 -85.93603515625 6705.2696533203125 -104.21435546875Q6747.480224609375 -122.49267578125 6770.6341552734375 -159.0357666015625Q6793.7880859375 -195.578857421875 6793.7880859375 -249.859619140625H6907.194580078125Q6907.194580078125 -160.443359375 6867.38916015625 -102.4298095703125Q6827.583740234375 -44.416259765625 6759.1810302734375 -16.2081298828125Q6690.7783203125 12.0 6604.38916015625 12.0Z M7090.28076171875 0.0V-686.0H7205.49267578125V-400.578857421875H7548.06396484375V-686.0H7663.27587890625V0.0H7548.06396484375V-301.031982421875H7205.49267578125V0.0Z M7884.28076171875 0.0V-686.0H7999.49267578125V0.0Z M8388.28076171875 0.0V-586.453125H8162.470458984375V-686.0H8730.692138671875V-586.453125H8503.49267578125V0.0Z M8893.28076171875 0.0V-686.0H9425.362060546875V-587.258544921875H9008.49267578125V-400.16259765625H9381.362060546875V-301.421142578125H9008.49267578125V-98.741455078125H9431.362060546875V0.0Z M9925.38916015625 12.0Q9820.38916015625 12.0 9746.472900390625 -25.583740234375Q9672.556640625 -63.16748046875 9633.640380859375 -141.7647705078125Q9594.72412109375 -220.362060546875 9594.72412109375 -343.0Q9594.72412109375 -523.027099609375 9682.140380859375 -610.5135498046875Q9769.556640625 -698.0 9925.7783203125 -698.0Q10011.94580078125 -698.0 10080.251220703125 -669.194580078125Q10148.556640625 -640.38916015625 10188.375610351562 -582.3756103515625Q10228.194580078125 -524.362060546875 10228.194580078125 -435.3349609375H10110.56640625Q10110.56640625 -489.61572265625 10087.509765625 -526.1588134765625Q10064.453125 -562.701904296875 10023.047973632812 -581.3829345703125Q9981.642822265625 -600.06396484375 9927.0 -600.06396484375Q9857.248779296875 -600.06396484375 9809.330078125 -572.8829345703125Q9761.411376953125 -545.701904296875 9737.576416015625 -490.977783203125Q9713.741455078125 -436.253662109375 9713.741455078125 -352.83251953125V-331.027099609375Q9713.741455078125 -247.7734375 9737.576416015625 -193.4384765625Q9761.411376953125 -139.103515625 9808.927368164062 -112.519775390625Q9856.443359375 -85.93603515625 9927.194580078125 -85.93603515625Q9984.05908203125 -85.93603515625 10026.269653320312 -104.21435546875Q10068.480224609375 -122.49267578125 10091.634155273438 -159.0357666015625Q10114.7880859375 -195.578857421875 10114.7880859375 -249.859619140625H10228.194580078125Q10228.194580078125 -160.443359375 10188.38916015625 -102.4298095703125Q10148.583740234375 -44.416259765625 10080.181030273438 -16.2081298828125Q10011.7783203125 12.0 9925.38916015625 12.0Z M10559.28076171875 0.0V-586.453125H10333.470458984375V-686.0H10901.692138671875V-586.453125H10674.49267578125V0.0Z M11346.16748046875 12.0Q11257.3349609375 12.0 11193.307861328125 -16.61083984375Q11129.28076171875 -45.2216796875 11095.169921875 -105.11083984375Q11061.05908203125 -165.0 11061.05908203125 -256.3349609375V-686.0H11176.465576171875V-254.49755859375Q11176.465576171875 -171.022216796875 11220.88427734375 -128.576416015625Q11265.302978515625 -86.130615234375 11346.16748046875 -86.130615234375Q11427.61572265625 -86.130615234375 11473.326293945312 -128.576416015625Q11519.036865234375 -171.022216796875 11519.036865234375 -254.49755859375V-686.0H11634.05419921875V-256.3349609375Q11634.05419921875 -165.0 11599.443359375 -105.11083984375Q11564.83251953125 -45.2216796875 11500.513549804688 -16.61083984375Q11436.194580078125 12.0 11346.16748046875 12.0Z M11851.28076171875 0.0V-686.0H12212.086181640625Q12285.751220703125 -686.0 12334.194580078125 -660.194580078125Q12382.637939453125 -634.38916015625 12406.859619140625 -587.556640625Q12431.081298828125 -540.72412109375 12431.081298828125 -478.05908203125Q12431.081298828125 -409.50244140625 12400.1083984375 -358.197021484375Q12369.135498046875 -306.8916015625 12312.1083984375 -282.4482421875L12455.081298828125 0.0H12329.036865234375L12199.923583984375 -262.783203125H11966.49267578125V0.0ZM11966.49267578125 -359.913818359375H12202.475341796875Q12255.783203125 -359.913818359375 12285.020874023438 -391.443359375Q12314.258544921875 -422.972900390625 12314.258544921875 -478.253662109375Q12314.258544921875 -513.199462890625 12301.480224609375 -537.256103515625Q12288.701904296875 -561.312744140625 12263.95068359375 -574.28564453125Q12239.199462890625 -587.258544921875 12202.475341796875 -587.258544921875H11966.49267578125Z M12632.28076171875 0.0V-686.0H13164.362060546875V-587.258544921875H12747.49267578125V-400.16259765625H13120.362060546875V-301.421142578125H12747.49267578125V-98.741455078125H13170.362060546875V0.0Z M13928.38916015625 12.0Q13823.38916015625 12.0 13749.472900390625 -25.583740234375Q13675.556640625 -63.16748046875 13636.640380859375 -141.7647705078125Q13597.72412109375 -220.362060546875 13597.72412109375 -343.0Q13597.72412109375 -523.027099609375 13685.140380859375 -610.5135498046875Q13772.556640625 -698.0 13928.7783203125 -698.0Q14014.94580078125 -698.0 14083.251220703125 -669.194580078125Q14151.556640625 -640.38916015625 14191.375610351562 -582.3756103515625Q14231.194580078125 -524.362060546875 14231.194580078125 -435.3349609375H14113.56640625Q14113.56640625 -489.61572265625 14090.509765625 -526.1588134765625Q14067.453125 -562.701904296875 14026.047973632812 -581.3829345703125Q13984.642822265625 -600.06396484375 13930.0 -600.06396484375Q13860.248779296875 -600.06396484375 13812.330078125 -572.8829345703125Q13764.411376953125 -545.701904296875 13740.576416015625 -490.977783203125Q13716.741455078125 -436.253662109375 13716.741455078125 -352.83251953125V-331.027099609375Q13716.741455078125 -247.7734375 13740.576416015625 -193.4384765625Q13764.411376953125 -139.103515625 13811.927368164062 -112.519775390625Q13859.443359375 -85.93603515625 13930.194580078125 -85.93603515625Q13987.05908203125 -85.93603515625 14029.269653320312 -104.21435546875Q14071.480224609375 -122.49267578125 14094.634155273438 -159.0357666015625Q14117.7880859375 -195.578857421875 14117.7880859375 -249.859619140625H14231.194580078125Q14231.194580078125 -160.443359375 14191.38916015625 -102.4298095703125Q14151.583740234375 -44.416259765625 14083.181030273438 -16.2081298828125Q14014.7783203125 12.0 13928.38916015625 12.0Z M14726.16748046875 12.0Q14619.362060546875 12.0 14541.848510742188 -26.7918701171875Q14464.3349609375 -65.583740234375 14423.029541015625 -144.583740234375Q14381.72412109375 -223.583740234375 14381.72412109375 -343.0Q14381.72412109375 -463.416259765625 14423.029541015625 -541.916259765625Q14464.3349609375 -620.416259765625 14541.848510742188 -659.2081298828125Q14619.362060546875 -698.0 14726.16748046875 -698.0Q14833.972900390625 -698.0 14911.083740234375 -659.2081298828125Q14988.194580078125 -620.416259765625 15029.5 -541.916259765625Q15070.805419921875 -463.416259765625 15070.805419921875 -343.0Q15070.805419921875 -223.583740234375 15029.5 -144.583740234375Q14988.194580078125 -65.583740234375 14911.083740234375 -26.7918701171875Q14833.972900390625 12.0 14726.16748046875 12.0ZM14726.16748046875 -85.93603515625Q14780.11328125 -85.93603515625 14822.045532226562 -101.130615234375Q14863.977783203125 -116.3251953125 14893.020874023438 -146.99267578125Q14922.06396484375 -177.66015625 14937.328735351562 -223.689697265625Q14952.593505859375 -269.71923828125 14952.593505859375 -331.38916015625V-353.0Q14952.593505859375 -415.475341796875 14937.328735351562 -461.9075927734375Q14922.06396484375 -508.33984375 14893.020874023438 -539.00732421875Q14863.977783203125 -569.6748046875 14822.045532226562 -584.869384765625Q14780.11328125 -600.06396484375 14726.16748046875 -600.06396484375Q14672.2216796875 -600.06396484375 14630.38671875 -584.869384765625Q14588.5517578125 -569.6748046875 14559.508666992188 -539.00732421875Q14530.465576171875 -508.33984375 14515.603515625 -461.9075927734375Q14500.741455078125 -415.475341796875 14500.741455078125 -353.0V-331.38916015625Q14500.741455078125 -269.71923828125 14515.603515625 -223.689697265625Q14530.465576171875 -177.66015625 14559.508666992188 -146.99267578125Q14588.5517578125 -116.3251953125 14630.38671875 -101.130615234375Q14672.2216796875 -85.93603515625 14726.16748046875 -85.93603515625Z M15259.28076171875 0.0V-686.0H15369.854736328125L15679.588623046875 -261.15283203125Q15684.783203125 -254.958251953125 15692.17236328125 -243.9718017578125Q15699.5615234375 -232.9853515625 15706.33984375 -222.20703125Q15713.1181640625 -211.4287109375 15716.28564453125 -204.455810546875H15721.091064453125Q15721.091064453125 -219.234130859375 15721.091064453125 -233.20703125Q15721.091064453125 -247.179931640625 15721.091064453125 -261.15283203125V-686.0H15832.27587890625V0.0H15724.84228515625L15412.5517578125 -429.987548828125Q15404.746337890625 -441.40380859375 15392.981567382812 -459.9739990234375Q15381.216796875 -478.544189453125 15375.27099609375 -487.879150390625H15370.465576171875Q15370.465576171875 -473.711669921875 15370.465576171875 -459.3360595703125Q15370.465576171875 -444.96044921875 15370.465576171875 -429.987548828125V0.0Z M16235.72412109375 0.0 15983.0 -686H16107.849853515625L16276.49267578125 -208.16259765625Q16281.27099609375 -196.411376953125 16286.146606445312 -181.27099609375Q16291.022216796875 -166.130615234375 16295.897827148438 -152.295654296875Q16300.7734375 -138.460693359375 16304.357177734375 -127.70947265625H16309.746337890625Q16313.524658203125 -137.6552734375 16317.900268554688 -151.0875244140625Q16322.27587890625 -164.519775390625 16327.248779296875 -179.2574462890625Q16332.2216796875 -193.9951171875 16336.805419921875 -207.357177734375L16504.05908203125 -686.0H16624.076416015625L16371.352294921875 0.0Z M16774.28076171875 0.0V-686.0H17306.362060546875V-587.258544921875H16889.49267578125V-400.16259765625H17262.362060546875V-301.421142578125H16889.49267578125V-98.741455078125H17312.362060546875V0.0Z M17508.28076171875 0.0V-686.0H17869.086181640625Q17942.751220703125 -686.0 17991.194580078125 -660.194580078125Q18039.637939453125 -634.38916015625 18063.859619140625 -587.556640625Q18088.081298828125 -540.72412109375 18088.081298828125 -478.05908203125Q18088.081298828125 -409.50244140625 18057.1083984375 -358.197021484375Q18026.135498046875 -306.8916015625 17969.1083984375 -282.4482421875L18112.081298828125 0.0H17986.036865234375L17856.923583984375 -262.783203125H17623.49267578125V0.0ZM17623.49267578125 -359.913818359375H17859.475341796875Q17912.783203125 -359.913818359375 17942.020874023438 -391.443359375Q17971.258544921875 -422.972900390625 17971.258544921875 -478.253662109375Q17971.258544921875 -513.199462890625 17958.480224609375 -537.256103515625Q17945.701904296875 -561.312744140625 17920.95068359375 -574.28564453125Q17896.199462890625 -587.258544921875 17859.475341796875 -587.258544921875H17623.49267578125Z M18590.918701171875 12.0Q18429.0 12 18341.583740234375 -74.083740234375Q18254.16748046875 -160.16748046875 18254.16748046875 -343.0Q18254.16748046875 -462.83251953125 18295.083740234375 -541.4298095703125Q18336.0 -620.027099609375 18414.208129882812 -659.0135498046875Q18492.416259765625 -698.0 18603.583740234375 -698.0Q18670.94580078125 -698.0 18728.556640625 -682.9027099609375Q18786.16748046875 -667.805419921875 18829.5 -637.305419921875Q18872.83251953125 -606.805419921875 18896.762329101562 -560.805419921875Q18920.692138671875 -514.805419921875 18920.692138671875 -452.0H18802.453125Q18802.453125 -489.669921875 18787.1748046875 -517.6021728515625Q18771.896484375 -545.534423828125 18744.83984375 -564.1046142578125Q18717.783203125 -582.6748046875 18682.253662109375 -591.369384765625Q18646.72412109375 -600.06396484375 18606.416259765625 -600.06396484375Q18549.470458984375 -600.06396484375 18505.732788085938 -585.2720947265625Q18461.9951171875 -570.480224609375 18432.452026367188 -539.812744140625Q18402.908935546875 -509.145263671875 18388.046875 -462.7130126953125Q18373.184814453125 -416.28076171875 18373.184814453125 -353.0V-332.0Q18373.184814453125 -245.746337890625 18398.422485351562 -191.216796875Q18423.66015625 -136.687255859375 18473.370727539062 -111.3116455078125Q18523.081298828125 -85.93603515625 18595.194580078125 -85.93603515625Q18661.783203125 -85.93603515625 18708.520874023438 -105.49267578125Q18755.258544921875 -125.04931640625 18780.369384765625 -163.635498046875Q18805.480224609375 -202.2216796875 18805.480224609375 -259.2265625V-268.5615234375H18576.751220703125V-364.88671875H18920.88671875V0.0H18837.031982421875L18826.421142578125 -80.475341796875Q18797.783203125 -48.529541015625 18762.421142578125 -28.056640625Q18727.05908203125 -7.583740234375 18684.599731445312 2.2081298828125Q18642.140380859375 12.0 18590.918701171875 12.0Z M19135.28076171875 0.0V-686.0H19667.362060546875V-587.258544921875H19250.49267578125V-400.16259765625H19623.362060546875V-301.421142578125H19250.49267578125V-98.741455078125H19673.362060546875V0.0Z M19869.28076171875 0.0V-686.0H19979.854736328125L20289.588623046875 -261.15283203125Q20294.783203125 -254.958251953125 20302.17236328125 -243.9718017578125Q20309.5615234375 -232.9853515625 20316.33984375 -222.20703125Q20323.1181640625 -211.4287109375 20326.28564453125 -204.455810546875H20331.091064453125Q20331.091064453125 -219.234130859375 20331.091064453125 -233.20703125Q20331.091064453125 -247.179931640625 20331.091064453125 -261.15283203125V-686.0H20442.27587890625V0.0H20334.84228515625L20022.5517578125 -429.987548828125Q20014.746337890625 -441.40380859375 20002.981567382812 -459.9739990234375Q19991.216796875 -478.544189453125 19985.27099609375 -487.879150390625H19980.465576171875Q19980.465576171875 -473.711669921875 19980.465576171875 -459.3360595703125Q19980.465576171875 -444.96044921875 19980.465576171875 -429.987548828125V0.0Z M20961.38916015625 12.0Q20856.38916015625 12.0 20782.472900390625 -25.583740234375Q20708.556640625 -63.16748046875 20669.640380859375 -141.7647705078125Q20630.72412109375 -220.362060546875 20630.72412109375 -343.0Q20630.72412109375 -523.027099609375 20718.140380859375 -610.5135498046875Q20805.556640625 -698.0 20961.7783203125 -698.0Q21047.94580078125 -698.0 21116.251220703125 -669.194580078125Q21184.556640625 -640.38916015625 21224.375610351562 -582.3756103515625Q21264.194580078125 -524.362060546875 21264.194580078125 -435.3349609375H21146.56640625Q21146.56640625 -489.61572265625 21123.509765625 -526.1588134765625Q21100.453125 -562.701904296875 21059.047973632812 -581.3829345703125Q21017.642822265625 -600.06396484375 20963.0 -600.06396484375Q20893.248779296875 -600.06396484375 20845.330078125 -572.8829345703125Q20797.411376953125 -545.701904296875 20773.576416015625 -490.977783203125Q20749.741455078125 -436.253662109375 20749.741455078125 -352.83251953125V-331.027099609375Q20749.741455078125 -247.7734375 20773.576416015625 -193.4384765625Q20797.411376953125 -139.103515625 20844.927368164062 -112.519775390625Q20892.443359375 -85.93603515625 20963.194580078125 -85.93603515625Q21020.05908203125 -85.93603515625 21062.269653320312 -104.21435546875Q21104.480224609375 -122.49267578125 21127.634155273438 -159.0357666015625Q21150.7880859375 -195.578857421875 21150.7880859375 -249.859619140625H21264.194580078125Q21264.194580078125 -160.443359375 21224.38916015625 -102.4298095703125Q21184.583740234375 -44.416259765625 21116.181030273438 -16.2081298828125Q21047.7783203125 12.0 20961.38916015625 12.0Z M21447.28076171875 0.0V-686.0H21979.362060546875V-587.258544921875H21562.49267578125V-400.16259765625H21935.362060546875V-301.421142578125H21562.49267578125V-98.741455078125H21985.362060546875V0.0Z"/></g>
+<g transform="translate(139.592 148.104) scale(0.012000)"><path fill="#C9D0DA" d="M248.28076171875 0.0V-586.453125H22.470458984375V-686.0H590.692138671875V-586.453125H363.49267578125V0.0Z M753.28076171875 0.0V-686.0H1285.362060546875V-587.258544921875H868.49267578125V-400.16259765625H1241.362060546875V-301.421142578125H868.49267578125V-98.741455078125H1291.362060546875V0.0Z M1785.38916015625 12.0Q1680.38916015625 12.0 1606.472900390625 -25.583740234375Q1532.556640625 -63.16748046875 1493.640380859375 -141.7647705078125Q1454.72412109375 -220.362060546875 1454.72412109375 -343.0Q1454.72412109375 -523.027099609375 1542.140380859375 -610.5135498046875Q1629.556640625 -698.0 1785.7783203125 -698.0Q1871.94580078125 -698.0 1940.251220703125 -669.194580078125Q2008.556640625 -640.38916015625 2048.3756103515625 -582.3756103515625Q2088.194580078125 -524.362060546875 2088.194580078125 -435.3349609375H1970.56640625Q1970.56640625 -489.61572265625 1947.509765625 -526.1588134765625Q1924.453125 -562.701904296875 1883.0479736328125 -581.3829345703125Q1841.642822265625 -600.06396484375 1787.0 -600.06396484375Q1717.248779296875 -600.06396484375 1669.330078125 -572.8829345703125Q1621.411376953125 -545.701904296875 1597.576416015625 -490.977783203125Q1573.741455078125 -436.253662109375 1573.741455078125 -352.83251953125V-331.027099609375Q1573.741455078125 -247.7734375 1597.576416015625 -193.4384765625Q1621.411376953125 -139.103515625 1668.9273681640625 -112.519775390625Q1716.443359375 -85.93603515625 1787.194580078125 -85.93603515625Q1844.05908203125 -85.93603515625 1886.2696533203125 -104.21435546875Q1928.480224609375 -122.49267578125 1951.6341552734375 -159.0357666015625Q1974.7880859375 -195.578857421875 1974.7880859375 -249.859619140625H2088.194580078125Q2088.194580078125 -160.443359375 2048.38916015625 -102.4298095703125Q2008.583740234375 -44.416259765625 1940.1810302734375 -16.2081298828125Q1871.7783203125 12.0 1785.38916015625 12.0Z M2271.28076171875 0.0V-686.0H2386.49267578125V-400.578857421875H2729.06396484375V-686.0H2844.27587890625V0.0H2729.06396484375V-301.031982421875H2386.49267578125V0.0Z M3065.28076171875 0.0V-686.0H3175.854736328125L3485.588623046875 -261.15283203125Q3490.783203125 -254.958251953125 3498.17236328125 -243.9718017578125Q3505.5615234375 -232.9853515625 3512.33984375 -222.20703125Q3519.1181640625 -211.4287109375 3522.28564453125 -204.455810546875H3527.091064453125Q3527.091064453125 -219.234130859375 3527.091064453125 -233.20703125Q3527.091064453125 -247.179931640625 3527.091064453125 -261.15283203125V-686.0H3638.27587890625V0.0H3530.84228515625L3218.5517578125 -429.987548828125Q3210.746337890625 -441.40380859375 3198.9815673828125 -459.9739990234375Q3187.216796875 -478.544189453125 3181.27099609375 -487.879150390625H3176.465576171875Q3176.465576171875 -473.711669921875 3176.465576171875 -459.3360595703125Q3176.465576171875 -444.96044921875 3176.465576171875 -429.987548828125V0.0Z M4171.16748046875 12.0Q4064.362060546875 12.0 3986.8485107421875 -26.7918701171875Q3909.3349609375 -65.583740234375 3868.029541015625 -144.583740234375Q3826.72412109375 -223.583740234375 3826.72412109375 -343.0Q3826.72412109375 -463.416259765625 3868.029541015625 -541.916259765625Q3909.3349609375 -620.416259765625 3986.8485107421875 -659.2081298828125Q4064.362060546875 -698.0 4171.16748046875 -698.0Q4278.972900390625 -698.0 4356.083740234375 -659.2081298828125Q4433.194580078125 -620.416259765625 4474.5 -541.916259765625Q4515.805419921875 -463.416259765625 4515.805419921875 -343.0Q4515.805419921875 -223.583740234375 4474.5 -144.583740234375Q4433.194580078125 -65.583740234375 4356.083740234375 -26.7918701171875Q4278.972900390625 12.0 4171.16748046875 12.0ZM4171.16748046875 -85.93603515625Q4225.11328125 -85.93603515625 4267.0455322265625 -101.130615234375Q4308.977783203125 -116.3251953125 4338.0208740234375 -146.99267578125Q4367.06396484375 -177.66015625 4382.3287353515625 -223.689697265625Q4397.593505859375 -269.71923828125 4397.593505859375 -331.38916015625V-353.0Q4397.593505859375 -415.475341796875 4382.3287353515625 -461.9075927734375Q4367.06396484375 -508.33984375 4338.0208740234375 -539.00732421875Q4308.977783203125 -569.6748046875 4267.0455322265625 -584.869384765625Q4225.11328125 -600.06396484375 4171.16748046875 -600.06396484375Q4117.2216796875 -600.06396484375 4075.38671875 -584.869384765625Q4033.5517578125 -569.6748046875 4004.5086669921875 -539.00732421875Q3975.465576171875 -508.33984375 3960.603515625 -461.9075927734375Q3945.741455078125 -415.475341796875 3945.741455078125 -353.0V-331.38916015625Q3945.741455078125 -269.71923828125 3960.603515625 -223.689697265625Q3975.465576171875 -177.66015625 4004.5086669921875 -146.99267578125Q4033.5517578125 -116.3251953125 4075.38671875 -101.130615234375Q4117.2216796875 -85.93603515625 4171.16748046875 -85.93603515625Z M4704.28076171875 0.0V-686.0H4819.49267578125V-100.352294921875H5162.3251953125V0.0Z M5602.16748046875 12.0Q5495.362060546875 12.0 5417.8485107421875 -26.7918701171875Q5340.3349609375 -65.583740234375 5299.029541015625 -144.583740234375Q5257.72412109375 -223.583740234375 5257.72412109375 -343.0Q5257.72412109375 -463.416259765625 5299.029541015625 -541.916259765625Q5340.3349609375 -620.416259765625 5417.8485107421875 -659.2081298828125Q5495.362060546875 -698.0 5602.16748046875 -698.0Q5709.972900390625 -698.0 5787.083740234375 -659.2081298828125Q5864.194580078125 -620.416259765625 5905.5 -541.916259765625Q5946.805419921875 -463.416259765625 5946.805419921875 -343.0Q5946.805419921875 -223.583740234375 5905.5 -144.583740234375Q5864.194580078125 -65.583740234375 5787.083740234375 -26.7918701171875Q5709.972900390625 12.0 5602.16748046875 12.0ZM5602.16748046875 -85.93603515625Q5656.11328125 -85.93603515625 5698.0455322265625 -101.130615234375Q5739.977783203125 -116.3251953125 5769.0208740234375 -146.99267578125Q5798.06396484375 -177.66015625 5813.3287353515625 -223.689697265625Q5828.593505859375 -269.71923828125 5828.593505859375 -331.38916015625V-353.0Q5828.593505859375 -415.475341796875 5813.3287353515625 -461.9075927734375Q5798.06396484375 -508.33984375 5769.0208740234375 -539.00732421875Q5739.977783203125 -569.6748046875 5698.0455322265625 -584.869384765625Q5656.11328125 -600.06396484375 5602.16748046875 -600.06396484375Q5548.2216796875 -600.06396484375 5506.38671875 -584.869384765625Q5464.5517578125 -569.6748046875 5435.5086669921875 -539.00732421875Q5406.465576171875 -508.33984375 5391.603515625 -461.9075927734375Q5376.741455078125 -415.475341796875 5376.741455078125 -353.0V-331.38916015625Q5376.741455078125 -269.71923828125 5391.603515625 -223.689697265625Q5406.465576171875 -177.66015625 5435.5086669921875 -146.99267578125Q5464.5517578125 -116.3251953125 5506.38671875 -101.130615234375Q5548.2216796875 -85.93603515625 5602.16748046875 -85.93603515625Z M6445.918701171875 12.0Q6284.0 12 6196.583740234375 -74.083740234375Q6109.16748046875 -160.16748046875 6109.16748046875 -343.0Q6109.16748046875 -462.83251953125 6150.083740234375 -541.4298095703125Q6191.0 -620.027099609375 6269.2081298828125 -659.0135498046875Q6347.416259765625 -698.0 6458.583740234375 -698.0Q6525.94580078125 -698.0 6583.556640625 -682.9027099609375Q6641.16748046875 -667.805419921875 6684.5 -637.305419921875Q6727.83251953125 -606.805419921875 6751.7623291015625 -560.805419921875Q6775.692138671875 -514.805419921875 6775.692138671875 -452.0H6657.453125Q6657.453125 -489.669921875 6642.1748046875 -517.6021728515625Q6626.896484375 -545.534423828125 6599.83984375 -564.1046142578125Q6572.783203125 -582.6748046875 6537.253662109375 -591.369384765625Q6501.72412109375 -600.06396484375 6461.416259765625 -600.06396484375Q6404.470458984375 -600.06396484375 6360.7327880859375 -585.2720947265625Q6316.9951171875 -570.480224609375 6287.4520263671875 -539.812744140625Q6257.908935546875 -509.145263671875 6243.046875 -462.7130126953125Q6228.184814453125 -416.28076171875 6228.184814453125 -353.0V-332.0Q6228.184814453125 -245.746337890625 6253.4224853515625 -191.216796875Q6278.66015625 -136.687255859375 6328.3707275390625 -111.3116455078125Q6378.081298828125 -85.93603515625 6450.194580078125 -85.93603515625Q6516.783203125 -85.93603515625 6563.5208740234375 -105.49267578125Q6610.258544921875 -125.04931640625 6635.369384765625 -163.635498046875Q6660.480224609375 -202.2216796875 6660.480224609375 -259.2265625V-268.5615234375H6431.751220703125V-364.88671875H6775.88671875V0.0H6692.031982421875L6681.421142578125 -80.475341796875Q6652.783203125 -48.529541015625 6617.421142578125 -28.056640625Q6582.05908203125 -7.583740234375 6539.5997314453125 2.2081298828125Q6497.140380859375 12.0 6445.918701171875 12.0Z M7186.529541015625 0.0V-281.3349609375L6920.0 -686H7052.48779296875L7245.5517578125 -384.71435546875H7250.357177734375L7441.61572265625 -686.0H7567.854736328125L7301.93603515625 -281.3349609375V0.0Z M7934.28076171875 0.0V-686.0H8295.086181640625Q8368.751220703125 -686.0 8417.194580078125 -660.194580078125Q8465.637939453125 -634.38916015625 8489.859619140625 -587.556640625Q8514.081298828125 -540.72412109375 8514.081298828125 -478.05908203125Q8514.081298828125 -409.50244140625 8483.1083984375 -358.197021484375Q8452.135498046875 -306.8916015625 8395.1083984375 -282.4482421875L8538.081298828125 0.0H8412.036865234375L8282.923583984375 -262.783203125H8049.49267578125V0.0ZM8049.49267578125 -359.913818359375H8285.475341796875Q8338.783203125 -359.913818359375 8368.020874023438 -391.443359375Q8397.258544921875 -422.972900390625 8397.258544921875 -478.253662109375Q8397.258544921875 -513.199462890625 8384.480224609375 -537.256103515625Q8371.701904296875 -561.312744140625 8346.95068359375 -574.28564453125Q8322.199462890625 -587.258544921875 8285.475341796875 -587.258544921875H8049.49267578125Z M8715.28076171875 0.0V-686.0H9247.362060546875V-587.258544921875H8830.49267578125V-400.16259765625H9203.362060546875V-301.421142578125H8830.49267578125V-98.741455078125H9253.362060546875V0.0Z M9703.72412109375 12.0Q9647.11328125 12.0 9595.210571289062 0.1810302734375Q9543.307861328125 -11.637939453125 9503.307861328125 -37.359619140625Q9463.307861328125 -63.081298828125 9440.210571289062 -102.38671875Q9417.11328125 -141.692138671875 9417.11328125 -196.859619140625Q9417.11328125 -202.6650390625 9417.515991210938 -208.1785888671875Q9417.918701171875 -213.692138671875 9418.11328125 -217.470458984375H9534.3251953125Q9534.130615234375 -214.88671875 9533.630615234375 -208.99755859375Q9533.130615234375 -203.1083984375 9533.130615234375 -198.71923828125Q9533.130615234375 -162.60595703125 9554.27099609375 -137.354736328125Q9575.411376953125 -112.103515625 9614.232788085938 -99.019775390625Q9653.05419921875 -85.93603515625 9704.194580078125 -85.93603515625Q9733.302978515625 -85.93603515625 9759.094848632812 -89.546875Q9784.88671875 -93.15771484375 9805.916259765625 -100.65771484375Q9826.94580078125 -108.15771484375 9842.156372070312 -119.5333251953125Q9857.366943359375 -130.908935546875 9865.396484375 -146.3411865234375Q9873.426025390625 -161.7734375 9873.426025390625 -181.637939453125Q9873.426025390625 -212.7783203125 9854.939575195312 -233.2376708984375Q9836.453125 -253.697021484375 9805.272094726562 -267.475341796875Q9774.091064453125 -281.253662109375 9734.715454101562 -292.142822265625Q9695.33984375 -303.031982421875 9653.769653320312 -314.031982421875Q9612.199462890625 -325.031982421875 9572.823852539062 -340.142822265625Q9533.4482421875 -355.253662109375 9502.267211914062 -376.864501953125Q9471.086181640625 -398.475341796875 9452.599731445312 -431.4888916015625Q9434.11328125 -464.50244140625 9434.11328125 -511.11328125Q9434.11328125 -556.7783203125 9453.348510742188 -592.0Q9472.583740234375 -627.2216796875 9508.818969726562 -650.7216796875Q9545.05419921875 -674.2216796875 9595.346069335938 -686.11083984375Q9645.637939453125 -698.0 9707.751220703125 -698.0Q9762.16748046875 -698.0 9809.88916015625 -686.5972900390625Q9857.61083984375 -675.194580078125 9894.027099609375 -651.083740234375Q9930.443359375 -626.972900390625 9951.05419921875 -589.9593505859375Q9971.6650390625 -552.94580078125 9971.6650390625 -501.529541015625V-489.529541015625H9857.258544921875V-501.669921875Q9857.258544921875 -532.810302734375 9838.299194335938 -554.4642333984375Q9819.33984375 -576.1181640625 9785.796752929688 -588.091064453125Q9752.253662109375 -600.06396484375 9708.307861328125 -600.06396484375Q9656.88671875 -600.06396484375 9621.676147460938 -590.1046142578125Q9586.465576171875 -580.145263671875 9568.395385742188 -561.699462890625Q9550.3251953125 -543.253662109375 9550.3251953125 -517.697021484375Q9550.3251953125 -490.16748046875 9568.811645507812 -471.61083984375Q9587.298095703125 -453.05419921875 9618.576416015625 -440.27587890625Q9649.854736328125 -427.49755859375 9689.230346679688 -417.1083984375Q9728.60595703125 -406.71923828125 9770.078857421875 -395.3165283203125Q9811.5517578125 -383.913818359375 9850.927368164062 -369.1083984375Q9890.302978515625 -354.302978515625 9921.581298828125 -332.0948486328125Q9952.859619140625 -309.88671875 9971.346069335938 -277.081298828125Q9989.83251953125 -244.27587890625 9989.83251953125 -198.081298828125Q9989.83251953125 -122.83251953125 9952.916259765625 -76.416259765625Q9916.0 -30 9851.472900390625 -9.0Q9786.94580078125 12.0 9703.72412109375 12.0Z M10178.28076171875 0.0V-686.0H10710.362060546875V-587.258544921875H10293.49267578125V-400.16259765625H10666.362060546875V-301.421142578125H10293.49267578125V-98.741455078125H10716.362060546875V0.0Z M10837.972900390625 0.0 11106.72412109375 -686.0H11253.990234375L11523.546875 0.0H11398.697021484375L11338.83251953125 -156.1181640625H11016.27099609375L10956.60107421875 0.0ZM11053.184814453125 -254.05419921875H11301.11328125L11226.081298828125 -452.312744140625Q11222.27587890625 -461.923583984375 11216.678588867188 -477.5208740234375Q11211.081298828125 -493.1181640625 11204.692138671875 -512.1046142578125Q11198.302978515625 -531.091064453125 11191.816528320312 -550.6748046875Q11185.330078125 -570.258544921875 11179.94091796875 -586.036865234375H11174.357177734375Q11168.16259765625 -566.2314453125 11159.370727539062 -540.2314453125Q11150.578857421875 -514.2314453125 11142.189697265625 -490.5504150390625Q11133.800537109375 -466.869384765625 11128.216796875 -452.312744140625Z M11670.28076171875 0.0V-686.0H12031.086181640625Q12104.751220703125 -686.0 12153.194580078125 -660.194580078125Q12201.637939453125 -634.38916015625 12225.859619140625 -587.556640625Q12250.081298828125 -540.72412109375 12250.081298828125 -478.05908203125Q12250.081298828125 -409.50244140625 12219.1083984375 -358.197021484375Q12188.135498046875 -306.8916015625 12131.1083984375 -282.4482421875L12274.081298828125 0.0H12148.036865234375L12018.923583984375 -262.783203125H11785.49267578125V0.0ZM11785.49267578125 -359.913818359375H12021.475341796875Q12074.783203125 -359.913818359375 12104.020874023438 -391.443359375Q12133.258544921875 -422.972900390625 12133.258544921875 -478.253662109375Q12133.258544921875 -513.199462890625 12120.480224609375 -537.256103515625Q12107.701904296875 -561.312744140625 12082.95068359375 -574.28564453125Q12058.199462890625 -587.258544921875 12021.475341796875 -587.258544921875H11785.49267578125Z M12740.38916015625 12.0Q12635.38916015625 12.0 12561.472900390625 -25.583740234375Q12487.556640625 -63.16748046875 12448.640380859375 -141.7647705078125Q12409.72412109375 -220.362060546875 12409.72412109375 -343.0Q12409.72412109375 -523.027099609375 12497.140380859375 -610.5135498046875Q12584.556640625 -698.0 12740.7783203125 -698.0Q12826.94580078125 -698.0 12895.251220703125 -669.194580078125Q12963.556640625 -640.38916015625 13003.375610351562 -582.3756103515625Q13043.194580078125 -524.362060546875 13043.194580078125 -435.3349609375H12925.56640625Q12925.56640625 -489.61572265625 12902.509765625 -526.1588134765625Q12879.453125 -562.701904296875 12838.047973632812 -581.3829345703125Q12796.642822265625 -600.06396484375 12742.0 -600.06396484375Q12672.248779296875 -600.06396484375 12624.330078125 -572.8829345703125Q12576.411376953125 -545.701904296875 12552.576416015625 -490.977783203125Q12528.741455078125 -436.253662109375 12528.741455078125 -352.83251953125V-331.027099609375Q12528.741455078125 -247.7734375 12552.576416015625 -193.4384765625Q12576.411376953125 -139.103515625 12623.927368164062 -112.519775390625Q12671.443359375 -85.93603515625 12742.194580078125 -85.93603515625Q12799.05908203125 -85.93603515625 12841.269653320312 -104.21435546875Q12883.480224609375 -122.49267578125 12906.634155273438 -159.0357666015625Q12929.7880859375 -195.578857421875 12929.7880859375 -249.859619140625H13043.194580078125Q13043.194580078125 -160.443359375 13003.38916015625 -102.4298095703125Q12963.583740234375 -44.416259765625 12895.181030273438 -16.2081298828125Q12826.7783203125 12.0 12740.38916015625 12.0Z M13226.28076171875 0.0V-686.0H13341.49267578125V-400.578857421875H13684.06396484375V-686.0H13799.27587890625V0.0H13684.06396484375V-301.031982421875H13341.49267578125V0.0Z M14582.38916015625 12.0Q14477.38916015625 12.0 14403.472900390625 -25.583740234375Q14329.556640625 -63.16748046875 14290.640380859375 -141.7647705078125Q14251.72412109375 -220.362060546875 14251.72412109375 -343.0Q14251.72412109375 -523.027099609375 14339.140380859375 -610.5135498046875Q14426.556640625 -698.0 14582.7783203125 -698.0Q14668.94580078125 -698.0 14737.251220703125 -669.194580078125Q14805.556640625 -640.38916015625 14845.375610351562 -582.3756103515625Q14885.194580078125 -524.362060546875 14885.194580078125 -435.3349609375H14767.56640625Q14767.56640625 -489.61572265625 14744.509765625 -526.1588134765625Q14721.453125 -562.701904296875 14680.047973632812 -581.3829345703125Q14638.642822265625 -600.06396484375 14584.0 -600.06396484375Q14514.248779296875 -600.06396484375 14466.330078125 -572.8829345703125Q14418.411376953125 -545.701904296875 14394.576416015625 -490.977783203125Q14370.741455078125 -436.253662109375 14370.741455078125 -352.83251953125V-331.027099609375Q14370.741455078125 -247.7734375 14394.576416015625 -193.4384765625Q14418.411376953125 -139.103515625 14465.927368164062 -112.519775390625Q14513.443359375 -85.93603515625 14584.194580078125 -85.93603515625Q14641.05908203125 -85.93603515625 14683.269653320312 -104.21435546875Q14725.480224609375 -122.49267578125 14748.634155273438 -159.0357666015625Q14771.7880859375 -195.578857421875 14771.7880859375 -249.859619140625H14885.194580078125Q14885.194580078125 -160.443359375 14845.38916015625 -102.4298095703125Q14805.583740234375 -44.416259765625 14737.181030273438 -16.2081298828125Q14668.7783203125 12.0 14582.38916015625 12.0Z M15068.28076171875 0.0V-686.0H15600.362060546875V-587.258544921875H15183.49267578125V-400.16259765625H15556.362060546875V-301.421142578125H15183.49267578125V-98.741455078125H15606.362060546875V0.0Z M15802.28076171875 0.0V-686.0H15912.854736328125L16222.588623046875 -261.15283203125Q16227.783203125 -254.958251953125 16235.17236328125 -243.9718017578125Q16242.5615234375 -232.9853515625 16249.33984375 -222.20703125Q16256.1181640625 -211.4287109375 16259.28564453125 -204.455810546875H16264.091064453125Q16264.091064453125 -219.234130859375 16264.091064453125 -233.20703125Q16264.091064453125 -247.179931640625 16264.091064453125 -261.15283203125V-686.0H16375.27587890625V0.0H16267.84228515625L15955.5517578125 -429.987548828125Q15947.746337890625 -441.40380859375 15935.981567382812 -459.9739990234375Q15924.216796875 -478.544189453125 15918.27099609375 -487.879150390625H15913.465576171875Q15913.465576171875 -473.711669921875 15913.465576171875 -459.3360595703125Q15913.465576171875 -444.96044921875 15913.465576171875 -429.987548828125V0.0Z M16764.28076171875 0.0V-586.453125H16538.470458984375V-686.0H17106.692138671875V-586.453125H16879.49267578125V0.0Z M17269.28076171875 0.0V-686.0H17801.362060546875V-587.258544921875H17384.49267578125V-400.16259765625H17757.362060546875V-301.421142578125H17384.49267578125V-98.741455078125H17807.362060546875V0.0Z M18003.28076171875 0.0V-686.0H18364.086181640625Q18437.751220703125 -686.0 18486.194580078125 -660.194580078125Q18534.637939453125 -634.38916015625 18558.859619140625 -587.556640625Q18583.081298828125 -540.72412109375 18583.081298828125 -478.05908203125Q18583.081298828125 -409.50244140625 18552.1083984375 -358.197021484375Q18521.135498046875 -306.8916015625 18464.1083984375 -282.4482421875L18607.081298828125 0.0H18481.036865234375L18351.923583984375 -262.783203125H18118.49267578125V0.0ZM18118.49267578125 -359.913818359375H18354.475341796875Q18407.783203125 -359.913818359375 18437.020874023438 -391.443359375Q18466.258544921875 -422.972900390625 18466.258544921875 -478.253662109375Q18466.258544921875 -513.199462890625 18453.480224609375 -537.256103515625Q18440.701904296875 -561.312744140625 18415.95068359375 -574.28564453125Q18391.199462890625 -587.258544921875 18354.475341796875 -587.258544921875H18118.49267578125Z"/></g>
+</svg>
+    <div class="fl">
+      <a href="https://www.kaist.ac.kr" target="_blank" rel="noopener">KAIST</a>
+      <a href="https://ct.kaist.ac.kr" target="_blank" rel="noopener"><span lang="ko">문화기술대학원</span><span lang="en">Graduate School of Culture Technology</span></a>
+      <a href="https://ct.kaist.ac.kr/pages/sub/sub0302" target="_blank" rel="noopener"><span lang="ko">문화기술연구소</span><span lang="en">Culture Technology Research Institute</span></a>
+    </div>
+    <div class="copy">© 2026 FACT Research Center, KAIST</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  setTimeout(function(){document.body.classList.remove('intro')},2600);
+  var btn=document.getElementById('langBtn');
+  function setLang(l){
+    root.setAttribute('data-lang',l); root.setAttribute('lang',l);
+    btn.querySelectorAll('span').forEach(function(s){s.classList.toggle('on',s.getAttribute('data-l')===l)});
+    document.title = l==='en' ? 'FACT | Future Architecture Convergence Technology Research Center | KAIST' : 'FACT | 미래건축 융합기술 연구센터 | KAIST';
+  }
+  var q=new URLSearchParams(location.search).get('lang');
+  if(q==='en'||q==='ko') setLang(q);
+  btn.addEventListener('click',function(){ setLang(root.getAttribute('data-lang')==='ko'?'en':'ko'); });
+
+  var mb=document.getElementById('menuBtn'), nl=document.getElementById('navLinks');
+  mb.addEventListener('click',function(){ var o=nl.classList.toggle('open'); mb.setAttribute('aria-expanded',o); });
+  nl.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nl.classList.remove('open');mb.setAttribute('aria-expanded','false');});});
+
+
+  /* =====================================================================
+     소식 추가하는 곳
+     아래 NEWS 배열에 항목을 하나 추가하면 최신 날짜순으로 자동 정렬되어 표시됩니다.
+     형식:
+     { date:'YYYY-MM-DD',                 날짜 (필수)
+       cat:'notice',                       분류: notice(공지) event(행사) research(연구) press(언론) recruit(채용)
+       ko:{ title:'국문 제목', body:'국문 한두 줄 설명', link:'https://…', linkText:'자세히 보기' },
+       en:{ title:'English title', body:'One or two lines', link:'https://…', linkText:'Read more' } }
+     body, link, linkText 는 비워도 됩니다. 항목이 하나도 없으면 안내 문구가 대신 표시됩니다.
+     처음 다섯 건만 보이고 나머지는 "이전 소식 더 보기" 버튼으로 펼쳐집니다.
+     ===================================================================== */
+  var NEWS=[
+    { date:'2026-06-30', cat:'notice',
+      ko:{ title:'미래건축 융합기술 연구센터 설치', body:'KAIST 문화기술연구소 산하에 미래건축 융합기술 연구센터(FACT)가 설치되었습니다. 문화기술대학원, 산업디자인학과, 건설및환경공학과 교수 7인이 세 연구 그룹으로 참여합니다.', link:'https://ct.kaist.ac.kr/pages/sub/factrc', linkText:'문화기술대학원 소개 페이지' },
+      en:{ title:'FACT Research Center established', body:'The Future Architecture Convergence Technology Research Center was established under the KAIST Culture Technology Research Institute, with seven faculty members from three departments working in three research groups.', link:'https://ct.kaist.ac.kr/pages/sub/factrc', linkText:'Department page' } }
+    /* 예시 (앞의 슬래시 별표를 지우면 표시됩니다)
+    ,{ date:'2026-09-01', cat:'event',
+      ko:{ title:'센터 개소 기념 워크숍', body:'참여교수와 협력기관이 모여 센터의 연구 방향을 공유합니다.', link:'', linkText:'' },
+      en:{ title:'Opening workshop', body:'Faculty and partners share the research agenda of the center.', link:'', linkText:'' } }
+    */
+  ];
+  var CATS={notice:['공지','Notice'],event:['행사','Event'],research:['연구','Research'],press:['언론','Press'],recruit:['채용','Openings']};
+  (function renderNews(){
+    var list=document.getElementById('newsList'), more=document.getElementById('newsMore'); if(!list) return;
+    var items=NEWS.slice().sort(function(a,b){return a.date<b.date?1:-1});
+    if(!items.length){ list.innerHTML='<div class="empty"><p lang="ko">등록된 소식이 없습니다.</p><p lang="en">No news yet.</p></div>'; list.style.borderTop='0'; return; }
+    function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+    function row(n,i){
+      var c=CATS[n.cat]||[n.cat,n.cat];
+      function side(l){ var x=n[l]||{}; var h='<span class="t" lang="'+l+'">'+esc(x.title)+'</span>';
+        if(x.body) h+='<p class="b" lang="'+l+'">'+esc(x.body)+'</p>';
+        if(x.link) h+='<a class="l" lang="'+l+'" href="'+esc(x.link)+'" target="_blank" rel="noopener">'+esc(x.linkText||(l==='ko'?'자세히 보기':'Read more'))+' &rarr;</a>';
+        return h; }
+      return '<article class="news"'+(i>=5?' hidden data-more':'')+'><span class="d">'+esc(n.date.replace(/-/g,'.'))+'</span><span class="c"><span lang="ko">'+c[0]+'</span><span lang="en">'+c[1]+'</span></span>'+side('ko')+side('en')+'</article>';
+    }
+    list.innerHTML=items.map(row).join('');
+    if(items.length>5){ more.hidden=false; more.addEventListener('click',function(){ list.querySelectorAll('[data-more]').forEach(function(el){el.hidden=false}); more.hidden=true; }); }
+  })();
+
+  // research: card <-> plate highlight
+  var fig=document.getElementById('researchFig');
+  var cards=document.querySelectorAll('.grp');
+  function hl(name){
+    fig.classList.toggle('dim',!!name);
+    fig.querySelectorAll('.pl').forEach(function(p){p.classList.toggle('on',p.getAttribute('data-plate')===name)});
+    cards.forEach(function(c){c.classList.toggle('on',c.getAttribute('data-plate')===name)});
+  }
+  cards.forEach(function(c){
+    c.addEventListener('mouseenter',function(){hl(c.getAttribute('data-plate'))});
+    c.addEventListener('mouseleave',function(){hl(null)});
+    c.addEventListener('focusin',function(){hl(c.getAttribute('data-plate'))});
+    c.addEventListener('focusout',function(){hl(null)});
+  });
+  fig.querySelectorAll('.pl').forEach(function(p){
+    var n=p.getAttribute('data-plate'); if(n==='core') return;
+    p.style.cursor='pointer';
+    p.addEventListener('mouseenter',function(){hl(n)});
+    p.addEventListener('mouseleave',function(){hl(null)});
+    p.addEventListener('click',function(){var t=document.querySelector('.grp[data-plate="'+n+'"]'); if(t) t.scrollIntoView({behavior:'smooth',block:'center'});});
+  });
+  // hero: hovering a plate highlights it
+  var hf=document.getElementById('heroFig');
+  hf.querySelectorAll('.pl').forEach(function(p){
+    var n=p.getAttribute('data-plate'); if(n==='core') return;
+    p.addEventListener('mouseenter',function(){hf.classList.add('dim');p.classList.add('on');});
+    p.addEventListener('mouseleave',function(){hf.classList.remove('dim');p.classList.remove('on');});
+  });
+})();
+</script>
+</body>
+</html>
