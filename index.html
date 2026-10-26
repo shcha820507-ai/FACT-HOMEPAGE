@@ -226,6 +226,11 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
 .news-more button{background:none;border:1px solid var(--line-2);border-radius:2px;padding:10px 16px;font:inherit;font-family:var(--grot);font-size:.84rem;cursor:pointer;color:inherit}
 .news-more button:hover{background:#fff;color:#000}
 @media (max-width:860px){.news{grid-template-columns:1fr}}
+.news.has-th{grid-template-columns:120px minmax(0,1fr) 112px}
+.news .th{display:block;align-self:start;border:1px solid var(--line);transition:border-color .2s,opacity .2s}
+.news .th:hover{border-color:var(--accent-2)}
+.news .th img{display:block;width:100%;height:auto}
+@media (max-width:860px){.news.has-th{grid-template-columns:1fr}.news .th{width:112px;margin-top:4px}}
 
 /* empty */
 .empty{border-top:1px solid var(--line-2);border-bottom:1px solid var(--line);padding:30px 0;color:var(--fg-2);font-size:.98rem}
@@ -790,15 +795,23 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
      형식:
      { date:'YYYY-MM-DD',                 날짜 (필수)
        cat:'notice',                       분류: notice(공지) event(행사) research(연구) press(언론) recruit(채용)
+       poster:'news/파일.jpg', thumb:'news/파일-thumb.jpg',   포스터 원본과 작은 미리보기 이미지 (선택, news 폴더에 올림)
        ko:{ title:'국문 제목', body:'국문 한두 줄 설명', link:'https://…', linkText:'자세히 보기' },
        en:{ title:'English title', body:'One or two lines', link:'https://…', linkText:'Read more' } }
-     body, link, linkText 는 비워도 됩니다. 항목이 하나도 없으면 안내 문구가 대신 표시됩니다.
+     body, link, linkText, poster, thumb 는 비워도 됩니다. 항목이 하나도 없으면 안내 문구가 대신 표시됩니다.
+     날짜가 같은 소식은 아래 배열에 적은 순서대로 표시됩니다.
      처음 다섯 건만 보이고 나머지는 "이전 소식 더 보기" 버튼으로 펼쳐집니다.
      ===================================================================== */
   var NEWS=[
     { date:'2026-10-26', cat:'research',
       ko:{ title:'첫 번째 FACT 플랫폼 KAIST NexSpace 소개', body:'설계 도면 단계에서 AI 에이전트로 건물의 혼잡과 대기, 보행약자 이동, 피난 안전성을 미리 예측하는 시공 전 공간 행동 시뮬레이터입니다.', link:'nexspace/', linkText:'NexSpace 소개 페이지' },
       en:{ title:'Introducing KAIST NexSpace, the first FACT platform', body:'A pre-occupancy simulator that predicts congestion, waiting, accessibility and evacuation safety at the drawing stage, with AI agents.', link:'nexspace/?lang=en', linkText:'NexSpace page' } },
+    { date:'2026-10-17', cat:'event', poster:'news/2026-10-17-robot-city.jpg', thumb:'news/2026-10-17-robot-city-thumb.jpg',
+      ko:{ title:'세미나 「로봇을 맞이하는 도시와 건축」', body:'2026 한국도시설계학회 추계학술대회 세미나에서 차승현 센터장이 사회를 맡았습니다. 조영태 박사(LH 주택연구원)가 세종 로봇친화 도시를, 황경은 교수(경희대)가 로봇친화형 건축물 서비스 수용수준(RFB-LOS)을, 박성진 대표(스파크시티)가 로봇과 함께 살아가는 도시 계획을 발제했고, 남성우 박사(건축공간연구원)와 김원준 소장(조우아건축)이 토론했습니다. 주최는 한국도시설계학회 AI도시연구센터와 LH토지주택연구원, 장소는 수원컨벤션센터입니다.', link:'news/2026-10-17-robot-city.jpg', linkText:'포스터 보기' },
+      en:{ title:'Seminar: Cities and Architecture Welcoming Robots', body:'FACT director Seung Hyun Cha moderated this seminar at the 2026 autumn conference of the Urban Design Institute of Korea. Talks covered a robot-friendly city proposal for Sejong, service levels for robot-friendly buildings (RFB-LOS) and urban planning for living with robots, followed by a panel discussion. Hosted by the AI Urban Research Center of the Urban Design Institute of Korea and the LH Research Institute at the Suwon Convention Center.', link:'news/2026-10-17-robot-city.jpg', linkText:'View poster' } },
+    { date:'2026-10-17', cat:'event', poster:'news/2026-10-17-physical-ai.jpg', thumb:'news/2026-10-17-physical-ai-thumb.jpg',
+      ko:{ title:'특별세션 「Physical AI와 都市」', body:'KAIST가 협력기관으로 참여한 2026 한국도시설계학회 추계학술대회 LH토지주택연구원 특별세션에서 차승현 센터장이 이건원 교수(고려대)와 함께 토론을 맡았습니다. 안창원 단장(IITP)의 피지컬 AI 동향과 정책, R&D 방향, 류지호 본부장(한국로봇산업진흥원)의 국가로봇 테스트필드와 로봇친화도시 대구, 양도식 박사(인천광역시 미래도시총괄)의 로봇친화도시 인천 발표가 이어졌습니다. 주관은 LH토지주택연구원과 한국도시설계학회 AI도시연구센터입니다.', link:'news/2026-10-17-physical-ai.jpg', linkText:'포스터 보기' },
+      en:{ title:'Special session: Physical AI and the City', body:'KAIST joined this LH Research Institute special session at the 2026 autumn conference of the Urban Design Institute of Korea as a partner institution, with FACT director Seung Hyun Cha and a Korea University professor as discussants. Talks covered physical AI trends, policy and R&D directions, the national robot test field and robot-friendly city of Daegu, and robot-friendly city plans for Incheon. Organized by the LH Research Institute and the AI Urban Research Center of the Urban Design Institute of Korea.', link:'news/2026-10-17-physical-ai.jpg', linkText:'View poster' } },
     { date:'2026-06-30', cat:'notice',
       ko:{ title:'미래건축 융합기술 연구센터 설치', body:'KAIST 문화기술연구소 산하에 미래건축 융합기술 연구센터(FACT)가 설치되었습니다. 문화기술대학원, 산업디자인학과, 건설및환경공학과 교수 7인이 세 연구 그룹으로 참여합니다.', link:'https://ct.kaist.ac.kr/pages/sub/factrc', linkText:'문화기술대학원 소개 페이지' },
       en:{ title:'FACT Research Center established', body:'The Future Architecture Convergence Technology Research Center was established under the KAIST Culture Technology Research Institute, with seven faculty members from three departments working in three research groups.', link:'https://ct.kaist.ac.kr/pages/sub/factrc', linkText:'Department page' } }
@@ -811,16 +824,17 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
   var CATS={notice:['공지','Notice'],event:['행사','Event'],research:['연구','Research'],press:['언론','Press'],recruit:['채용','Openings']};
   (function renderNews(){
     var list=document.getElementById('newsList'), more=document.getElementById('newsMore'); if(!list) return;
-    var items=NEWS.slice().sort(function(a,b){return a.date<b.date?1:-1});
+    var items=NEWS.slice().sort(function(a,b){return a.date<b.date?1:(a.date>b.date?-1:0)});
     if(!items.length){ list.innerHTML='<div class="empty" style="border-top:0"><p lang="ko">등록된 소식이 없습니다.</p><p lang="en">No news yet.</p></div>'; return; }
     function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
     function row(n,i){
       var c=CATS[n.cat]||[n.cat,n.cat];
       function side(l){ var x=n[l]||{}; var h='<span class="t" lang="'+l+'">'+esc(x.title)+'</span>';
         if(x.body) h+='<p class="b" lang="'+l+'">'+esc(x.body)+'</p>';
-        if(x.link) h+='<a class="l" lang="'+l+'" href="'+esc(x.link)+'"'+(/^https?:/i.test(x.link)?' target="_blank" rel="noopener"':'')+'>'+esc(x.linkText||(l==='ko'?'자세히 보기':'Read more'))+' &rarr;</a>';
+        if(x.link) h+='<a class="l" lang="'+l+'" href="'+esc(x.link)+'"'+(/^https?:|\.(jpe?g|png|pdf)$/i.test(x.link)?' target="_blank" rel="noopener"':'')+'>'+esc(x.linkText||(l==='ko'?'자세히 보기':'Read more'))+' &rarr;</a>';
         return h; }
-      return '<article class="row news"'+(i>=5?' hidden data-more':'')+'><span class="d">'+esc(n.date.replace(/-/g,'.'))+'</span><div><span class="c"><span lang="ko">'+c[0]+'</span><span lang="en">'+c[1]+'</span></span>'+side('ko')+side('en')+'</div></article>';
+      var th=n.poster?'<a class="th" href="'+esc(n.poster)+'" target="_blank" rel="noopener"><img src="'+esc(n.thumb||n.poster)+'" alt="'+esc(((n.ko||{}).title||'')+' 포스터, '+((n.en||{}).title||'')+' poster')+'" loading="lazy" width="300" height="424"></a>':'';
+      return '<article class="row news'+(th?' has-th':'')+'"'+(i>=5?' hidden data-more':'')+'><span class="d">'+esc(n.date.replace(/-/g,'.'))+'</span><div><span class="c"><span lang="ko">'+c[0]+'</span><span lang="en">'+c[1]+'</span></span>'+side('ko')+side('en')+'</div>'+th+'</article>';
     }
     list.innerHTML=items.map(row).join('');
     if(items.length>5){ more.hidden=false; more.addEventListener('click',function(){ list.querySelectorAll('[data-more]').forEach(function(el){el.hidden=false}); more.hidden=true; }); }
