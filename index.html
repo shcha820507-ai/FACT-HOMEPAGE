@@ -791,7 +791,7 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
         </div>
       </article>
       <article class="tool" id="folio">
-        <div class="tool-meta mono"><span class="acc">P.02</span><span lang="ko">설계공모 심사 보조</span><span lang="en">Competition review support</span><span>2026</span><span lang="ko">개념 검증 단계</span><span lang="en">Proof of concept</span></div>
+        <div class="tool-meta mono"><span class="acc">P.02</span><span lang="ko">설계공모 심사 보조</span><span lang="en">Competition review support</span><span>2026</span><span lang="ko">합성 자료 검증 완료</span><span lang="en">Verified on synthetic data</span></div>
         <h3 class="tool-name"><span>FACT</span> Folio</h3>
         <p class="tool-tag" lang="ko">같은 지침으로, 나란히 읽습니다.</p>
         <p class="tool-tag" lang="en">Two entries, one brief, read side by side.</p>
@@ -803,13 +803,13 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
         <div class="fo-paper"></div>
         <figcaption class="fo-cap"><span lang="ko">FACT Folio의 검토 방식을 합성 예제로 재현한 화면입니다. 지침 항목과 수치는 실제 공모나 법규 기준이 아닙니다. 행이나 아래 항목을 누르면 해당 지침의 근거를 볼 수 있습니다.</span><span lang="en">A re-creation of how FACT Folio reviews entries, using a synthetic example. The brief items and figures are not from a real competition or legal standard. Select a row or an item below to see the evidence for that clause.</span></figcaption>
       </figure>
-        <p class="tool-desc" lang="ko">설계공모 출품안의 면적표를 같은 공모지침에 비추어 나란히 읽게 해 주는 심사 보조 도구입니다. 실별 요구면적과 허용범위, 최소 수량, 필수 공간을 두 안에 같은 규칙으로 적용하고, 항목마다 단위 환산과 면적 산정 기준, 제출 근거를 함께 남깁니다. 빠진 자료는 0으로 읽지 않고 판정을 보류하며, 점수와 순위, 당락은 만들지 않습니다. 판단은 심사위원의 몫으로 남겨 둡니다.</p>
-        <p class="tool-desc" lang="en">FACT Folio lets a jury read the area schedules of competition entries side by side against the same brief. It applies required room areas and tolerances, minimum counts and required spaces to both entries with one set of rules, and keeps the unit conversion, area definition and submitted source for every item. Missing data is held rather than read as zero, and it produces no scores, rankings or verdicts. Judgment stays with the jury.</p>
-        <span class="tool-kh mono"><span lang="ko">설계 원칙</span><span lang="en">By design</span></span>
+        <p class="tool-desc" lang="ko">설계공모 출품안의 면적표를 같은 공모지침에 비추어 나란히 읽게 해 주는 심사 보조 도구입니다. 실별 요구면적과 허용범위, 최소 수량, 필수 공간을 두 안에 같은 규칙으로 적용하고, 항목마다 단위 환산과 면적 산정 기준, 제출 근거를 함께 남깁니다. 빠진 자료는 0으로 읽지 않고 판정을 보류하며, 점수와 순위, 당락은 만들지 않습니다. 이 검토 엔진은 합성 자료로 검증을 마쳤고, 법규 검토와 행태 시뮬레이션 엔진을 연결해 생활 동선, 보행약자 피난, 로봇 대응까지 한 장의 비교표로 넓혀 갈 계획입니다.</p>
+        <p class="tool-desc" lang="en">FACT Folio lets a jury read the area schedules of competition entries side by side against the same brief. It applies required room areas and tolerances, minimum counts and required spaces to both entries with one set of rules, and keeps the unit conversion, area definition and submitted source for every item. Missing data is held rather than read as zero, and it produces no scores, rankings or verdicts. The review engine has been verified on synthetic data, and links to code-check and behavior simulation engines will extend the same comparison to daily circulation, evacuation for people with reduced mobility and robot readiness.</p>
+        <span class="tool-kh mono"><span lang="ko">합성 자료 검증 결과</span><span lang="en">Verified on synthetic data</span></span>
         <ul class="tool-kpi">
-          <li><b>0</b><span lang="ko">자동 점수, 순위, 당락 판정</span><span lang="en">Automatic scores, rankings or verdicts</span></li>
-          <li><b>3</b><span lang="ko">판정 상태: 충족, 불충족, 판정불가</span><span lang="en">Check states: met, not met, on hold</span></li>
-          <li><b>9</b><span lang="ko">민감도 조건: 허용편차 3가지와 측정 편향 3가지의 조합</span><span lang="en">Sensitivity conditions from 3 tolerances and 3 measurement biases</span></li>
+          <li><b>20</b><span lang="ko">독립 시험 모두 통과</span><span lang="en">Independent tests, all passed</span></li>
+          <li><b>8</b><span lang="ko">별도 실행 점검 모두 통과</span><span lang="en">Separate-run checks, all passed</span></li>
+          <li><b>14</b><span lang="ko">브라우저 과업 모두 통과</span><span lang="en">Browser tasks, all passed</span></li>
         </ul>
         <ul class="tool-stack" aria-label="Core features">
           <li lang="ko">공모지침 규칙화</li><li lang="en">Brief-to-rule mapping</li>
@@ -963,8 +963,8 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
      ===================================================================== */
   var NEWS=[
     { date:'2026-11-05', cat:'research',
-      ko:{ title:'두 번째 FACT 플랫폼 FACT Folio 소개', body:'설계공모 출품안의 면적표를 같은 공모지침에 비추어 나란히 읽고, 항목마다 근거를 남기는 심사 보조 도구입니다. 점수와 순위, 당락은 만들지 않으며, 합성 자료로 검증한 개념 검증 단계입니다.', link:'folio/', linkText:'Folio 소개 페이지' },
-      en:{ title:'Introducing FACT Folio, the second FACT platform', body:'A review aid that reads competition entries side by side against one brief and keeps the evidence for every check. It makes no scores, rankings or verdicts, and is at the proof-of-concept stage, tested on synthetic data.', link:'folio/?lang=en', linkText:'Folio page' } },
+      ko:{ title:'두 번째 FACT 플랫폼 FACT Folio 소개', body:'설계공모 출품안의 면적표를 같은 공모지침에 비추어 나란히 읽고, 항목마다 근거를 남기는 심사 보조 도구입니다. 점수와 순위, 당락은 만들지 않으며, 합성 자료로 검증을 마쳤습니다.', link:'folio/', linkText:'Folio 소개 페이지' },
+      en:{ title:'Introducing FACT Folio, the second FACT platform', body:'A review aid that reads competition entries side by side against one brief and keeps the evidence for every check. It makes no scores, rankings or verdicts, and has been verified on synthetic data.', link:'folio/?lang=en', linkText:'Folio page' } },
     { date:'2026-11-20', cat:'event', poster:'news/2026-11-20-gwangju-forum.jpg', thumb:'news/2026-11-20-gwangju-forum-thumb.jpg',
       ko:{ title:'2026 광주건축도시포럼 「AI와 사람, 도시의 미래를 잇다」', body:'11월 20일(금) 15:20 전남대학교 코스모스홀에서 열리는 2026 광주건축도시포럼의 FUTURE 2046 포럼 「AI와 도시공간의 혁신」에 차승현 센터장이 토론자로 참여합니다. 조영태 박사(LH토지주택연구원, 한국도시설계학회 연구부회장)가 발제하고 오세규 교수(한국도시설계학회 회장, 전남대학교)가 좌장을 맡으며, 박종현 교수(호남대학교), 이건원 교수(고려대학교), 추승연 교수(경북대학교)가 함께 토론합니다. 이어 이정재 대한건축학회 회장의 특별강연 「AI 활용 인간참여형 도시미기후 예측 및 통합 관리」가 있습니다. 주최는 전남광주통합특별시, 주관은 대한건축학회 광주전남지회, 광주건축단체연합회, 한국도시설계학회 광주전남지회입니다.', link:'news/2026-11-20-gwangju-forum.jpg', linkText:'포스터 보기' },
       en:{ title:'2026 Gwangju Architecture and Urban Forum', body:'FACT director Seung Hyun Cha joins the panel of the FUTURE 2046 forum, "AI and Innovation in Urban Space", at the 2026 Gwangju Architecture and Urban Forum, held on November 20 from 15:20 at Cosmos Hall, Chonnam National University. The panel follows a keynote presentation and is chaired by the president of the Urban Design Institute of Korea. A special lecture by the president of the Architectural Institute of Korea on AI-based, participatory prediction and management of urban microclimate closes the program.', link:'news/2026-11-20-gwangju-forum.jpg', linkText:'View poster' } },
