@@ -177,6 +177,18 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
 }
 @media (prefers-reduced-motion:reduce){.nx-scn i{animation:none}}
 
+/* contact: copy button and arrival highlight */
+.copy-mail{display:inline-flex;align-items:center;margin:0;padding:3px 10px;border:1px solid var(--line-2);border-radius:2px;background:none;color:var(--fg-2);font-family:var(--grot);font-size:.72rem;font-weight:600;letter-spacing:.02em;line-height:1.5;vertical-align:middle;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.copy-mail:hover{background:#fff;color:#000;border-color:#fff}
+.copy-mail .c1{display:none}
+.copy-mail.done,.copy-mail.done:hover{background:none;border-color:var(--accent-2);color:var(--accent-2)}
+.copy-mail.done .c0{display:none}
+.copy-mail.done .c1{display:inline}
+.colophon .mailrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.colophon:target .mailrow .mail{animation:mailHi 2.8s ease .6s 1 both}
+@keyframes mailHi{0%,100%{background:transparent}18%,60%{background:rgba(143,176,255,.26)}}
+@media (prefers-reduced-motion:reduce){.colophon:target .mailrow .mail{animation:none;background:rgba(143,176,255,.18)}}
+
 /* ===== NexSpace page ===== */
 .nav-links a.cur{color:#fff;border-color:var(--accent-2)}
 .nav-links a.cur i{color:var(--accent-2)}
@@ -379,6 +391,15 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
 .pfoot .copy{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--fg-3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;text-transform:uppercase}
 
 @media (prefers-reduced-motion:reduce){.cmp .tr i,.cohorts .bar i{transition:none}}
+
+/* access: email shown on the page */
+.reach{margin-top:30px;padding-top:18px;border-top:1px solid var(--line-2)}
+.reach .mono{display:block}
+.ch-body .reach-mail{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.reach-mail .mail{font-family:var(--mono);font-size:1.05rem;letter-spacing:.01em;color:#fff;border-bottom:1px solid var(--line-2);transition:color .2s,border-color .2s}
+.reach-mail .mail:hover{color:var(--accent-2);border-color:var(--accent-2)}
+.ch-body .reach-who{margin-top:8px;font-size:.88rem;color:var(--fg-3)}
+.reach+.tool-cta{margin-top:24px}
 </style>
 </head>
 <body>
@@ -718,9 +739,13 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
     <div class="ch-body">
       <p class="big" lang="ko">공동 연구, 실증 프로젝트, 시연 요청을 받고 있습니다. 검토하려는 건물 유형과 설계 단계를 알려 주시면 그에 맞는 시나리오로 시연을 준비하겠습니다.</p>
       <p class="big" lang="en">We welcome joint research, pilot projects and demo requests. Tell us the building type and design stage you have in mind, and we will prepare a demo with a matching scenario.</p>
+      <div class="reach">
+        <span class="mono"><span lang="ko">문의 이메일</span><span lang="en">Email</span></span>
+        <p class="reach-mail"><a class="mail" href="mailto:fact.kaist@gmail.com?subject=KAIST%20NexSpace%20%EC%8B%9C%EC%97%B0%20%EB%AC%B8%EC%9D%98&amp;body=%EA%B8%B0%EA%B4%80%EB%AA%85%3A%0A%EB%8B%B4%EB%8B%B9%EC%9E%90%3A%0A%EA%B2%80%ED%86%A0%ED%95%98%EB%A0%A4%EB%8A%94%20%EA%B1%B4%EB%AC%BC%20%EC%9C%A0%ED%98%95%EA%B3%BC%20%EC%84%A4%EA%B3%84%20%EB%8B%A8%EA%B3%84%3A%0A" lang="ko">fact.kaist@gmail.com</a><a class="mail" href="mailto:fact.kaist@gmail.com?subject=KAIST%20NexSpace%20demo%20request&amp;body=Organization%3A%0AName%3A%0ABuilding%20type%20and%20design%20stage%3A%0A" lang="en">fact.kaist@gmail.com</a><button type="button" class="copy-mail" data-copy="fact.kaist@gmail.com"><span class="c0"><span lang="ko">주소 복사</span><span lang="en">Copy</span></span><span class="c1"><span lang="ko">복사했습니다</span><span lang="en">Copied</span></span></button></p>
+        <p class="reach-who"><span lang="ko">센터장 차승현 교수, KAIST 문화기술대학원</span><span lang="en">Director, Prof. Seung Hyun Cha, KAIST Graduate School of Culture Technology</span></p>
+      </div>
       <div class="tool-cta">
-        <a class="btn acc" href="mailto:fact.kaist@gmail.com?subject=KAIST%20NexSpace%20%EC%8B%9C%EC%97%B0%20%EB%AC%B8%EC%9D%98&amp;body=%EA%B8%B0%EA%B4%80%EB%AA%85%3A%0A%EB%8B%B4%EB%8B%B9%EC%9E%90%3A%0A%EA%B2%80%ED%86%A0%ED%95%98%EB%A0%A4%EB%8A%94%20%EA%B1%B4%EB%AC%BC%20%EC%9C%A0%ED%98%95%EA%B3%BC%20%EC%84%A4%EA%B3%84%20%EB%8B%A8%EA%B3%84%3A%0A" lang="ko">시연 및 협력 문의 <span aria-hidden="true">&rarr;</span></a><a class="btn acc" href="mailto:fact.kaist@gmail.com?subject=KAIST%20NexSpace%20demo%20request&amp;body=Organization%3A%0AName%3A%0ABuilding%20type%20and%20design%20stage%3A%0A" lang="en">Request a demo <span aria-hidden="true">&rarr;</span></a>
-        <a class="btn" href="../#contact" data-keep-lang><span lang="ko">센터 연락처</span><span lang="en">Center contact</span></a>
+        <a class="btn acc" href="../#contact" data-keep-lang><span lang="ko">시연 및 협력 문의</span><span lang="en">Request a demo</span> <span aria-hidden="true">&rarr;</span></a>
       </div>
       <ul class="credits">
         <li><b>Data</b>NVIDIA Nemotron-Personas-Korea, CC BY 4.0, Hugging Face</li>
@@ -1104,6 +1129,24 @@ Sim.prototype.draw=function(){
 function init(){document.querySelectorAll('[data-nx]').forEach(function(f){if(!f.__nx)f.__nx=new Sim(f);});}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 if(document.fonts&&document.fonts.ready){document.fonts.ready.then(function(){document.querySelectorAll('[data-nx]').forEach(function(f){if(f.__nx)f.__nx.draw();});});}
+})();
+/* contact: copy the center's address, with a fallback when the clipboard API is not available */
+(function(){
+  if(window.__factCopy)return; window.__factCopy=true;
+  function done(b){b.classList.add('done');clearTimeout(b.__t);b.__t=setTimeout(function(){b.classList.remove('done');},2000);}
+  document.addEventListener('click',function(e){
+    var b=e.target.closest?e.target.closest('[data-copy]'):null; if(!b)return;
+    var v=b.getAttribute('data-copy');
+    function fallback(){
+      var ta=document.createElement('textarea'); ta.value=v; ta.setAttribute('readonly','');
+      ta.style.position='fixed'; ta.style.top='0'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{document.execCommand('copy');}catch(err){}
+      document.body.removeChild(ta); done(b);
+    }
+    if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(v).then(function(){done(b);},fallback);
+    else fallback();
+  });
 })();
 </script>
 </body>

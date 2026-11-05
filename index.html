@@ -321,6 +321,18 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
   .nx-kpis>div:nth-child(n+3){border-top:1px solid var(--line)}
 }
 @media (prefers-reduced-motion:reduce){.nx-scn i{animation:none}}
+
+/* contact: copy button and arrival highlight */
+.copy-mail{display:inline-flex;align-items:center;margin:0;padding:3px 10px;border:1px solid var(--line-2);border-radius:2px;background:none;color:var(--fg-2);font-family:var(--grot);font-size:.72rem;font-weight:600;letter-spacing:.02em;line-height:1.5;vertical-align:middle;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.copy-mail:hover{background:#fff;color:#000;border-color:#fff}
+.copy-mail .c1{display:none}
+.copy-mail.done,.copy-mail.done:hover{background:none;border-color:var(--accent-2);color:var(--accent-2)}
+.copy-mail.done .c0{display:none}
+.copy-mail.done .c1{display:inline}
+.colophon .mailrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.colophon:target .mailrow .mail{animation:mailHi 2.8s ease .6s 1 both}
+@keyframes mailHi{0%,100%{background:transparent}18%,60%{background:rgba(143,176,255,.26)}}
+@media (prefers-reduced-motion:reduce){.colophon:target .mailrow .mail{animation:none;background:rgba(143,176,255,.18)}}
 /* ===== FACT Folio review sheet ===== */
 .tool+.tool{margin-top:clamp(64px,8vw,104px)}
 .fo{margin:24px 0 0;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.018),rgba(255,255,255,0) 60%)}
@@ -787,7 +799,7 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
         </ul>
         <div class="tool-cta">
           <a class="btn acc" href="nexspace/" data-keep-lang><span lang="ko">NexSpace 자세히 보기</span><span lang="en">Explore NexSpace</span> <span aria-hidden="true">&rarr;</span></a>
-          <a class="btn" href="mailto:fact.kaist@gmail.com?subject=KAIST%20NexSpace%20%EC%8B%9C%EC%97%B0%20%EB%AC%B8%EC%9D%98&amp;body=%EA%B8%B0%EA%B4%80%EB%AA%85%3A%0A%EB%8B%B4%EB%8B%B9%EC%9E%90%3A%0A%EA%B2%80%ED%86%A0%ED%95%98%EB%A0%A4%EB%8A%94%20%EA%B1%B4%EB%AC%BC%20%EC%9C%A0%ED%98%95%EA%B3%BC%20%EC%84%A4%EA%B3%84%20%EB%8B%A8%EA%B3%84%3A%0A" lang="ko">시연 및 협력 문의</a><a class="btn" href="mailto:fact.kaist@gmail.com?subject=KAIST%20NexSpace%20demo%20request&amp;body=Organization%3A%0AName%3A%0ABuilding%20type%20and%20design%20stage%3A%0A" lang="en">Request a demo</a>
+          <a class="btn" href="#contact"><span lang="ko">시연 및 협력 문의</span><span lang="en">Request a demo</span></a>
         </div>
       </article>
       <article class="tool" id="folio">
@@ -823,7 +835,7 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
         </ul>
         <div class="tool-cta">
           <a class="btn acc" href="folio/" data-keep-lang><span lang="ko">Folio 자세히 보기</span><span lang="en">Explore Folio</span> <span aria-hidden="true">&rarr;</span></a>
-          <a class="btn" href="mailto:fact.kaist@gmail.com?subject=FACT%20Folio%20%EC%8B%9C%EC%97%B0%20%EB%B0%8F%20%EC%8B%A4%EC%A6%9D%20%ED%98%91%EB%A0%A5%20%EB%AC%B8%EC%9D%98&amp;body=%EA%B8%B0%EA%B4%80%EB%AA%85%3A%0A%EB%8B%B4%EB%8B%B9%EC%9E%90%3A%0A%EA%B2%80%ED%86%A0%ED%95%98%EB%A0%A4%EB%8A%94%20%EA%B3%B5%EB%AA%A8%EC%9D%98%20%EC%9C%A0%ED%98%95%EA%B3%BC%20%EC%9D%BC%EC%A0%95%3A%0A" lang="ko">시연 및 실증 협력 문의</a><a class="btn" href="mailto:fact.kaist@gmail.com?subject=FACT%20Folio%20demo%20and%20pilot%20inquiry&amp;body=Organization%3A%0AName%3A%0ACompetition%20type%20and%20schedule%3A%0A" lang="en">Request a demo</a>
+          <a class="btn" href="#contact"><span lang="ko">시연 및 실증 협력 문의</span><span lang="en">Request a demo</span></a>
         </div>
       </article>
       <div class="tool-next"><span class="k">P.03</span><span lang="ko">다음 플랫폼을 준비하고 있습니다.</span><span lang="en">The next platform is in development.</span></div>
@@ -893,13 +905,13 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
       <div class="ch-num">09</div>
       <h2 class="ch-title" lang="ko">연락처</h2>
       <h2 class="ch-title" lang="en">Contact</h2>
-      <p class="ch-desc" lang="ko">공동 연구, 산학 과제, 자문, 방문과 채용에 관한 문의를 받습니다.</p>
-      <p class="ch-desc" lang="en">Joint research, industry projects, advisory work, visits and positions.</p>
+      <p class="ch-desc" lang="ko">공동 연구, 산학 과제, 자문, 방문과 채용, 플랫폼 시연과 실증 협력에 관한 문의를 받습니다.</p>
+      <p class="ch-desc" lang="en">Joint research, industry projects, advisory work, visits, positions, and platform demos and pilots.</p>
     </aside>
     <div>
       <div class="cols">
         <div><h4 lang="ko">주소</h4><h4 lang="en">Address</h4><p lang="ko">KAIST 문화기술대학원 (N5)<br>미래공간연구실<br>34141 대전광역시 유성구 대학로 291</p><p lang="en">Future Space Lab<br>Graduate School of Culture Technology (N5), KAIST<br>291 Daehak-ro, Yuseong-gu, Daejeon 34141, Korea</p><p class="coord">36.372° N, 127.360° E</p></div>
-        <div><h4 lang="ko">이메일</h4><h4 lang="en">Email</h4><p><a class="link mail" href="mailto:fact.kaist@gmail.com">fact.kaist@gmail.com</a></p><p lang="ko" style="margin-top:6px;color:var(--fg-3);font-size:.86rem">공동 연구, 산학 과제, 자문, 방문, 채용 문의</p><p lang="en" style="margin-top:6px;color:var(--fg-3);font-size:.86rem">Joint research, industry projects, advisory work, visits and positions</p><h4 lang="ko" style="margin-top:20px">센터장</h4><h4 lang="en" style="margin-top:20px">Director</h4><p lang="ko">차승현 교수, 문화기술대학원</p><p lang="en">Prof. Seung Hyun Cha, Graduate School of Culture Technology</p></div>
+        <div><h4 lang="ko">이메일</h4><h4 lang="en">Email</h4><p class="mailrow"><a class="link mail" href="mailto:fact.kaist@gmail.com">fact.kaist@gmail.com</a><button type="button" class="copy-mail" data-copy="fact.kaist@gmail.com"><span class="c0"><span lang="ko">주소 복사</span><span lang="en">Copy</span></span><span class="c1"><span lang="ko">복사했습니다</span><span lang="en">Copied</span></span></button></p><p lang="ko" style="margin-top:6px;color:var(--fg-3);font-size:.86rem">공동 연구, 산학 과제, 자문, 방문, 채용, 플랫폼 시연과 실증 협력 문의</p><p lang="en" style="margin-top:6px;color:var(--fg-3);font-size:.86rem">Joint research, industry projects, advisory work, visits, positions, and platform demos and pilots</p><h4 lang="ko" style="margin-top:20px">센터장</h4><h4 lang="en" style="margin-top:20px">Director</h4><p lang="ko">차승현 교수, 문화기술대학원</p><p lang="en">Prof. Seung Hyun Cha, Graduate School of Culture Technology</p></div>
         <div><h4 lang="ko">링크</h4><h4 lang="en">Links</h4><ul><li><a class="link" href="https://fsl.kaist.ac.kr" target="_blank" rel="noopener">Future Space Lab</a></li><li><a class="link" href="https://ct.kaist.ac.kr/pages/sub/factrc" target="_blank" rel="noopener"><span lang="ko">문화기술대학원 센터 소개</span><span lang="en">Center page at GSCT</span></a></li><li><a class="link" href="https://ct.kaist.ac.kr/pages/sub/sub0302" target="_blank" rel="noopener"><span lang="ko">문화기술연구소</span><span lang="en">Culture Technology Research Institute</span></a></li><li><a class="link" href="https://ct.kaist.ac.kr/pages/sub/sub0103" target="_blank" rel="noopener"><span lang="ko">오시는 길</span><span lang="en">Directions</span></a></li><li><a class="link" href="https://www.kaist.ac.kr" target="_blank" rel="noopener">KAIST</a></li></ul></div>
       </div>
       <div class="fbrand" style="margin-top:44px">
@@ -1656,6 +1668,26 @@ function init(){
   document.querySelectorAll('[data-fo-sens]').forEach(function(f){if(!f.__fs)f.__fs=new Sens(f);});
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+<script>
+/* contact: copy the center's address, with a fallback when the clipboard API is not available */
+(function(){
+  if(window.__factCopy)return; window.__factCopy=true;
+  function done(b){b.classList.add('done');clearTimeout(b.__t);b.__t=setTimeout(function(){b.classList.remove('done');},2000);}
+  document.addEventListener('click',function(e){
+    var b=e.target.closest?e.target.closest('[data-copy]'):null; if(!b)return;
+    var v=b.getAttribute('data-copy');
+    function fallback(){
+      var ta=document.createElement('textarea'); ta.value=v; ta.setAttribute('readonly','');
+      ta.style.position='fixed'; ta.style.top='0'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{document.execCommand('copy');}catch(err){}
+      document.body.removeChild(ta); done(b);
+    }
+    if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(v).then(function(){done(b);},fallback);
+    else fallback();
+  });
 })();
 </script>
 </body>
