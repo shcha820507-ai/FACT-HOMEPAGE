@@ -635,6 +635,60 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
 .vbig.v4 div:nth-child(odd){padding-left:0;border-left:0}
 .vbig.v4 div:nth-child(n+3){border-top:1px solid var(--line)}
 @media (max-width:760px){.vbig.v4{grid-template-columns:1fr}.vbig.v4 div+div{border-top:1px solid var(--line)}}
+
+/* working screen: the layout redrawn in the site colors, the actual screen on request */
+.scr{margin:0;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.018),rgba(255,255,255,0) 60%)}
+.scr+.feat{margin-top:34px}
+.scr-bar{display:flex;align-items:center;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;padding:10px 12px 10px 14px;border-bottom:1px solid var(--line)}
+.scr-l{min-width:0;font-size:.62rem;letter-spacing:.04em;color:var(--fg-2)}
+.scr-stage{position:relative;aspect-ratio:1440/1000;overflow:hidden;background-color:rgba(255,255,255,.006);background-image:linear-gradient(rgba(255,255,255,.032) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.032) 1px,transparent 1px);background-size:24px 24px;background-position:-1px -1px}
+.scr-win{position:absolute;inset:3.4%;display:grid;grid-template-columns:5% minmax(0,1fr) minmax(0,1fr) 24%;grid-template-rows:8% minmax(0,1fr) 16%;grid-template-areas:"side top top note" "side a b note" "side tabs tabs tabs";gap:1.4%;transition:opacity .35s}
+.scr .z{position:relative;min-width:0;min-height:0;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:rgba(12,13,16,.78)}
+.scr .sk{display:block;flex:none;height:4px;border-radius:1px;background:rgba(255,255,255,.2)}
+.scr .sk.hi{background:rgba(255,255,255,.55)}
+.scr .z-side{grid-area:side;display:flex;align-items:center;justify-content:center;background-color:rgba(143,176,255,.08);background-image:repeating-linear-gradient(135deg,rgba(143,176,255,.28) 0 1px,transparent 1px 6px);border-color:rgba(143,176,255,.45)}
+.scr .z-side span{writing-mode:vertical-rl;font-family:var(--mono);font-size:clamp(.4rem,.85vw,.6rem);letter-spacing:.16em;text-transform:uppercase;color:#fff}
+.scr .z-top{grid-area:top;display:flex;align-items:center;gap:6%;padding:0 3%}
+.scr .tbs{display:flex;flex:1;gap:4%}
+.scr .tbs i{display:block;width:13%;height:3px;background:rgba(255,255,255,.18)}
+.scr .tbs i.on{background:var(--accent-2)}
+.scr .z-a{grid-area:a}
+.scr .z-b{grid-area:b}
+.scr .z-a,.scr .z-b{padding:4% 5% 0}
+.scr .sh-h{display:flex;align-items:baseline;gap:6px;padding-bottom:4%;border-bottom:1px solid rgba(255,255,255,.3)}
+.scr .sh-h b{font-family:var(--grot);font-size:clamp(.66rem,1.6vw,1.15rem);font-weight:500;line-height:1;color:var(--fg-3)}
+.scr .sh-h em{font-style:normal;font-family:var(--grot);font-size:clamp(.62rem,1.4vw,1rem);font-weight:600;line-height:1;color:#fff}
+.scr .z-b .sh-h em{color:var(--accent-2)}
+.scr .sh-l li{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"n m" "v m";gap:5px 8px;align-items:center;padding:6.5% 4px 6.5% 7px;border-bottom:1px solid rgba(255,255,255,.08)}
+.scr .sh-l li.on{background:rgba(143,176,255,.08)}
+.scr .sh-l li.on::before{content:"";position:absolute;left:0;top:18%;bottom:18%;width:2px;background:var(--accent-2)}
+.scr .sh-l .sk{grid-area:n}
+.scr .sh-l .sk.v{grid-area:v;height:6px;background:rgba(255,255,255,.36)}
+.scr .sh-l .mk{grid-area:m;width:6px;height:6px}
+.scr .z-note{grid-area:note;display:flex;flex-direction:column;gap:5%;padding:6% 7%}
+.scr .nt{display:flex;align-items:center;justify-content:space-between}
+.scr .nb{display:block;width:44%;height:9px;background:var(--accent)}
+.scr .nr{position:relative;display:block;flex:none;height:22px}
+.scr .nr i{position:absolute;display:block}
+.scr .nr .band{left:26%;width:46%;top:2px;bottom:2px;background-color:rgba(143,176,255,.1);background-image:repeating-linear-gradient(135deg,rgba(143,176,255,.34) 0 1px,transparent 1px 5px);border-left:1px solid rgba(143,176,255,.6);border-right:1px solid rgba(143,176,255,.6)}
+.scr .nr .t{left:49%;top:0;bottom:0;border-left:1px dashed var(--accent-2)}
+.scr .nr .ma{left:86%;top:4px;width:7px;height:7px;margin-left:-3.5px;background:#D9939C}
+.scr .nr .mb{left:64%;bottom:4px;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:#C9CDD6}
+.scr .nn{display:flex;flex-direction:column;gap:7px;margin-top:auto;padding-top:9%;border-top:1px solid rgba(255,255,255,.12)}
+.scr .z-tabs{grid-area:tabs;display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.scr .tb{position:relative;display:flex;flex-direction:column;justify-content:center;gap:7px;padding:0 9%;border-left:1px solid rgba(255,255,255,.1)}
+.scr .tb:first-child{border-left:0}
+.scr .tb.on{background:rgba(143,176,255,.08)}
+.scr .tb.on::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--accent-2)}
+.scr .tb span{display:flex;gap:4px}
+.scr .tb .mk{width:5px;height:5px}
+.scr .co{position:absolute;z-index:2;transform:translate(-50%,-50%);padding:3px 7px;border-radius:2px;background:var(--accent);color:#fff;font-family:var(--mono);font-size:.6rem;letter-spacing:.04em;line-height:1.3;white-space:nowrap;box-shadow:0 0 0 3px rgba(12,13,16,.85)}
+.scr-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;visibility:hidden;transition:opacity .35s,visibility 0s .35s}
+.scr.real .scr-img{opacity:1;visibility:visible;transition:opacity .35s}
+.scr.real .scr-win{opacity:0;visibility:hidden}
+.scr figcaption{padding:11px 14px 12px;border-top:1px solid var(--line);font-size:.78rem;line-height:1.65;color:var(--fg-3)}
+@media (max-width:640px){.scr .co{padding:2px 5px;font-size:.5rem}.scr .sh-l li{gap:3px 5px;padding:6% 3px 6% 5px}.scr .sk{height:3px}.scr .sh-l .sk.v{height:4px}.scr .nr{height:14px}.scr .nn{gap:4px}.scr .nb{height:6px}}
+@media (prefers-reduced-motion:reduce){.scr-win,.scr-img{transition:none}}
 </style>
 </head>
 <body>
@@ -849,9 +903,30 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
       <p class="ch-desc" lang="en">Two calculation sheets in the middle, review notes on the right and brief bookmarks along the bottom.</p>
     </aside>
     <div class="ch-body">
-      <figure class="shot">
-        <img src="screen-desktop.jpg" width="1440" height="1000" loading="lazy" decoding="async" alt="FACT Folio 작업 화면. 합성 예제의 두 설계안을 같은 지침으로 비교하는 모습. FACT Folio working screen comparing two entries of the synthetic example against one brief.">
-        <figcaption><span lang="ko">합성 예제로 실행한 FACT Folio 작업 화면(5차 화면 설계). 지면은 입력값에서 만든 산정 표현이며, 실제 도면이나 BIM 뷰어가 아닙니다.</span><span lang="en">FACT Folio running on the synthetic example (fifth screen design). The sheets are rendered from input values. They are not drawings or a BIM viewer.</span></figcaption>
+      <figure class="scr" data-scr>
+        <div class="scr-bar">
+          <span class="scr-l mono"><span lang="ko">작업 화면 구성도, 5차 화면 설계</span><span lang="en">Working screen layout, fifth screen design</span></span>
+          <div class="nx-toggle" role="group" aria-label="Layout drawing or actual screen">
+            <button type="button" data-v="0" aria-pressed="true"><span lang="ko">구성도</span><span lang="en">Layout</span></button>
+            <button type="button" data-v="1" aria-pressed="false"><span lang="ko">실제 화면</span><span lang="en">Actual screen</span></button>
+          </div>
+        </div>
+        <div class="scr-stage">
+          <div class="scr-win" role="img" aria-label="FACT Folio 작업 화면 구성도. 왼쪽 세로 제목, 가운데 두 산정 지면, 오른쪽 검토 의견, 아래 지침 책갈피. Layout of the FACT Folio working screen: title band, two calculation sheets, review notes and brief bookmarks.">
+            <div class="z z-side"><span>FACT Folio</span></div>
+            <div class="z z-top"><i class="sk hi" style="width:20%"></i><span class="tbs"><i class="on"></i><i></i><i></i><i></i></span></div>
+            <div class="z z-a"><div class="sh-h"><b>01</b><em>A</em></div><ul class="sh-l"><li class="on"><i class="sk" style="width:58%"></i><i class="sk v" style="width:34%"></i><i class="mk rv"></i></li><li><i class="sk" style="width:50%"></i><i class="sk v" style="width:30%"></i><i class="mk ok"></i></li><li><i class="sk" style="width:44%"></i><i class="sk v" style="width:36%"></i><i class="mk ok"></i></li><li><i class="sk" style="width:54%"></i><i class="sk v" style="width:26%"></i><i class="mk rv"></i></li><li><i class="sk" style="width:46%"></i><i class="sk v" style="width:28%"></i><i class="mk ok"></i></li></ul></div>
+            <div class="z z-b"><div class="sh-h"><b>02</b><em>B</em></div><ul class="sh-l"><li class="on"><i class="sk" style="width:58%"></i><i class="sk v" style="width:34%"></i><i class="mk ok"></i></li><li><i class="sk" style="width:50%"></i><i class="sk v" style="width:30%"></i><i class="mk ok"></i></li><li><i class="sk" style="width:44%"></i><i class="sk v" style="width:36%"></i><i class="mk na"></i></li><li><i class="sk" style="width:54%"></i><i class="sk v" style="width:26%"></i><i class="mk ok"></i></li><li><i class="sk" style="width:46%"></i><i class="sk v" style="width:28%"></i><i class="mk rv"></i></li></ul></div>
+            <div class="z z-note"><span class="nt"><i class="sk" style="width:34%"></i><i class="nb"></i></span><i class="sk hi" style="width:64%"></i><span class="nr"><i class="band"></i><i class="t"></i><i class="ma"></i><i class="mb"></i></span><i class="sk" style="width:86%"></i><i class="sk" style="width:68%"></i><span class="nn"><i class="sk" style="width:44%"></i><i class="sk" style="width:92%"></i><i class="sk" style="width:74%"></i></span></div>
+            <div class="z z-tabs"><span class="tb on"><i class="sk" style="width:70%"></i><span><i class="mk rv"></i><i class="mk ok"></i></span></span><span class="tb"><i class="sk" style="width:62%"></i><span><i class="mk ok"></i><i class="mk ok"></i></span></span><span class="tb"><i class="sk" style="width:58%"></i><span><i class="mk ok"></i><i class="mk na"></i></span></span><span class="tb"><i class="sk" style="width:66%"></i><span><i class="mk rv"></i><i class="mk ok"></i></span></span><span class="tb"><i class="sk" style="width:54%"></i><span><i class="mk ok"></i><i class="mk rv"></i></span></span></div>
+            <span class="co" style="left:31%;top:13%">F.01</span>
+            <span class="co" style="left:46%;top:89%">F.02</span>
+            <span class="co" style="left:87%;top:52%">F.03</span>
+            <span class="co" style="left:66%;top:4.1%">F.04, F.05</span>
+          </div>
+          <img class="scr-img" src="screen-desktop.jpg" width="1440" height="1000" loading="lazy" decoding="async" alt="FACT Folio 실제 작업 화면. 합성 예제의 두 설계안을 같은 지침으로 비교하는 모습. The actual FACT Folio working screen comparing two entries of the synthetic example against one brief.">
+        </div>
+        <figcaption><span lang="ko">기본 그림은 실제 작업 화면(5차 화면 설계)의 배치를 사이트 색으로 다시 그린 구성도이고, 번호는 아래 기능 설명의 번호입니다. 실제 화면 버튼을 누르면 합성 예제로 실행한 실제 화면이 나옵니다. 지면은 입력값에서 만든 산정 표현이며, 실제 도면이나 BIM 뷰어가 아닙니다.</span><span lang="en">The default view redraws the layout of the actual working screen (fifth screen design) in the site's colors, numbered to match the features below. Select Actual screen to see Folio running on the synthetic example. The sheets are rendered from input values. They are not drawings or a BIM viewer.</span></figcaption>
       </figure>
       <ul class="feat">
         <li><span class="k">F.01</span><h3 lang="ko">두 산정 지면</h3><h3 lang="en">Two calculation sheets</h3><p lang="ko">기준안과 대안을 같은 형식의 지면에 나란히 펼쳐, 같은 지침 항목을 같은 순서로 읽습니다.</p><p lang="en">The baseline and the alternative are laid out on sheets of the same format, so the same brief items read in the same order.</p></li>
@@ -1294,6 +1369,16 @@ function init(){
   if('MutationObserver' in window)new MutationObserver(syncLinks).observe(root,{attributes:true,attributeFilter:['data-lang']});
   document.querySelectorAll('[data-fo]').forEach(function(f){if(!f.__fo)f.__fo=new Folio(f);});
   document.querySelectorAll('[data-fo-sens]').forEach(function(f){if(!f.__fs)f.__fs=new Sens(f);});
+  document.querySelectorAll('[data-scr]').forEach(function(f){
+    if(f.__scr)return; f.__scr=true;
+    f.addEventListener('click',function(e){
+      var b=e.target.closest('[data-v]'); if(!b||!f.contains(b))return;
+      var real=b.getAttribute('data-v')==='1',im=f.querySelector('.scr-img');
+      if(real&&im)im.loading='eager';
+      f.classList.toggle('real',real);
+      f.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+    });
+  });
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();

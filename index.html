@@ -1756,6 +1756,16 @@ function init(){
   if('MutationObserver' in window)new MutationObserver(syncLinks).observe(root,{attributes:true,attributeFilter:['data-lang']});
   document.querySelectorAll('[data-fo]').forEach(function(f){if(!f.__fo)f.__fo=new Folio(f);});
   document.querySelectorAll('[data-fo-sens]').forEach(function(f){if(!f.__fs)f.__fs=new Sens(f);});
+  document.querySelectorAll('[data-scr]').forEach(function(f){
+    if(f.__scr)return; f.__scr=true;
+    f.addEventListener('click',function(e){
+      var b=e.target.closest('[data-v]'); if(!b||!f.contains(b))return;
+      var real=b.getAttribute('data-v')==='1',im=f.querySelector('.scr-img');
+      if(real&&im)im.loading='eager';
+      f.classList.toggle('real',real);
+      f.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+    });
+  });
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();

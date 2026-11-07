@@ -201,9 +201,30 @@
       <p class="ch-desc" lang="en">Two calculation sheets in the middle, review notes on the right and brief bookmarks along the bottom.</p>
     </aside>
     <div class="ch-body">
-      <figure class="shot">
-        <img src="screen-desktop.jpg" width="1440" height="1000" loading="lazy" decoding="async" alt="FACT Folio 작업 화면. 합성 예제의 두 설계안을 같은 지침으로 비교하는 모습. FACT Folio working screen comparing two entries of the synthetic example against one brief.">
-        <figcaption><span lang="ko">합성 예제로 실행한 FACT Folio 작업 화면(5차 화면 설계). 지면은 입력값에서 만든 산정 표현이며, 실제 도면이나 BIM 뷰어가 아닙니다.</span><span lang="en">FACT Folio running on the synthetic example (fifth screen design). The sheets are rendered from input values. They are not drawings or a BIM viewer.</span></figcaption>
+      <figure class="scr" data-scr>
+        <div class="scr-bar">
+          <span class="scr-l mono"><span lang="ko">작업 화면 구성도, 5차 화면 설계</span><span lang="en">Working screen layout, fifth screen design</span></span>
+          <div class="nx-toggle" role="group" aria-label="Layout drawing or actual screen">
+            <button type="button" data-v="0" aria-pressed="true"><span lang="ko">구성도</span><span lang="en">Layout</span></button>
+            <button type="button" data-v="1" aria-pressed="false"><span lang="ko">실제 화면</span><span lang="en">Actual screen</span></button>
+          </div>
+        </div>
+        <div class="scr-stage">
+          <div class="scr-win" role="img" aria-label="FACT Folio 작업 화면 구성도. 왼쪽 세로 제목, 가운데 두 산정 지면, 오른쪽 검토 의견, 아래 지침 책갈피. Layout of the FACT Folio working screen: title band, two calculation sheets, review notes and brief bookmarks.">
+            <div class="z z-side"><span>FACT Folio</span></div>
+            <div class="z z-top"><i class="sk hi" style="width:20%"></i><span class="tbs"><i class="on"></i><i></i><i></i><i></i></span></div>
+            <div class="z z-a"><div class="sh-h"><b>01</b><em>A</em></div><ul class="sh-l"><li class="on"><i class="sk" style="width:58%"></i><i class="sk v" style="width:34%"></i><i class="mk rv"></i></li><li><i class="sk" style="width:50%"></i><i class="sk v" style="width:30%"></i><i class="mk ok"></i></li><li><i class="sk" style="width:44%"></i><i class="sk v" style="width:36%"></i><i class="mk ok"></i></li><li><i class="sk" style="width:54%"></i><i class="sk v" style="width:26%"></i><i class="mk rv"></i></li><li><i class="sk" style="width:46%"></i><i class="sk v" style="width:28%"></i><i class="mk ok"></i></li></ul></div>
+            <div class="z z-b"><div class="sh-h"><b>02</b><em>B</em></div><ul class="sh-l"><li class="on"><i class="sk" style="width:58%"></i><i class="sk v" style="width:34%"></i><i class="mk ok"></i></li><li><i class="sk" style="width:50%"></i><i class="sk v" style="width:30%"></i><i class="mk ok"></i></li><li><i class="sk" style="width:44%"></i><i class="sk v" style="width:36%"></i><i class="mk na"></i></li><li><i class="sk" style="width:54%"></i><i class="sk v" style="width:26%"></i><i class="mk ok"></i></li><li><i class="sk" style="width:46%"></i><i class="sk v" style="width:28%"></i><i class="mk rv"></i></li></ul></div>
+            <div class="z z-note"><span class="nt"><i class="sk" style="width:34%"></i><i class="nb"></i></span><i class="sk hi" style="width:64%"></i><span class="nr"><i class="band"></i><i class="t"></i><i class="ma"></i><i class="mb"></i></span><i class="sk" style="width:86%"></i><i class="sk" style="width:68%"></i><span class="nn"><i class="sk" style="width:44%"></i><i class="sk" style="width:92%"></i><i class="sk" style="width:74%"></i></span></div>
+            <div class="z z-tabs"><span class="tb on"><i class="sk" style="width:70%"></i><span><i class="mk rv"></i><i class="mk ok"></i></span></span><span class="tb"><i class="sk" style="width:62%"></i><span><i class="mk ok"></i><i class="mk ok"></i></span></span><span class="tb"><i class="sk" style="width:58%"></i><span><i class="mk ok"></i><i class="mk na"></i></span></span><span class="tb"><i class="sk" style="width:66%"></i><span><i class="mk rv"></i><i class="mk ok"></i></span></span><span class="tb"><i class="sk" style="width:54%"></i><span><i class="mk ok"></i><i class="mk rv"></i></span></span></div>
+            <span class="co" style="left:31%;top:13%">F.01</span>
+            <span class="co" style="left:46%;top:89%">F.02</span>
+            <span class="co" style="left:87%;top:52%">F.03</span>
+            <span class="co" style="left:66%;top:4.1%">F.04, F.05</span>
+          </div>
+          <img class="scr-img" src="screen-desktop.jpg" width="1440" height="1000" loading="lazy" decoding="async" alt="FACT Folio 실제 작업 화면. 합성 예제의 두 설계안을 같은 지침으로 비교하는 모습. The actual FACT Folio working screen comparing two entries of the synthetic example against one brief.">
+        </div>
+        <figcaption><span lang="ko">기본 그림은 실제 작업 화면(5차 화면 설계)의 배치를 사이트 색으로 다시 그린 구성도이고, 번호는 아래 기능 설명의 번호입니다. 실제 화면 버튼을 누르면 합성 예제로 실행한 실제 화면이 나옵니다. 지면은 입력값에서 만든 산정 표현이며, 실제 도면이나 BIM 뷰어가 아닙니다.</span><span lang="en">The default view redraws the layout of the actual working screen (fifth screen design) in the site's colors, numbered to match the features below. Select Actual screen to see Folio running on the synthetic example. The sheets are rendered from input values. They are not drawings or a BIM viewer.</span></figcaption>
       </figure>
       <ul class="feat">
         <li><span class="k">F.01</span><h3 lang="ko">두 산정 지면</h3><h3 lang="en">Two calculation sheets</h3><p lang="ko">기준안과 대안을 같은 형식의 지면에 나란히 펼쳐, 같은 지침 항목을 같은 순서로 읽습니다.</p><p lang="en">The baseline and the alternative are laid out on sheets of the same format, so the same brief items read in the same order.</p></li>
