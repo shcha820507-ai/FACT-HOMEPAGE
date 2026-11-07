@@ -455,6 +455,33 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
   .fo .fo-note{grid-template-columns:minmax(0,1fr);padding:10px 2px 2px}
 }
 @media (prefers-reduced-motion:reduce){.fo .fo-note>div{animation:none}.fo .fo-e::before,.fo .fo-tab::before{transition:none}}
+.roster .who h3 .plink{display:inline-flex;align-items:baseline;gap:.34em;color:inherit;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.roster .who h3 .plink:hover,.roster .who h3 .plink:focus-visible{color:var(--accent-2);border-bottom-color:var(--accent-2)}
+.roster .who h3 .ext{flex:none;width:.5em;height:.5em;opacity:.5;transition:opacity .2s,transform .2s}
+.roster .who h3 .plink:hover .ext,.roster .who h3 .plink:focus-visible .ext{opacity:1;transform:translate(1px,-1px)}
+.grp .g-fac a{border-bottom:1px solid var(--line-2);transition:border-color .2s}
+.grp .g-fac a:hover,.grp .g-fac a:focus-visible{border-bottom-color:var(--accent-2)}
+.grp .g-fac a:hover b,.grp .g-fac a:focus-visible b{color:var(--accent-2)}
+[data-lang="en"] .roster .cell.dir .links .cv-en{order:-1}
+/* schedule */
+.sched{border-top:1px solid var(--line-2)}
+.sched .sch{grid-template-columns:120px minmax(0,1fr) auto;grid-template-areas:"d b s";align-items:start;padding:22px 14px;margin:0 -14px}
+.sched .sch:hover{background:var(--bg-2)}
+.sch .sd{grid-area:d;display:flex;flex-direction:column;font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;line-height:1.5;color:var(--fg-3)}
+.sch .sd b{font-family:var(--grot);font-size:1.6rem;font-weight:600;letter-spacing:-.01em;line-height:1.05;color:#fff;margin:2px 0 6px}
+.sch .sb{grid-area:b;min-width:0}
+.sch .c{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-2)}
+.sch .t{display:block;margin-top:4px;font-size:1.1rem;font-weight:700;letter-spacing:-.01em;line-height:1.5;color:#fff}
+.sch .t[lang=en]{font-family:var(--grot);font-weight:600}
+.sched .sch .w{margin-top:6px;font-size:.86rem;color:var(--fg-3)}
+.sched .sch .b{margin-top:4px;font-size:.92rem;color:var(--fg-2)}
+.sch .l{display:inline-block;margin-top:10px;font-size:.86rem;white-space:nowrap;border-bottom:1px solid var(--line-2)}
+.sch .l:hover{color:var(--accent-2);border-color:var(--accent-2)}
+.sch .ss{grid-area:s;justify-self:end;padding:4px 9px;border:1px solid var(--accent-2);border-radius:2px;font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:#fff}
+.sch.now .ss{background:var(--accent);border-color:var(--accent)}
+.sch.done .ss{border:1px dashed var(--line-2);color:var(--fg-3)}
+.sch.done .sd b,.sch.done .t{color:var(--fg-2)}
+@media (max-width:860px){.sched .sch{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"d s" "b b"}.sch .sd b{margin-bottom:2px}}
 </style>
 </head>
 <body>
@@ -500,7 +527,7 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
         <a href="#platforms"><i>05</i><span lang="ko">플랫폼</span><span lang="en">Platforms</span></a>
         <a href="#news"><i>06</i><span lang="ko">소식</span><span lang="en">News</span></a>
         <a href="#partners"><i>07</i><span lang="ko">협력</span><span lang="en">Partners</span></a>
-        <a href="#roadmap"><i>08</i><span lang="ko">일정</span><span lang="en">Roadmap</span></a>
+        <a href="#roadmap"><i>08</i><span lang="ko">일정</span><span lang="en">Schedule</span></a>
         <a href="#contact"><i>09</i><span lang="ko">연락처</span><span lang="en">Contact</span></a>
       </div>
       <button class="lang" id="langBtn" type="button" aria-label="Switch language"><span class="on" data-l="ko">KO</span> / <span data-l="en">EN</span></button>
@@ -646,7 +673,7 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
             <li lang="ko">가변형 건축 인프라 및 인터페이스 표준화</li><li lang="en">Adaptable building infrastructure and interface standardization</li>
             <li lang="ko">모빌리티 건축 법제도 및 인증 체계</li><li lang="en">Regulation and certification for mobility-integrated architecture</li>
           </ul>
-          <p class="g-fac"><span lang="ko">참여교수</span><span lang="en">Faculty</span>: <b>김영철</b><i>CEE</i>, <b>임리사</b><i>CEE</i>, <b>차승현</b><i>CT</i></p>
+          <p class="g-fac"><span lang="ko">참여교수</span><span lang="en">Faculty</span>: <a href="https://urbandesignlab.kaist.ac.kr/" target="_blank" rel="noopener"><b><span lang="ko">김영철</span><span lang="en">Youngchul Kim</span></b></a><i>CEE</i>, <a href="https://www.healthdesign.kaist.ac.kr/about" target="_blank" rel="noopener"><b><span lang="ko">임리사</span><span lang="en">Lisa Lim</span></b></a><i>CEE</i>, <a href="https://fsl.kaist.ac.kr/" target="_blank" rel="noopener"><b><span lang="ko">차승현</span><span lang="en">Seung Hyun Cha</span></b></a><i>CT</i></p>
         </div>
       </article>
       <article class="grp" data-plate="mid">
@@ -659,7 +686,7 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
             <li lang="ko">BIM–XR 연동 가상–실공간 시뮬레이션</li><li lang="en">BIM-XR linked simulation across virtual and physical space</li>
             <li lang="ko">건축 데이터 표준 및 거버넌스</li><li lang="en">Architectural data standards and governance</li>
           </ul>
-          <p class="g-fac"><span lang="ko">참여교수</span><span lang="en">Faculty</span>: <b>우운택</b><i>CT</i>, <b>배석형</b><i>ID</i>, <b>차승현</b><i>CT</i></p>
+          <p class="g-fac"><span lang="ko">참여교수</span><span lang="en">Faculty</span>: <a href="https://ct.kaist.ac.kr/boards/view/faculty_board_en/3031" target="_blank" rel="noopener"><b><span lang="ko">우운택</span><span lang="en">Woontack Woo</span></b></a><i>CT</i>, <a href="https://sketch.kaist.ac.kr/people/seokhyungbae" target="_blank" rel="noopener"><b><span lang="ko">배석형</span><span lang="en">Seok-Hyung Bae</span></b></a><i>ID</i>, <a href="https://fsl.kaist.ac.kr/" target="_blank" rel="noopener"><b><span lang="ko">차승현</span><span lang="en">Seung Hyun Cha</span></b></a><i>CT</i></p>
         </div>
       </article>
       <article class="grp" data-plate="ground">
@@ -672,7 +699,7 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
             <li lang="ko">인간–로봇 공존 환경 설계 및 안전성</li><li lang="en">Design and safety of human-robot coexistence environments</li>
             <li lang="ko">에이전트 기반 공간 행동 시뮬레이션</li><li lang="en">Agent-based simulation of spatial behavior</li>
           </ul>
-          <p class="g-fac"><span lang="ko">참여교수</span><span lang="en">Faculty</span>: <b>이진준</b><i>CT</i>, <b>윤상호</b><i>CT</i>, <b>차승현</b><i>CT</i></p>
+          <p class="g-fac"><span lang="ko">참여교수</span><span lang="en">Faculty</span>: <a href="https://tx.kaist.ac.kr/professor/" target="_blank" rel="noopener"><b><span lang="ko">이진준</span><span lang="en">Jinjoon Lee</span></b></a><i>CT</i>, <a href="https://hcitech.org/team" target="_blank" rel="noopener"><b><span lang="ko">윤상호</span><span lang="en">Sang Ho Yoon</span></b></a><i>CT</i>, <a href="https://fsl.kaist.ac.kr/" target="_blank" rel="noopener"><b><span lang="ko">차승현</span><span lang="en">Seung Hyun Cha</span></b></a><i>CT</i></p>
         </div>
       </article>
     </div>
@@ -686,18 +713,18 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
       <div class="ch-num">03</div>
       <h2 class="ch-title" lang="ko">참여교수</h2>
       <h2 class="ch-title" lang="en">Faculty</h2>
-      <p class="ch-desc" lang="ko">문화기술대학원 네 명, 산업디자인학과 한 명, 건설및환경공학과 두 명. 대학원생은 각 참여교수 연구실 소속으로 그룹별 연구에 함께합니다.</p>
-      <p class="ch-desc" lang="en">Four faculty from Culture Technology, one from Industrial Design and two from Civil and Environmental Engineering. Graduate students take part through their advisors' labs.</p>
+      <p class="ch-desc" lang="ko">문화기술대학원 네 명, 산업디자인학과 한 명, 건설및환경공학과 두 명. 대학원생은 각 참여교수 연구실 소속으로 그룹별 연구에 함께합니다. 이름을 누르면 각 교수의 홈페이지가 새 창으로 열립니다.</p>
+      <p class="ch-desc" lang="en">Four faculty from Culture Technology, one from Industrial Design and two from Civil and Environmental Engineering. Graduate students take part through their advisors' labs. Select a name to open that professor's homepage in a new tab.</p>
     </aside>
     <div class="ch-body">
       <div class="roster">
-        <div class="cell dir"><div class="who"><h3><span lang="ko">차승현</span><span lang="en">Seung Hyun Cha</span></h3><div class="en"><span lang="ko">Seung Hyun Cha</span><span lang="en">차승현</span></div><div class="dept" lang="ko">문화기술대학원 부교수 (2021~), 미래공간연구실 책임교수</div><div class="dept" lang="en">Associate Professor, Graduate School of Culture Technology (2021–); Director, Future Space Lab</div><div class="dept" lang="ko" style="margin-top:6px;color:var(--fg-3);font-size:.84rem">건설및환경공학과 · 메타버스대학원 · AI대학원 겸임 / New York University 겸임</div><div class="dept" lang="en" style="margin-top:6px;color:var(--fg-3);font-size:.84rem">Affiliate: Civil and Environmental Engineering; Graduate School of Metaverse; AI and Future Studies, KAIST; New York University</div><div class="meta"><span><span lang="ko">센터장</span><span lang="en">Director</span></span><b>GRP 01 02 03</b></div></div><div class="bio"><h4 class="lbl-h" lang="ko">프로필</h4><h4 class="lbl-h" lang="en">Profile</h4><div class="links"><a class="link" href="cv.pdf" download="Seung-Hyun-Cha-CV.pdf"><span lang="ko">이력서 (PDF)</span><span lang="en">Curriculum Vitae (PDF)</span></a><a class="link" href="https://scholar.google.com/citations?user=S7TYrk8AAAAJ" target="_blank" rel="noopener">Google Scholar</a><a class="link" href="https://www.linkedin.com/in/seung-hyun-cha-1ba76a17" target="_blank" rel="noopener">LinkedIn</a><a class="link" href="https://fsl.kaist.ac.kr" target="_blank" rel="noopener">Future Space Lab</a><a class="link" href="https://brunch.co.kr/@fslkaist" target="_blank" rel="noopener">Brunch</a><a class="link" href="https://www.threads.com/@fslshcha" target="_blank" rel="noopener">Threads</a></div></div></div>
-        <div class="cell"><div class="who"><h3><span lang="ko">우운택</span><span lang="en">Woontack Woo</span></h3><div class="en"><span lang="ko">Woontack Woo</span><span lang="en">우운택</span></div><div class="dept" lang="ko">문화기술대학원 교수</div><div class="dept" lang="en">Professor, Graduate School of Culture Technology</div></div><div class="meta"><span>CT</span><b>GRP 02</b></div></div>
-        <div class="cell"><div class="who"><h3><span lang="ko">이진준</span><span lang="en">Jinjoon Lee</span></h3><div class="en"><span lang="ko">Jinjoon Lee</span><span lang="en">이진준</span></div><div class="dept" lang="ko">문화기술대학원 부교수</div><div class="dept" lang="en">Associate Professor, Graduate School of Culture Technology</div></div><div class="meta"><span>CT</span><b>GRP 03</b></div></div>
-        <div class="cell"><div class="who"><h3><span lang="ko">윤상호</span><span lang="en">Sang Ho Yoon</span></h3><div class="en"><span lang="ko">Sang Ho Yoon</span><span lang="en">윤상호</span></div><div class="dept" lang="ko">문화기술대학원 부교수</div><div class="dept" lang="en">Associate Professor, Graduate School of Culture Technology</div></div><div class="meta"><span>CT</span><b>GRP 03</b></div></div>
-        <div class="cell"><div class="who"><h3><span lang="ko">배석형</span><span lang="en">Seok-Hyung Bae</span></h3><div class="en"><span lang="ko">Seok-Hyung Bae</span><span lang="en">배석형</span></div><div class="dept" lang="ko">산업디자인학과 부교수</div><div class="dept" lang="en">Associate Professor, Department of Industrial Design</div></div><div class="meta"><span>ID</span><b>GRP 02</b></div></div>
-        <div class="cell"><div class="who"><h3><span lang="ko">김영철</span><span lang="en">Youngchul Kim</span></h3><div class="en"><span lang="ko">Youngchul Kim</span><span lang="en">김영철</span></div><div class="dept" lang="ko">건설및환경공학과 부교수</div><div class="dept" lang="en">Associate Professor, Department of Civil and Environmental Engineering</div></div><div class="meta"><span>CEE</span><b>GRP 01</b></div></div>
-        <div class="cell"><div class="who"><h3><span lang="ko">임리사</span><span lang="en">Lisa Lim</span></h3><div class="en"><span lang="ko">Lisa Lim</span><span lang="en">임리사</span></div><div class="dept" lang="ko">건설및환경공학과 부교수</div><div class="dept" lang="en">Associate Professor, Department of Civil and Environmental Engineering</div></div><div class="meta"><span>CEE</span><b>GRP 01</b></div></div>
+        <div class="cell dir"><div class="who"><h3><a class="plink" href="https://fsl.kaist.ac.kr/" target="_blank" rel="noopener"><span lang="ko">차승현</span><span lang="en">Seung Hyun Cha</span><svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M3 1.5h5.5V7M8.5 1.5 1.5 8.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a></h3><div class="en"><span lang="ko">Seung Hyun Cha</span><span lang="en">차승현</span></div><div class="dept" lang="ko">문화기술대학원 부교수 (2021~), 미래공간연구실 책임교수</div><div class="dept" lang="en">Associate Professor, Graduate School of Culture Technology (2021–); Director, Future Space Lab</div><div class="dept" lang="ko" style="margin-top:6px;color:var(--fg-3);font-size:.84rem">건설및환경공학과, 메타버스대학원, AI미래학과, AX학과 겸임 / New York University 겸임</div><div class="dept" lang="en" style="margin-top:6px;color:var(--fg-3);font-size:.84rem">Affiliate: Department of Civil and Environmental Engineering, Graduate School of Metaverse, Department of AI and Future Studies and Department of AX, KAIST; New York University</div><div class="meta"><span><span lang="ko">센터장</span><span lang="en">Director</span></span><b>GRP 01 02 03</b></div></div><div class="bio"><h4 class="lbl-h" lang="ko">프로필</h4><h4 class="lbl-h" lang="en">Profile</h4><div class="links"><a class="link cv-ko" href="cv-ko.pdf" download="Seung-Hyun-Cha-CV-KO-2026-11.pdf"><span lang="ko">국문 이력서 (2026.11, PDF)</span><span lang="en">Korean CV, Nov 2026</span></a><a class="link cv-en" href="cv.pdf" download="Seung-Hyun-Cha-CV-EN-2026-11.pdf"><span lang="ko">영문 CV (2026.11, PDF)</span><span lang="en">English CV, Nov 2026</span></a><a class="link" href="https://scholar.google.com/citations?user=S7TYrk8AAAAJ" target="_blank" rel="noopener">Google Scholar</a><a class="link" href="https://www.linkedin.com/in/seung-hyun-cha-1ba76a17" target="_blank" rel="noopener">LinkedIn</a><a class="link" href="https://fsl.kaist.ac.kr" target="_blank" rel="noopener">Future Space Lab</a></div></div></div>
+        <div class="cell"><div class="who"><h3><a class="plink" href="https://ct.kaist.ac.kr/boards/view/faculty_board_en/3031" target="_blank" rel="noopener"><span lang="ko">우운택</span><span lang="en">Woontack Woo</span><svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M3 1.5h5.5V7M8.5 1.5 1.5 8.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a></h3><div class="en"><span lang="ko">Woontack Woo</span><span lang="en">우운택</span></div><div class="dept" lang="ko">문화기술대학원 교수</div><div class="dept" lang="en">Professor, Graduate School of Culture Technology</div></div><div class="meta"><span>CT</span><b>GRP 02</b></div></div>
+        <div class="cell"><div class="who"><h3><a class="plink" href="https://tx.kaist.ac.kr/professor/" target="_blank" rel="noopener"><span lang="ko">이진준</span><span lang="en">Jinjoon Lee</span><svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M3 1.5h5.5V7M8.5 1.5 1.5 8.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a></h3><div class="en"><span lang="ko">Jinjoon Lee</span><span lang="en">이진준</span></div><div class="dept" lang="ko">문화기술대학원 부교수</div><div class="dept" lang="en">Associate Professor, Graduate School of Culture Technology</div></div><div class="meta"><span>CT</span><b>GRP 03</b></div></div>
+        <div class="cell"><div class="who"><h3><a class="plink" href="https://hcitech.org/team" target="_blank" rel="noopener"><span lang="ko">윤상호</span><span lang="en">Sang Ho Yoon</span><svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M3 1.5h5.5V7M8.5 1.5 1.5 8.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a></h3><div class="en"><span lang="ko">Sang Ho Yoon</span><span lang="en">윤상호</span></div><div class="dept" lang="ko">문화기술대학원 부교수</div><div class="dept" lang="en">Associate Professor, Graduate School of Culture Technology</div></div><div class="meta"><span>CT</span><b>GRP 03</b></div></div>
+        <div class="cell"><div class="who"><h3><a class="plink" href="https://sketch.kaist.ac.kr/people/seokhyungbae" target="_blank" rel="noopener"><span lang="ko">배석형</span><span lang="en">Seok-Hyung Bae</span><svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M3 1.5h5.5V7M8.5 1.5 1.5 8.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a></h3><div class="en"><span lang="ko">Seok-Hyung Bae</span><span lang="en">배석형</span></div><div class="dept" lang="ko">산업디자인학과 부교수</div><div class="dept" lang="en">Associate Professor, Department of Industrial Design</div></div><div class="meta"><span>ID</span><b>GRP 02</b></div></div>
+        <div class="cell"><div class="who"><h3><a class="plink" href="https://urbandesignlab.kaist.ac.kr/" target="_blank" rel="noopener"><span lang="ko">김영철</span><span lang="en">Youngchul Kim</span><svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M3 1.5h5.5V7M8.5 1.5 1.5 8.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a></h3><div class="en"><span lang="ko">Youngchul Kim</span><span lang="en">김영철</span></div><div class="dept" lang="ko">건설및환경공학과 부교수</div><div class="dept" lang="en">Associate Professor, Department of Civil and Environmental Engineering</div></div><div class="meta"><span>CEE</span><b>GRP 01</b></div></div>
+        <div class="cell"><div class="who"><h3><a class="plink" href="https://www.healthdesign.kaist.ac.kr/about" target="_blank" rel="noopener"><span lang="ko">임리사</span><span lang="en">Lisa Lim</span><svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M3 1.5h5.5V7M8.5 1.5 1.5 8.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a></h3><div class="en"><span lang="ko">Lisa Lim</span><span lang="en">임리사</span></div><div class="dept" lang="ko">건설및환경공학과 부교수</div><div class="dept" lang="en">Associate Professor, Department of Civil and Environmental Engineering</div></div><div class="meta"><span>CEE</span><b>GRP 01</b></div></div>
       </div>
       <div class="recruit">
         <h3 lang="ko">함께할 연구자를 찾습니다</h3>
@@ -810,18 +837,18 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
         <figure class="fo" data-fo>
         <div class="fo-bar">
           <span class="fo-scn mono"><i aria-hidden="true"></i><span lang="ko">합성 예제, 같은 지침으로 읽는 두 설계안</span><span lang="en">Synthetic example, two entries and one brief</span></span>
-          <span class="fo-ctl"><span class="fo-model">model 09.area-review.1.0.0</span><button type="button" class="fo-play"><i aria-hidden="true"></i><span class="p-on"><span lang="ko">멈춤</span><span lang="en">Pause</span></span><span class="p-off"><span lang="ko">자동 넘김</span><span lang="en">Auto</span></span></button></span>
+          <span class="fo-ctl"><span class="fo-model">model 09.area-review.1.1.0</span><button type="button" class="fo-play"><i aria-hidden="true"></i><span class="p-on"><span lang="ko">멈춤</span><span lang="en">Pause</span></span><span class="p-off"><span lang="ko">자동 넘김</span><span lang="en">Auto</span></span></button></span>
         </div>
         <div class="fo-paper"></div>
         <figcaption class="fo-cap"><span lang="ko">FACT Folio의 검토 방식을 합성 예제로 재현한 화면입니다. 지침 항목과 수치는 실제 공모나 법규 기준이 아닙니다. 행이나 아래 항목을 누르면 해당 지침의 근거를 볼 수 있습니다.</span><span lang="en">A re-creation of how FACT Folio reviews entries, using a synthetic example. The brief items and figures are not from a real competition or legal standard. Select a row or an item below to see the evidence for that clause.</span></figcaption>
       </figure>
-        <p class="tool-desc" lang="ko">설계공모 출품안의 면적표를 같은 공모지침에 비추어 나란히 읽게 해 주는 심사 보조 도구입니다. 실별 요구면적과 허용범위, 최소 수량, 필수 공간을 두 안에 같은 규칙으로 적용하고, 항목마다 단위 환산과 면적 산정 기준, 제출 근거를 함께 남깁니다. 빠진 자료는 0으로 읽지 않고 판정을 보류하며, 점수와 순위, 당락은 만들지 않습니다. 이 검토 엔진은 합성 자료로 검증을 마쳤고, 법규 검토와 행태 시뮬레이션 엔진을 연결해 생활 동선, 보행약자 피난, 로봇 대응까지 한 장의 비교표로 넓혀 갈 계획입니다.</p>
-        <p class="tool-desc" lang="en">FACT Folio lets a jury read the area schedules of competition entries side by side against the same brief. It applies required room areas and tolerances, minimum counts and required spaces to both entries with one set of rules, and keeps the unit conversion, area definition and submitted source for every item. Missing data is held rather than read as zero, and it produces no scores, rankings or verdicts. The review engine has been verified on synthetic data, and links to code-check and behavior simulation engines will extend the same comparison to daily circulation, evacuation for people with reduced mobility and robot readiness.</p>
+        <p class="tool-desc" lang="ko">설계공모 출품안의 면적표를 같은 공모지침에 비추어 나란히 읽게 해 주는 심사 보조 도구입니다. 실별 요구면적과 허용범위, 최소 수량, 필수 공간을 두 안에 같은 규칙으로 적용하고, 항목마다 단위 환산과 면적 산정 기준, 제출 근거를 함께 남깁니다. 빠진 자료는 0으로 읽지 않고 판정을 보류하며, 점수와 순위, 당락은 만들지 않습니다. 이 검토 엔진은 합성 자료로 검증을 마쳤고, 11월 7일에는 프로젝트 자료 입력과 검토 의견을 담은 작업 파일 인계를 더했습니다. 근거와 기록 인계를 먼저 다듬고 실제 자료로 검증한 뒤, 법규 검토와 행태 시뮬레이션 결과를 같은 비교표에 연결해 생활 동선, 보행약자 피난, 로봇 대응까지 넓혀 갈 계획입니다.</p>
+        <p class="tool-desc" lang="en">FACT Folio lets a jury read the area schedules of competition entries side by side against the same brief. It applies required room areas and tolerances, minimum counts and required spaces to both entries with one set of rules, and keeps the unit conversion, area definition and submitted source for every item. Missing data is held rather than read as zero, and it produces no scores, rankings or verdicts. The review engine has been verified on synthetic data, and on November 7 it gained project data entry and a work file that carries reviewer notes to the next reviewer. Evidence and handoff come first, then testing with real data, before code-check and behavior simulation results are linked to the same comparison to cover daily circulation, evacuation for people with reduced mobility and robot readiness.</p>
         <span class="tool-kh mono"><span lang="ko">합성 자료 검증 결과</span><span lang="en">Verified on synthetic data</span></span>
         <ul class="tool-kpi">
-          <li><b>20</b><span lang="ko">독립 시험 모두 통과</span><span lang="en">Independent tests, all passed</span></li>
-          <li><b>8</b><span lang="ko">별도 실행 점검 모두 통과</span><span lang="en">Separate-run checks, all passed</span></li>
-          <li><b>14</b><span lang="ko">브라우저 과업 모두 통과</span><span lang="en">Browser tasks, all passed</span></li>
+          <li><b>94</b><span lang="ko">자동 검사 모두 통과 (11월 7일)</span><span lang="en">Automated tests, all passed (Nov 7)</span></li>
+          <li><b>8</b><span lang="ko">별도 실행 점검 모두 통과 (11월 2일)</span><span lang="en">Separate-run checks, all passed (Nov 2)</span></li>
+          <li><b>14</b><span lang="ko">브라우저 과업 모두 통과 (11월 4일)</span><span lang="en">Browser tasks, all passed (Nov 4)</span></li>
         </ul>
         <ul class="tool-stack" aria-label="Core features">
           <li lang="ko">공모지침 규칙화</li><li lang="en">Brief-to-rule mapping</li>
@@ -831,6 +858,7 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
           <li lang="ko">민감도 9조건</li><li lang="en">9-condition sensitivity</li>
           <li lang="ko">SHA-256 재현 해시</li><li lang="en">SHA-256 reproducibility</li>
           <li lang="ko">심사 의견 기록</li><li lang="en">Reviewer notes</li>
+          <li lang="ko">작업 파일 인계</li><li lang="en">Work file handoff</li>
           <li lang="ko">CSV, JSON 내보내기</li><li lang="en">CSV and JSON export</li>
         </ul>
         <div class="tool-cta">
@@ -885,15 +913,12 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
     <aside class="ch-side">
       <div class="ch-num">08</div>
       <h2 class="ch-title" lang="ko">센터 운영 일정</h2>
-      <h2 class="ch-title" lang="en">Center roadmap</h2>
-      <p class="ch-desc" lang="ko">워크숍, 세미나, 심포지엄과 그룹별 연구 일정을 이곳에서 안내합니다.</p>
-      <p class="ch-desc" lang="en">Workshops, seminars, symposia and group research schedules will be announced here.</p>
+      <h2 class="ch-title" lang="en">Center schedule</h2>
+      <p class="ch-desc" lang="ko">센터가 열거나 참여하는 워크숍, 세미나, 포럼, 협약과 그룹별 연구 일정을 안내합니다.</p>
+      <p class="ch-desc" lang="en">Workshops, seminars, forums, agreements and group research dates that the center hosts or takes part in.</p>
     </aside>
     <div class="ch-body">
-      <div class="empty">
-        <p lang="ko">추진 일정은 운영위원회에서 확정하는 대로 게시합니다.</p>
-        <p lang="en">The schedule will be posted once confirmed by the steering committee.</p>
-      </div>
+      <div class="sched" id="schedList"></div>
     </div>
   </div>
 </section>
@@ -974,6 +999,9 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
      처음 다섯 건만 보이고 나머지는 "이전 소식 더 보기" 버튼으로 펼쳐집니다.
      ===================================================================== */
   var NEWS=[
+    { date:'2026-11-07', cat:'research',
+      ko:{ title:'FACT Folio 기능 보강, 프로젝트 자료 입력과 작업 파일 인계', body:'모델 09.area-review.1.1.0에서 사용자가 제공한 프로젝트 자료를 출처와 함께 입력하고, 입력과 계산 결과, 검토 의견을 하나의 작업 파일로 저장해 다른 담당자에게 넘길 수 있게 했습니다. 비교표 CSV에도 자료 출처와 지침 버전이 담깁니다. 현재 코드로 실행한 자동 검사 94개를 모두 통과했으며, 실제 브라우저와 실제 공모 자료로 하는 검증은 다음 단계입니다.', link:'folio/', linkText:'Folio 소개 페이지' },
+      en:{ title:'FACT Folio update: project data entry and work file handoff', body:'Model 09.area-review.1.1.0 accepts user-provided project data with its sources and saves the input, results and reviewer notes as one work file that another reviewer can open. The comparison CSV now carries data sources and the brief version. All 94 automated tests passed on the current code. Checks in a real browser and with real competition data come next.', link:'folio/?lang=en', linkText:'Folio page' } },
     { date:'2026-11-05', cat:'research',
       ko:{ title:'두 번째 FACT 플랫폼 FACT Folio 소개', body:'설계공모 출품안의 면적표를 같은 공모지침에 비추어 나란히 읽고, 항목마다 근거를 남기는 심사 보조 도구입니다. 점수와 순위, 당락은 만들지 않으며, 합성 자료로 검증을 마쳤습니다.', link:'folio/', linkText:'Folio 소개 페이지' },
       en:{ title:'Introducing FACT Folio, the second FACT platform', body:'A review aid that reads competition entries side by side against one brief and keeps the evidence for every check. It makes no scores, rankings or verdicts, and has been verified on synthetic data.', link:'folio/?lang=en', linkText:'Folio page' } },
@@ -1015,6 +1043,53 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
     }
     list.innerHTML=items.map(row).join('');
     if(items.length>5){ more.hidden=false; more.addEventListener('click',function(){ list.querySelectorAll('[data-more]').forEach(function(el){el.hidden=false}); more.hidden=true; }); }
+  })();
+
+  /* =====================================================================
+     운영 일정 추가하는 곳
+     아래 SCHEDULE 배열에 항목을 하나 추가하면 다가오는 일정이 날짜순으로 먼저 나오고,
+     지난 일정은 그 아래에 흐리게 표시됩니다. 예정, 오늘, 종료 표시는 방문한 날의 한국 날짜에 맞춰 바뀝니다.
+     형식:
+     { date:'YYYY-MM-DD', time:'15:20',     날짜 (필수), 시작 시각 (선택)
+       cat:'forum',                          분류: agreement(협약) forum(포럼) seminar(세미나) workshop(워크숍)
+                                             symposium(심포지엄) lecture(강연) meeting(회의) event(행사)
+       ko:{ title:'국문 제목', place:'장소', note:'한 줄 설명', link:'news/파일.jpg', linkText:'포스터 보기' },
+       en:{ title:'English title', place:'Venue', note:'One line', link:'news/파일.jpg', linkText:'View poster' } }
+     time, place, note, link, linkText 는 비워도 됩니다. 항목이 하나도 없으면 안내 문구가 대신 표시됩니다.
+     ===================================================================== */
+  var SCHEDULE=[
+    { date:'2026-11-13', time:'11:30', cat:'agreement',
+      ko:{ title:'(주)렉터스와 업무협약 체결', place:'KAIST 대전 본원', note:'건축 산업 분야 AI BIM 기술의 연구개발과 실증, 전문 교육에 함께 나섭니다.' },
+      en:{ title:'Memorandum of understanding with LECTUS', place:'KAIST main campus, Daejeon', note:'A partnership on AI-driven BIM research, validation and professional training for the building industry.' } },
+    { date:'2026-11-20', time:'15:20', cat:'forum',
+      ko:{ title:'2026 광주건축도시포럼 FUTURE 2046 포럼 「AI와 도시공간의 혁신」', place:'전남대학교 코스모스홀', note:'차승현 센터장이 토론자로 참여합니다.', link:'news/2026-11-20-gwangju-forum.jpg', linkText:'포스터 보기' },
+      en:{ title:'2026 Gwangju Architecture and Urban Forum, FUTURE 2046 forum “AI and Innovation in Urban Space”', place:'Cosmos Hall, Chonnam National University', note:'FACT director Seung Hyun Cha joins the panel.', link:'news/2026-11-20-gwangju-forum.jpg', linkText:'View poster' } }
+  ];
+  (function renderSchedule(){
+    var box=document.getElementById('schedList'); if(!box) return;
+    var CAT={agreement:['협약','Agreement'],forum:['포럼','Forum'],seminar:['세미나','Seminar'],workshop:['워크숍','Workshop'],symposium:['심포지엄','Symposium'],lecture:['강연','Lecture'],meeting:['회의','Meeting'],event:['행사','Event']};
+    var DK=['일','월','화','수','목','금','토'], DE=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    var today=new Date(Date.now()+9*36e5).toISOString().slice(0,10);
+    function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+    function asc(a,b){return a.date<b.date?-1:(a.date>b.date?1:0)}
+    var items=SCHEDULE.filter(function(x){return x.date>=today}).sort(asc)
+      .concat(SCHEDULE.filter(function(x){return x.date<today}).sort(function(a,b){return asc(b,a)}));
+    if(!items.length){ box.innerHTML='<div class="empty"><p lang="ko">추진 일정은 운영위원회에서 확정하는 대로 게시합니다.</p><p lang="en">The schedule will be posted once confirmed by the steering committee.</p></div>'; return; }
+    function row(n){
+      var p=n.date.split('-'), wd=new Date(Date.UTC(+p[0],+p[1]-1,+p[2])).getUTCDay();
+      var st=n.date>today?['up','예정','Upcoming']:(n.date===today?['now','오늘','Today']:['done','종료','Past']);
+      var c=CAT[n.cat]||[n.cat,n.cat], tm=n.time?' '+esc(n.time):'';
+      function side(l){ var x=n[l]||{}, h='<span class="t" lang="'+l+'">'+esc(x.title)+'</span>';
+        if(x.place) h+='<p class="w" lang="'+l+'">'+esc(x.place)+'</p>';
+        if(x.note) h+='<p class="b" lang="'+l+'">'+esc(x.note)+'</p>';
+        if(x.link) h+='<a class="l" lang="'+l+'" href="'+esc(x.link)+'"'+(/^https?:|\.(jpe?g|png|pdf)$/i.test(x.link)?' target="_blank" rel="noopener"':'')+'>'+esc(x.linkText||(l==='ko'?'자세히 보기':'Read more'))+' &rarr;</a>';
+        return h; }
+      return '<article class="row sch '+st[0]+'"><time class="sd" datetime="'+esc(n.date+(n.time?'T'+n.time+'+09:00':''))+'"><span class="y">'+esc(p[0])+'</span><b>'+esc(p[1]+'.'+p[2])+'</b>'
+        +'<span lang="ko">'+DK[wd]+'요일'+tm+'</span><span lang="en">'+DE[wd]+tm+'</span></time>'
+        +'<div class="sb"><span class="c"><span lang="ko">'+c[0]+'</span><span lang="en">'+c[1]+'</span></span>'+side('ko')+side('en')+'</div>'
+        +'<span class="ss"><span lang="ko">'+st[1]+'</span><span lang="en">'+st[2]+'</span></span></article>';
+    }
+    box.innerHTML=items.map(row).join('');
   })();
 
   /* reveal */
@@ -1414,7 +1489,7 @@ if(document.fonts&&document.fonts.ready){document.fonts.ready.then(function(){do
 <script>
 /* FACT Folio, review sheet replica for fact.kaist.ac.kr
    Re-creates how Folio reads two entries against one brief, using the synthetic
-   example of model 09.area-review.1.0.0. Not a real competition or legal standard. */
+   example of model 09.area-review.1.1.0. Not a real competition or legal standard. */
 (function(){
 'use strict';
 var root=document.documentElement;

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0C0D10">
+<title>FACT Folio | 설계공모 심사 보조 도구 | FACT, KAIST</title>
+<meta name="description" content="FACT Folio는 설계공모 출품안의 면적표를 같은 공모지침에 비추어 나란히 읽고, 항목마다 근거를 남기는 FACT 연구센터의 심사 보조 도구입니다. 점수와 순위, 당락은 만들지 않습니다.">
+<meta property="og:title" content="FACT Folio | FACT Research Center, KAIST">
+<meta property="og:description" content="A review aid that reads design competition entries side by side against one brief and keeps the evidence for every check. No scores, rankings or verdicts.">
+<meta property="og:type" content="website">
+<link rel="icon" href="{{FAVICON}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+{{CSS}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span lang="ko">본문으로 건너뛰기</span><span lang="en">Skip to content</span></a>
+
+<header class="header">
+  <div class="wrap">
+    <a class="brand" href="../" data-keep-lang aria-label="FACT Research Center">
+      {{MARK}}
+      <span>
+        <span class="wm">FACT</span>
+        <span class="sub" lang="ko">미래건축 융합기술 연구센터</span>
+        <span class="sub" lang="en">Future Architecture Convergence Technology Research Center</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <div class="nav-links" id="navLinks">
+        <a href="../#about" data-keep-lang><i>01</i><span lang="ko">소개</span><span lang="en">About</span></a>
+        <a href="../#research" data-keep-lang><i>02</i><span lang="ko">연구</span><span lang="en">Research</span></a>
+        <a href="../#people" data-keep-lang><i>03</i><span lang="ko">구성원</span><span lang="en">People</span></a>
+        <a href="../#projects" data-keep-lang><i>04</i><span lang="ko">과제</span><span lang="en">Projects</span></a>
+        <a class="cur" href="../#platforms" data-keep-lang><i>05</i><span lang="ko">플랫폼</span><span lang="en">Platforms</span></a>
+        <a href="../#news" data-keep-lang><i>06</i><span lang="ko">소식</span><span lang="en">News</span></a>
+        <a href="../#partners" data-keep-lang><i>07</i><span lang="ko">협력</span><span lang="en">Partners</span></a>
+        <a href="../#roadmap" data-keep-lang><i>08</i><span lang="ko">일정</span><span lang="en">Roadmap</span></a>
+        <a href="../#contact" data-keep-lang><i>09</i><span lang="ko">연락처</span><span lang="en">Contact</span></a>
+      </div>
+      <button class="lang" id="langBtn" type="button" aria-label="Switch language"><span class="on" data-l="ko">KO</span> / <span data-l="en">EN</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navLinks"><span lang="ko">메뉴</span><span lang="en">Menu</span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="nxh foh" id="top">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <nav class="crumb mono" aria-label="Breadcrumb"><a href="../" data-keep-lang>FACT</a><span class="sep">/</span><a href="../#platforms" data-keep-lang><span lang="ko">플랫폼</span><span lang="en">Platforms</span></a><span class="sep">/</span><span class="cur">P.02</span></nav>
+    <div class="nxh-head">
+      <div>
+        <h1><span>FACT</span>Folio</h1>
+        <p class="tag" lang="ko">같은 지침으로, 나란히 읽습니다.</p>
+        <p class="tag" lang="en">Two entries, one brief, read side by side.</p>
+        <p class="lede jt" lang="ko">FACT Folio는 설계공모 출품안을 같은 공모지침에 비추어 나란히 읽는 심사 보조 도구입니다. 실별 요구면적과 허용범위, 최소 수량, 필수 공간을 두 안에 같은 규칙으로 적용하고, 항목마다 원래 값과 환산값, 산정 기준, 제출 근거를 함께 보여 줍니다. 점수를 매기거나 순위를 정하지 않습니다. 판단에 필요한 사실과 근거를 정리해 심사위원에게 건넵니다. 면적, 수량, 필수 공간을 검토하는 엔진은 합성 자료로 검증을 마쳤습니다.</p>
+        <p class="lede jt" lang="en">FACT Folio is a review aid that reads design competition entries side by side against the same brief. It applies required room areas and tolerances, minimum counts and required spaces to both entries with one set of rules, and shows the original value, converted value, area definition and submitted source for every item. It does not score or rank entries. It hands the jury the facts and evidence their judgment needs. The review engine for area, count and required spaces has been verified on synthetic data.</p>
+      </div>
+      <dl class="spec">
+        <div><dt lang="ko">유형</dt><dt lang="en">Type</dt><dd><span lang="ko">설계공모 심사 보조 도구</span><span lang="en">Review aid for design competitions</span></dd></div>
+        <div><dt lang="ko">입력</dt><dt lang="en">Input</dt><dd><span lang="ko">공모지침 규칙(면적, 수량, 필수 공간)과 두 안의 면적표, 공간 목록. JSON 파일이나 화면에서 입력하고, 사용자가 제공한 자료에는 출처를 함께 기록</span><span lang="en">Brief rules for area, count and required spaces, with the area schedules and space lists of two entries, entered as JSON or on screen, with sources recorded for user-provided data</span></dd></div>
+        <div><dt lang="ko">출력</dt><dt lang="en">Output</dt><dd><span lang="ko">항목별 판정과 근거, 두 안의 차이, 민감도 결과, 심사 의견 기록, 작업 파일(입력, 결과, 의견), CSV와 JSON</span><span lang="en">Item checks with evidence, differences between entries, sensitivity results, reviewer notes, a work file with input, results and notes, CSV and JSON</span></dd></div>
+        <div><dt lang="ko">모델</dt><dt lang="en">Model</dt><dd>09.area-review.1.1.0</dd></div>
+        <div><dt lang="ko">실행</dt><dt lang="en">Runs on</dt><dd><span lang="ko">사용자 컴퓨터의 로컬 서버, 외부 API 키 불필요</span><span lang="en">A local server on the user's computer, no external API keys</span></dd></div>
+        <div><dt lang="ko">개발</dt><dt lang="en">Team</dt><dd><span lang="ko">KAIST 미래공간연구실, FACT 연구센터</span><span lang="en">KAIST Future Space Lab, FACT Research Center</span></dd></div>
+        <div><dt lang="ko">검증</dt><dt lang="en">Status</dt><dd><span lang="ko">합성 자료 검증 완료 (2026년 11월), 현재 코드 자동 검사 94개 통과 (11월 7일)</span><span lang="en">Verified on synthetic data, November 2026; 94 automated tests passed on the current code, November 7</span></dd></div>
+      </dl>
+    </div>
+    {{FIGURE}}
+  </div>
+</section>
+
+<!-- 01 PROBLEM -->
+<section class="ch" id="problem">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">01</div>
+      <h2 class="ch-title" lang="ko">출품안마다 다르게 적힌 면적표</h2>
+      <h2 class="ch-title" lang="en">Area schedules written on different terms</h2>
+      <p class="ch-desc" lang="ko">같은 지침으로 심사해도 출품안의 면적표는 단위와 산정 기준, 표기 방식이 서로 다를 수 있습니다.</p>
+      <p class="ch-desc" lang="en">Even under one brief, entries can state their areas in different units, definitions and formats.</p>
+    </aside>
+    <div class="ch-body">
+      <p class="big" lang="ko">설계공모 심사에서 실별 면적과 필수 공간을 확인하는 일은 기본이지만, 출품안마다 자료의 형식이 달라 같은 기준으로 대조하는 데 손이 많이 갑니다. 숫자를 옮겨 적는 과정에서 빠진 값이 0으로 읽히거나, 산정 기준이 다른 면적이 그대로 비교될 수 있습니다.</p>
+      <p class="big" lang="en">Checking room areas and required spaces is a basic part of reviewing competition entries, but each entry presents its data differently, so comparing them on the same terms takes effort. When figures are copied by hand, a missing value can be read as zero, or areas measured on different definitions can be compared as if they were the same.</p>
+      <div class="rows" style="margin-top:36px">
+        <div class="row"><span class="k">01</span><div><h3 lang="ko">단위와 산정 기준이 제각각입니다</h3><h3 lang="en">Units and definitions differ</h3><p lang="ko">㎡와 ㎠가 섞이거나 같은 실이라도 면적을 재는 기준이 다르면, 숫자를 나란히 놓아도 바로 비교할 수 없습니다.</p><p lang="en">When ㎡ and ㎠ are mixed, or the same room is measured on a different definition, numbers placed side by side are not yet comparable.</p></div></div>
+        <div class="row"><span class="k">02</span><div><h3 lang="ko">빠진 자료와 없는 공간은 다릅니다</h3><h3 lang="en">Missing is not the same as absent</h3><p lang="ko">값을 내지 않은 것, 0을 낸 것, 공간이 없다고 밝힌 것은 서로 다른 뜻입니다. 이를 섞으면 판단이 흐려집니다.</p><p lang="en">Not submitting a value, submitting zero and stating that a space does not exist mean different things. Mixing them blurs the review.</p></div></div>
+        <div class="row"><span class="k">03</span><div><h3 lang="ko">경계 근처의 판정은 가정에 따라 바뀝니다</h3><h3 lang="en">Borderline checks depend on assumptions</h3><p lang="ko">허용범위 경계에 가까운 항목은 허용편차나 면적을 재는 방식을 조금만 바꿔도 결과가 달라집니다. 이 민감도를 함께 봐야 합니다.</p><p lang="en">Items near a limit can change with a small shift in tolerance or in how areas are measured. That sensitivity belongs in the review.</p></div></div>
+        <div class="row"><span class="k">04</span><div><h3 lang="ko">BIM 제출이 늘어납니다</h3><h3 lang="en">More entries will arrive as BIM</h3><p lang="ko">정부는 공공공사의 BIM 적용을 공사비 기준으로 단계적으로 넓혀, 2026년 500억 원 이상, 2028년 300억 원 이상, 2030년까지 모든 공공공사로 확대할 계획입니다. 심사 단계에서 제출 자료를 같은 기준으로 확인할 필요도 함께 커집니다.</p><p lang="en">Korea plans to extend BIM requirements for public construction by project cost, from 50 billion won and above in 2026 and 30 billion won and above in 2028 to all public projects by 2030. The need to check submissions on the same terms at the review stage grows with it.</p></div></div>
+      </div>
+      <p class="fine" lang="ko">BIM 적용 일정: 국토교통부 「스마트 건설 활성화 방안」(2022년 7월)과 관련 보도.</p>
+      <p class="fine" lang="en">BIM schedule: Ministry of Land, Infrastructure and Transport, Smart Construction Activation Plan (July 2022), and related press reports.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 HOW IT WORKS -->
+<section class="ch" id="how">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">02</div>
+      <h2 class="ch-title" lang="ko">지침에서 심사 의견까지 네 단계</h2>
+      <h2 class="ch-title" lang="en">From brief to reviewer notes in four steps</h2>
+      <p class="ch-desc" lang="ko">지침을 규칙으로 옮기고, 두 안에 같은 규칙을 적용한 뒤, 근거와 의견을 결과와 함께 남깁니다.</p>
+      <p class="ch-desc" lang="en">The brief becomes rules, both entries meet the same rules, and evidence and notes stay with the result.</p>
+    </aside>
+    <div class="ch-body">
+      <ol class="pipe">
+        <li><span class="n">01 / RULES</span><h3 lang="ko">지침을 규칙으로</h3><h3 lang="en">Brief to rules</h3><p lang="ko">공모지침의 요구면적과 허용편차, 최소 수량, 필수 공간을 항목별 규칙으로 옮기고, 규칙마다 지침의 출처와 버전을 붙입니다.</p><p lang="en">Required areas and tolerances, minimum counts and required spaces in the brief become item rules, each tagged with its source clause and version.</p><dl class="io"><dt>IN</dt><dd>Competition brief</dd><dt>OUT</dt><dd>Rules, JSON</dd></dl></li>
+        <li><span class="n">02 / READ</span><h3 lang="ko">제출값 읽기</h3><h3 lang="en">Reading submissions</h3><p lang="ko">두 안의 면적표와 공간 목록에서 값과 단위, 면적 산정 기준, 제출 근거를 함께 읽습니다. 면적은 ㎡로 환산하되 원래 값도 그대로 보관합니다.</p><p lang="en">Values, units, area definitions and sources are read together from each entry's area schedule and space list. Areas are converted to ㎡, and the original values are kept.</p><dl class="io"><dt>IN</dt><dd>Area schedules, space lists</dd><dt>OUT</dt><dd>Values in square meters, with sources</dd></dl></li>
+        <li><span class="n">03 / CHECK</span><h3 lang="ko">같은 규칙으로 대조</h3><h3 lang="en">One set of rules</h3><p lang="ko">두 안에 같은 규칙을 적용해 항목마다 충족, 불충족, 판정불가를 계산하고, 허용편차와 공통 측정 편향을 바꾼 9가지 조건에서 다시 계산합니다.</p><p lang="en">The same rules give met, not met or on hold for each item in both entries, then everything is recomputed under nine conditions of tolerance and common measurement bias.</p><dl class="io"><dt>IN</dt><dd>Rules, values</dd><dt>OUT</dt><dd>Checks, differences, 9 conditions</dd></dl></li>
+        <li><span class="n">04 / RECORD</span><h3 lang="ko">근거와 의견 기록</h3><h3 lang="en">Evidence and notes</h3><p lang="ko">판정마다 원자료 값과 환산값, 허용범위, 산정 기준, 입력 해시를 남기고, 심사위원의 확인 요청과 의견을 그 결과에 연결해 CSV와 JSON으로 내보냅니다.</p><p lang="en">Each check keeps the raw and converted values, allowed range, area definition and input hash. Reviewer requests and notes are linked to that result and exported as CSV and JSON.</p><dl class="io"><dt>IN</dt><dd>Results, reviewer notes</dd><dt>OUT</dt><dd>CSV, JSON</dd></dl></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 03 CHECK STATES -->
+<section class="ch" id="states">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">03</div>
+      <h2 class="ch-title" lang="ko">세 가지 판정 상태</h2>
+      <h2 class="ch-title" lang="en">Three check states</h2>
+      <p class="ch-desc" lang="ko">판정은 세 가지뿐이며, 어느 것도 출품안의 당락을 뜻하지 않습니다.</p>
+      <p class="ch-desc" lang="en">There are only three states, and none of them is a verdict on an entry.</p>
+    </aside>
+    <div class="ch-body">
+      <ul class="states">
+        <li><span class="chip ok"><i class="mk ok" aria-hidden="true"></i><span lang="ko">충족</span><span lang="en">Met</span></span><h3 lang="ko">조건 안에 있습니다</h3><h3 lang="en">Within the condition</h3><p lang="ko">제출값이 허용범위 안에 있거나 최소 수량 이상이고, 필수 공간이 있다고 확인된 경우입니다. 경계값은 범위 안으로 봅니다.</p><p lang="en">The value is within the allowed range or at least the minimum count, or the required space is confirmed. Values on a limit count as inside.</p></li>
+        <li><span class="chip rv"><i class="mk rv" aria-hidden="true"></i><span lang="ko">불충족</span><span lang="en">Not met</span></span><h3 lang="ko">조건을 벗어났습니다</h3><h3 lang="en">Outside the condition</h3><p lang="ko">설정한 범위를 벗어났거나 필수 공간이 없다고 명시된 경우입니다. 출품안의 탈락을 뜻하지 않으며, 심사위원이 확인할 항목으로 표시합니다.</p><p lang="en">The value is outside the set range, or the entry states that a required space does not exist. It does not eliminate the entry. It marks an item for the jury to look at.</p></li>
+        <li><span class="chip na"><i class="mk na" aria-hidden="true"></i><span lang="ko">판정불가</span><span lang="en">On hold</span></span><h3 lang="ko">판정을 보류합니다</h3><h3 lang="en">Held, not judged</h3><p lang="ko">자료가 없거나 면적 산정 기준이 지침과 달라 계산을 보류한 경우입니다. 빠진 자료를 0으로 채우지 않습니다.</p><p lang="en">There is no data, or the area definition differs from the brief, so the check is held. Missing data is never filled with zero.</p></li>
+      </ul>
+      <span class="sub-h mono"><span lang="ko">입력값을 읽는 방식</span><span lang="en">How inputs are read</span></span>
+      <div class="sem">
+        <div><code>null</code><h3 lang="ko">자료 미확인</h3><h3 lang="en">Unconfirmed</h3><p lang="ko">값이 제출되지 않았거나 확인되지 않았습니다. 판정불가로 보류합니다.</p><p lang="en">No value was submitted or confirmed. The check is held.</p></div>
+        <div><code>0</code><h3 lang="ko">실제 0</h3><h3 lang="en">A real zero</h3><p lang="ko">0이라는 값이 제출된 것으로 보고 그대로 계산합니다.</p><p lang="en">Zero was submitted, and it is computed as zero.</p></div>
+        <div><code>false</code><h3 lang="ko">확인된 부재</h3><h3 lang="en">Confirmed absence</h3><p lang="ko">필수 공간이 없다고 확인된 경우입니다. 불충족으로 판정합니다.</p><p lang="en">The required space is confirmed absent. The check is not met.</p></div>
+      </div>
+      <p class="fine" lang="ko">판정 가능 비율(예: 5개 항목 중 4개, 80%)은 자료와 산정 기준을 갖춰 판정할 수 있었던 범위를 뜻하며, 지침 적합률이 아닙니다.</p>
+      <p class="fine" lang="en">The share of judged items (for example 4 of 5, 80%) is the part that had the data and definitions needed for a check. It is not a compliance rate.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PRINCIPLES -->
+<section class="ch" id="principles">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">04</div>
+      <h2 class="ch-title" lang="ko">심사를 돕되, 대신하지 않습니다</h2>
+      <h2 class="ch-title" lang="en">Supporting the jury, not replacing it</h2>
+      <p class="ch-desc" lang="ko">판단의 근거는 늘리고, 판단 자체는 사람에게 남기도록 설계했습니다.</p>
+      <p class="ch-desc" lang="en">Built to add evidence to the judgment while leaving the judgment to people.</p>
+    </aside>
+    <div class="ch-body">
+      <ol class="prin">
+        <li><span class="k">01</span><h3 lang="ko">점수와 순위, 당락을 만들지 않습니다</h3><h3 lang="en">No scores, rankings or verdicts</h3><p lang="ko">출품안을 합산 점수로 줄 세우지 않습니다. 항목별 사실과 근거를 나란히 보여 주고, 판단은 심사위원에게 남깁니다. 심사 의견은 계산된 판정을 덮어쓰지 않고 따로 기록됩니다.</p><p lang="en">Entries are never ranked by a combined score. Item facts and evidence are shown side by side, and the decision stays with the jury. Reviewer notes are recorded separately and never overwrite a computed check.</p></li>
+        <li><span class="k">02</span><h3 lang="ko">모르는 것은 모른다고 표시합니다</h3><h3 lang="en">Unknown stays unknown</h3><p lang="ko">자료 미확인과 실제 0, 확인된 부재를 구분합니다. 면적 산정 기준이 지침과 다르면 숫자가 있어도 판정을 보류합니다.</p><p lang="en">Unconfirmed data, a real zero and a confirmed absence are kept apart. If an area definition differs from the brief, the check is held even when a number is present.</p></li>
+        <li><span class="k">03</span><h3 lang="ko">같은 입력에는 같은 결과가 나옵니다</h3><h3 lang="en">Same input, same result</h3><p lang="ko">계산에 난수를 쓰지 않습니다. 입력과 지침, 모델에 SHA-256 해시를 붙여, 결과가 어떤 조건에서 나왔는지 나중에 다시 확인할 수 있습니다.</p><p lang="en">No randomness is used in the calculation. Inputs, brief and model carry SHA-256 hashes, so the conditions behind any result can be checked again later.</p></li>
+        <li><span class="k">04</span><h3 lang="ko">모든 판정에 근거가 따라갑니다</h3><h3 lang="en">Every check carries its evidence</h3><p lang="ko">판정마다 원자료 값, 환산값, 허용범위, 산정 기준, 제출 근거가 함께 남습니다. 제출 근거는 입력한 사람이 적은 참조이므로, 원문과 맞는지는 따로 확인합니다.</p><p lang="en">Each check keeps the raw value, converted value, allowed range, area definition and submitted source. Sources are references entered by people, so their match with the original documents is checked separately.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 05 SENSITIVITY -->
+<section class="ch" id="sensitivity">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">05</div>
+      <h2 class="ch-title" lang="ko">경계 근처를 다시 봅니다</h2>
+      <h2 class="ch-title" lang="en">A second look near the limits</h2>
+      <p class="ch-desc" lang="ko">허용편차 3%, 5%, 8%와 두 안에 똑같이 적용하는 면적 측정 편향 &minus;2%, 0%, +2%를 조합한 9가지 조건에서 판정을 다시 계산합니다.</p>
+      <p class="ch-desc" lang="en">Checks are recomputed under nine conditions that combine tolerances of 3, 5 and 8% with a common area bias of &minus;2, 0 and +2%, applied equally to both entries.</p>
+    </aside>
+    <div class="ch-body">
+      <div class="fsens" data-fo-sens></div>
+      <div class="fs-key" aria-hidden="true"><span><i class="d-ok"></i><span lang="ko">충족</span><span lang="en">Met</span></span><span><i class="d-rv"></i><span lang="ko">불충족</span><span lang="en">Not met</span></span><span><i class="d-na"></i><span lang="ko">판정불가</span><span lang="en">On hold</span></span><span><i class="d-base"></i><span lang="ko">기본 조건</span><span lang="en">Baseline condition</span></span><span lang="ko">점 다섯 개는 G01부터 G05까지</span><span lang="en">Five marks, G01 to G05</span></div>
+      <p class="fine" lang="ko">합성 예제의 계산 결과입니다. 민감도는 가정한 조건에서 판정이 어떻게 달라지는지 보여 줄 뿐이며, 확률이나 신뢰구간, 실제 측정 오차의 분포가 아닙니다. 수량과 공간 유무는 면적 편향의 영향을 받지 않습니다.</p>
+      <p class="fine" lang="en">Results for the synthetic example. Sensitivity shows how checks change under assumed conditions. It is not a probability, a confidence interval or a distribution of real measurement error. Counts and required spaces are not affected by the area bias.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 SCREEN -->
+<section class="ch" id="screen">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">06</div>
+      <h2 class="ch-title" lang="ko">작업 화면과 기능</h2>
+      <h2 class="ch-title" lang="en">The working screen</h2>
+      <p class="ch-desc" lang="ko">가운데 두 산정 지면, 오른쪽 검토 의견, 아래 지침 책갈피로 구성했습니다.</p>
+      <p class="ch-desc" lang="en">Two calculation sheets in the middle, review notes on the right and brief bookmarks along the bottom.</p>
+    </aside>
+    <div class="ch-body">
+      <figure class="shot">
+        <img src="screen-desktop.jpg" width="1440" height="1000" loading="lazy" decoding="async" alt="FACT Folio 작업 화면. 합성 예제의 두 설계안을 같은 지침으로 비교하는 모습. FACT Folio working screen comparing two entries of the synthetic example against one brief.">
+        <figcaption><span lang="ko">합성 예제로 실행한 FACT Folio 작업 화면(5차 화면 설계). 지면은 입력값에서 만든 산정 표현이며, 실제 도면이나 BIM 뷰어가 아닙니다.</span><span lang="en">FACT Folio running on the synthetic example (fifth screen design). The sheets are rendered from input values. They are not drawings or a BIM viewer.</span></figcaption>
+      </figure>
+      <ul class="feat">
+        <li><span class="k">F.01</span><h3 lang="ko">두 산정 지면</h3><h3 lang="en">Two calculation sheets</h3><p lang="ko">기준안과 대안을 같은 형식의 지면에 나란히 펼쳐, 같은 지침 항목을 같은 순서로 읽습니다.</p><p lang="en">The baseline and the alternative are laid out on sheets of the same format, so the same brief items read in the same order.</p></li>
+        <li><span class="k">F.02</span><h3 lang="ko">지침 책갈피</h3><h3 lang="en">Brief bookmarks</h3><p lang="ko">책갈피에서 지침 항목을 고르면 두 지면의 제출 원값과 환산값, 요구범위, 산정 근거가 함께 연결됩니다.</p><p lang="en">Choosing an item in the bookmarks links the submitted and converted values, the required range and the evidence on both sheets.</p></li>
+        <li><span class="k">F.03</span><h3 lang="ko">검토 의견 기록</h3><h3 lang="en">Reviewer notes</h3><p lang="ko">확인 요청, 자료 보완, 검토 의견을 실행 당시의 입력과 모델 해시에 연결해 남깁니다. 의견은 계산된 판정을 바꾸지 않습니다. 저장한 작업을 불러오거나 파일을 들이는 동안에는 새 의견 등록을 막고, 기존 의견을 교체하기 전에는 확인을 받습니다.</p><p lang="en">Requests for confirmation, data supplements and review comments are tied to the input and model hashes of the run. Notes never change a computed check. New notes are locked while saved work is restored or a file is imported, and replacing existing notes asks for confirmation first.</p></li>
+        <li><span class="k">F.04</span><h3 lang="ko">입력과 검증</h3><h3 lang="en">Input and validation</h3><p lang="ko">JSON 파일이나 화면에서 지침과 두 안의 값을 입력하고, 사용자가 제공한 자료에는 프로젝트 ID, 원문 문서 ID, 개정번호, 원문 위치를 붙여 출처를 남깁니다. 음수 면적, 잘못된 단위, 중복 식별자, JSON 문법 오류는 계산에 넣지 않고 문제 위치와 수정 방법을 알려 줍니다.</p><p lang="en">Brief items and the values of both entries are entered as JSON or on screen, and user-provided data carries a project ID, source document ID, revision and source location. Negative areas, invalid units, duplicate identifiers and JSON syntax errors are kept out of the calculation, with the location of the problem and how to fix it.</p></li>
+        <li><span class="k">F.05</span><h3 lang="ko">저장과 인계</h3><h3 lang="en">Save and hand off</h3><p lang="ko">입력과 계산 결과, 검토 의견을 하나의 작업 파일로 묶어 다른 담당자에게 넘기고, 들일 때는 파일 해시와 재계산 결과, 의견이 참조한 입력을 다시 확인합니다. 입력 JSON, 결과 JSON, 출처를 담은 비교표 CSV로 내보내며, 같은 브라우저에서는 시나리오를 저장해 다시 불러옵니다. 파일 해시는 내용이 같은지 확인할 뿐 작성자를 인증하지 않습니다.</p><p lang="en">Input, results and reviewer notes are bundled into one work file for the next reviewer, and on import the file hash, a fresh recalculation and the inputs behind each note are checked again. Exports include input JSON, result JSON and a comparison CSV with sources, and scenarios can be saved and reloaded in the same browser. The file hash confirms matching content. It does not authenticate the author.</p></li>
+        <li><span class="k">F.06</span><h3 lang="ko">인쇄 참고 화면</h3><h3 lang="en">Print view</h3><p lang="ko">편집 영역을 감추고 결과와 근거를 중심으로 정리한 인쇄용 화면을 제공합니다.</p><p lang="en">A print view hides the editing panels and lays out results with their evidence.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 07 SCOPE -->
+<section class="ch" id="scope">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">07</div>
+      <h2 class="ch-title" lang="ko">합성 자료로 검증을 마쳤습니다</h2>
+      <h2 class="ch-title" lang="en">Verified on synthetic data</h2>
+      <p class="ch-desc" lang="ko">계산 검증은 2026년 11월 2일, 화면 검증은 11월 4일에 마쳤습니다. 11월 7일에는 기능을 보강한 현재 코드(모델 1.1.0)로 자동 검사 94개를 다시 실행해 모두 통과했습니다. 새 기능을 실제 브라우저에서 확인하는 일은 다음 단계입니다.</p>
+      <p class="ch-desc" lang="en">Calculation tests were completed on November 2, 2026 and screen tests on November 4. On November 7, all 94 automated tests passed on the updated code, model 1.1.0. Checking the new features in a real browser comes next.</p>
+    </aside>
+    <div class="ch-body">
+      <div class="vbig v4">
+        <div><b>94</b><span lang="ko">현재 코드 자동 검사 통과 (11월 7일, 모델 1.1.0). 계산 시험 20개를 포함한 기존 검사 71개, 작업 인계와 복원 중 의견 보존 20개, 비교표 CSV 출처 3개</span><span lang="en">Automated tests passed on the current code, model 1.1.0 (November 7): 71 existing tests including the 20 calculation tests, 20 on work handoff and keeping notes during restore, and 3 on CSV sources</span></div>
+        <div><b>20</b><span lang="ko">독립 시험 통과 (11월 2일). 수작업 산술 대조, 단위 환산, 경계값, 잘못된 입력 거부, 재현성</span><span lang="en">Independent tests passed (November 2), covering hand-checked arithmetic, unit conversion, limits, invalid input and reproducibility</span></div>
+        <div><b>8</b><span lang="ko">별도 실행 점검 통과 (11월 2일). 반복 실행의 결과 파일 일치, 입력 보호, 원본 보존</span><span lang="en">Separate-run checks passed (November 2), including byte-identical repeat outputs, input protection and preserved originals</span></div>
+        <div><b>14</b><span lang="ko">브라우저 과업 통과 (11월 4일). 화면 너비 1440, 390, 320px, 저장과 복원, 내보내기 미리보기</span><span lang="en">Browser tasks passed (November 4) at 1440, 390 and 320 px, with save, restore and export preview</span></div>
+      </div>
+      <div class="scope">
+        <div>
+          <span class="sub-h mono"><span lang="ko">검증한 항목</span><span lang="en">Verified</span></span>
+          <ul class="chk">
+            <li><span lang="ko">㎡, ㎠, ㎟로 적은 같은 면적이 같은 결과를 냅니다.</span><span lang="en">The same area written in ㎡, ㎠ or ㎟ gives the same result.</span></li>
+            <li><span lang="ko">목표 100㎡, 허용편차 5%에서 95와 105㎡는 충족, 94.99999와 105.00001㎡는 불충족입니다.</span><span lang="en">With a 100 ㎡ target and 5% tolerance, 95 and 105 ㎡ are met, while 94.99999 and 105.00001 ㎡ are not.</span></li>
+            <li><span lang="ko">음수, 숫자가 아닌 값, 지원하지 않는 단위, 중복 식별자는 계산하지 않고 거부합니다.</span><span lang="en">Negative or non-numeric values, unsupported units and duplicate identifiers are rejected.</span></li>
+            <li><span lang="ko">두 안에 같은 자료를 넣으면 판정과 수치가 같고 차이는 0입니다.</span><span lang="en">Identical data in both entries gives identical checks and a zero difference.</span></li>
+            <li><span lang="ko">같은 입력을 따로 실행해도 결과 파일이 바이트 단위로 같습니다 (11월 2일 점검).</span><span lang="en">Separate runs on the same input produce byte-identical result files (checked November 2).</span></li>
+            <li><span lang="ko">작업 파일을 디스크에 저장했다가 다시 읽어도 입력 해시와 검토 의견이 그대로 남습니다 (11월 7일 자동 검사).</span><span lang="en">A work file written to disk and read back keeps the same input hash and reviewer notes (automated test, November 7).</span></li>
+          </ul>
+        </div>
+        <div>
+          <span class="sub-h mono"><span lang="ko">다음 검증 범위</span><span lang="en">Next to verify</span></span>
+          <ul class="chk no">
+            <li><span lang="ko">실제 공모지침과 출품안 자료로 한 검증</span><span lang="en">Testing on a real brief and real entries</span></li>
+            <li><span lang="ko">심사위원이 만든 정답표와의 대조</span><span lang="en">Comparison with an answer sheet made by reviewers</span></li>
+            <li><span lang="ko">도면이나 BIM 형상에서 면적을 직접 계산하는 기능 (지금은 입력된 면적을 사용)</span><span lang="en">Computing areas from drawings or BIM geometry, which currently relies on entered areas</span></li>
+            <li><span lang="ko">IFC, 법규 검토 엔진, 행태 시뮬레이션 엔진과의 연동</span><span lang="en">Links to IFC, code-check engines and behavior simulation engines</span></li>
+            <li><span lang="ko">프로젝트 자료 입력과 작업 파일 인계를 실제 브라우저에서 확인</span><span lang="en">Checks of project data entry and work file handoff in a real browser</span></li>
+            <li><span lang="ko">브라우저에서의 실제 파일 선택과 다운로드, 실물 인쇄, 여러 사용자의 동시 편집과 계정 권한</span><span lang="en">File picking and downloads in a real browser, printing on paper, and multi-user editing with accounts and permissions</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="fine" lang="ko">실제 공모 자료와 심사 현장에서의 검증은 다음 단계에서 진행합니다. 현재 Folio는 법규 적합성이나 인증을 판정하지 않습니다. 사용자 제공 자료에 붙는 출처 기록은 자료가 어디서 왔는지를 남길 뿐, 원문의 진위나 수치의 정확성을 확인했다는 뜻은 아닙니다.</p>
+      <p class="fine" lang="en">Testing with real competition data and in a real jury comes next. Folio does not currently judge legal compliance or certification. Source records on user-provided data show where the data came from. They do not confirm that the source is authentic or that the figures are correct.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 NEXT -->
+<section class="ch" id="next">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">08</div>
+      <h2 class="ch-title" lang="ko">한 장의 심사 비교표로 넓혀 갑니다</h2>
+      <h2 class="ch-title" lang="en">Toward one comparison sheet for the jury</h2>
+      <p class="ch-desc" lang="ko">근거와 기록 인계를 먼저 다듬고 실제 자료로 검증한 뒤, 법규 검토와 행태 시뮬레이션 결과를 연결해 제안서에서 정한 통합 비교표로 넓혀 갑니다.</p>
+      <p class="ch-desc" lang="en">Evidence and handoff come first, then testing with real data. After that, results from code checking and behavior simulation will be linked to build the integrated comparison sheet set out in the proposal.</p>
+    </aside>
+    <div class="ch-body">
+      <p class="big" lang="ko">최종 목표는 공공주택과 지자체 공공건축 설계공모의 여러 출품안을 같은 한국인 페르소나 인구와 같은 규칙 엔진으로 돌려, 공모지침 적합성과 외부 법규 검토 결과, 생활 동선, 보행약자 피난, 로봇 대응 성능을 한 장의 비교표와 입주민의 하루 시각화로 심사위원에게 전하는 것입니다.</p>
+      <p class="big" lang="en">The goal is to run every entry in public housing and public building competitions through the same synthetic Korean population and the same rule engine, and to give the jury one comparison sheet and a day-in-the-life view covering brief compliance, external code review results, daily circulation, evacuation for people with reduced mobility and robot readiness.</p>
+      <ul class="plan">
+        <li class="done"><span class="k">01</span><div><h3 lang="ko">공모지침 적합성</h3><h3 lang="en">Brief compliance</h3><p lang="ko">실별 요구면적과 허용범위, 최소 수량, 필수 공간</p><p lang="en">Room areas and tolerances, minimum counts, required spaces</p></div><span class="stt"><span lang="ko">합성 자료 검증 완료</span><span lang="en">Verified, synthetic data</span></span></li>
+        <li><span class="k">02</span><div><h3 lang="ko">법규 검토 결과 연결</h3><h3 lang="en">Code review results</h3><p lang="ko">무장애(BF) 기준을 포함한 외부 법규 검토 결과를 출처, 버전과 함께 나란히 표시합니다. Folio가 법규 적합을 판정하지는 않습니다.</p><p lang="en">Results of an external code review, including barrier-free criteria, shown side by side with their source and version. Folio itself does not judge compliance.</p></div><span class="stt"><span lang="ko">외부 엔진 연동 예정</span><span lang="en">External engine, planned</span></span></li>
+        <li><span class="k">03</span><div><h3 lang="ko">입주민 일과 동선</h3><h3 lang="en">Daily circulation</h3><p lang="ko">평균 보행거리, 출근 시간 승강기 대기</p><p lang="en">Average walking distance, elevator waits at the morning peak</p></div><span class="stt"><span lang="ko">행태 시뮬레이션 연동 예정</span><span lang="en">Behavior engine, planned</span></span></li>
+        <li><span class="k">04</span><div><h3 lang="ko">보행약자 피난 안전성</h3><h3 lang="en">Evacuation for people with reduced mobility</h3><p lang="ko">피난 소요 시간(RSET), 막다른 복도와 계단 합류 지연</p><p lang="en">Required safe egress time (RSET), dead-end corridors and merging delays at stairs</p></div><span class="stt"><span lang="ko">연동 예정</span><span lang="en">Planned</span></span></li>
+        <li><span class="k">05</span><div><h3 lang="ko">로봇 친화 준비도</h3><h3 lang="en">Robot readiness</h3><p lang="ko">단차와 로봇 우회 경로, 물류 거점</p><p lang="en">Level changes, robot detours and logistics hubs</p></div><span class="stt"><span lang="ko">연동 예정</span><span lang="en">Planned</span></span></li>
+        <li><span class="k">06</span><div><h3 lang="ko">입주민의 하루</h3><h3 lang="en">A day in the life</h3><p lang="ko">같은 인구가 두 안에서 보내는 하루를 나란히 시각화</p><p lang="en">The same population living a day in each entry, shown side by side</p></div><span class="stt"><span lang="ko">개발 예정</span><span lang="en">Planned</span></span></li>
+      </ul>
+      <span class="sub-h mono"><span lang="ko">같은 인구로 비교할 계획입니다</span><span lang="en">One population for every entry, planned</span></span>
+      <p class="pl-p" lang="ko">확장 단계에서는 모든 출품안에 같은 난수 시드로 만든 같은 한국인 코호트(고령자, 유모차 동반 보호자, 휠체어 이용자, 직장인, 배송 로봇)를 넣어 비교할 계획입니다. 현재 Folio는 난수를 쓰지 않고 두 안만 비교하며, 같은 시드로 공정성을 검증한 결과는 아직 없습니다. 같은 시드만으로 공정성이 보장되지는 않으므로 입력 누락과 평가 방법도 함께 공개합니다.</p>
+      <p class="pl-p" lang="en">In the expansion stage, every entry is planned to receive the same Korean cohorts generated from the same random seed, including older adults, parents with strollers, wheelchair users, office workers and delivery robots. Folio today uses no randomness and compares two entries, and fairness under a shared seed has not been tested. A shared seed alone does not make a review fair, so missing inputs and the evaluation method will be disclosed as well.</p>
+      <span class="sub-h mono"><span lang="ko">진행 순서</span><span lang="en">Steps</span></span>
+      <ol class="lod">
+        <li><span class="k">STEP 01</span><h3 lang="ko">실제 자료 확보</h3><h3 lang="en">Real data</h3><p lang="ko">사용 허가를 받은 공모지침 1건과 두 출품안의 익명화한 면적표를 확보하고, 두 명의 검토자가 정한 판정과 대조합니다.</p><p lang="en">Obtain one brief and the anonymized area schedules of two entries with permission, and compare the results with checks settled by two reviewers.</p></li>
+        <li><span class="k">STEP 02</span><h3 lang="ko">입력 도구</h3><h3 lang="en">Input tool</h3><p lang="ko">화면에서 지침과 두 안의 값을 직접 입력하는 기능은 2026년 11월 7일에 더했습니다. 다음은 면적표 CSV 가져오기와, 근거를 원문의 행이나 모델 객체까지 이어 주는 연결입니다.</p><p lang="en">On-screen entry of brief items and the values of both entries was added on November 7, 2026. Next come importing area schedules from CSV and tracing evidence to rows in the source or objects in the model.</p></li>
+        <li><span class="k">STEP 03</span><h3 lang="ko">엔진 연결</h3><h3 lang="en">Engine links</h3><p lang="ko">법규 검토 엔진과 행태 시뮬레이션 엔진이 준비되면 어댑터로 연결하고, 통합 비교표는 2027년 하반기 착수를 목표로 합니다. 이때도 자동 당락이나 합산 점수는 만들지 않습니다.</p><p lang="en">Connect code-check and behavior simulation engines through adapters once they are ready, aiming to start the integrated comparison sheet in the second half of 2027, still without automatic verdicts or combined scores.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 09 ACCESS -->
+<section class="ch access" id="access">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">09</div>
+      <h2 class="ch-title" lang="ko">이용 안내</h2>
+      <h2 class="ch-title" lang="en">Access</h2>
+      <p class="ch-desc" lang="ko">FACT Folio는 합성 자료로 검증을 마친 연구용 도구로, 일반에 공개하지 않습니다.</p>
+      <p class="ch-desc" lang="en">FACT Folio is a research tool verified on synthetic data and is not publicly released.</p>
+    </aside>
+    <div class="ch-body">
+      <p class="big" lang="ko">실제 공모 자료로 함께 검증할 발주 기관, 공모 운영 기관, 연구 협력 기관을 찾고 있습니다. 검토하려는 공모의 유형과 일정을 알려 주시면 합성 예제로 시연을 준비하겠습니다.</p>
+      <p class="big" lang="en">We are looking for commissioning bodies, competition organizers and research partners to test it with real competition data. Tell us the type and schedule of the competition you have in mind, and we will prepare a demo on the synthetic example.</p>
+      <div class="reach">
+        <span class="mono"><span lang="ko">문의 이메일</span><span lang="en">Email</span></span>
+        <p class="reach-mail"><a class="mail" href="{{MAIL_KO}}" lang="ko">fact.kaist@gmail.com</a><a class="mail" href="{{MAIL_EN}}" lang="en">fact.kaist@gmail.com</a><button type="button" class="copy-mail" data-copy="fact.kaist@gmail.com"><span class="c0"><span lang="ko">주소 복사</span><span lang="en">Copy</span></span><span class="c1"><span lang="ko">복사했습니다</span><span lang="en">Copied</span></span></button></p>
+        <p class="reach-who"><span lang="ko">센터장 차승현 교수, KAIST 문화기술대학원</span><span lang="en">Director, Prof. Seung Hyun Cha, KAIST Graduate School of Culture Technology</span></p>
+      </div>
+      <div class="tool-cta">
+        <a class="btn acc" href="../#contact" data-keep-lang><span lang="ko">시연 및 실증 협력 문의</span><span lang="en">Request a demo</span> <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <ul class="credits">
+        <li><b>Note</b><span lang="ko">이 페이지의 예제는 합성 자료이며 실제 공모, 기관, 출품안과 관계없습니다.</span><span lang="en">The examples on this page are synthetic and unrelated to any real competition, organization or entry.</span></li>
+        <li><b>Note</b><span lang="ko">판정 결과는 심사위원의 판단을 돕기 위한 참고 자료이며, 법규 적합성 검토나 인증을 대신하지 않습니다.</span><span lang="en">Checks are reference material for the jury. They do not replace legal compliance review or certification.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pfoot">
+  <div class="wrap">
+    <div class="row1">
+      <div class="fb">{{MARK}}<div><div class="wm">FACT</div><div class="sub" lang="ko">미래건축 융합기술 연구센터<br>KAIST 문화기술연구소</div><div class="sub" lang="en">Future Architecture Convergence Technology Research Center<br>KAIST Culture Technology Research Institute</div></div></div>
+      <div class="lk"><a class="link" href="../" data-keep-lang><span lang="ko">FACT 홈</span><span lang="en">FACT home</span></a><a class="link" href="../#platforms" data-keep-lang><span lang="ko">FACT 플랫폼</span><span lang="en">FACT Platforms</span></a><a class="link" href="../nexspace/" data-keep-lang>KAIST NexSpace</a><a class="link" href="../#contact" data-keep-lang><span lang="ko">연락처</span><span lang="en">Contact</span></a></div>
+    </div>
+    <div class="copy"><span>© 2026 FACT Research Center, KAIST</span><span>FACT Folio, P.02</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('langBtn');
+  var TITLE={ko:'FACT Folio | 설계공모 심사 보조 도구 | FACT, KAIST',en:'FACT Folio | Review aid for design competitions | FACT, KAIST'};
+  function setLang(l){
+    root.setAttribute('data-lang',l); root.setAttribute('lang',l);
+    btn.querySelectorAll('span').forEach(function(s){s.classList.toggle('on',s.getAttribute('data-l')===l)});
+    document.title=TITLE[l];
+  }
+  var q=new URLSearchParams(location.search).get('lang'); if(q==='en'||q==='ko') setLang(q);
+  btn.addEventListener('click',function(){
+    var l=root.getAttribute('data-lang')==='ko'?'en':'ko'; setLang(l);
+    try{ var u=new URL(location.href); if(l==='en')u.searchParams.set('lang','en'); else u.searchParams.delete('lang'); history.replaceState(null,'',u.pathname+u.search+u.hash); }catch(e){}
+  });
+  var mb=document.getElementById('menuBtn'), nl=document.getElementById('navLinks');
+  mb.addEventListener('click',function(){ var o=nl.classList.toggle('open'); mb.setAttribute('aria-expanded',o); });
+  nl.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nl.classList.remove('open');mb.setAttribute('aria-expanded','false');});});
+
+  /* reveal */
+  var rv=document.querySelectorAll('.ch-side, .ch-body > *');
+  rv.forEach(function(el){el.classList.add('reveal')});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -6% 0px',threshold:.06});
+    rv.forEach(function(el){io.observe(el)});
+  } else { rv.forEach(function(el){el.classList.add('in')}); }
+})();
+</script>
+<script>
+{{FO_JS}}
+</script>
+</body>
+</html>

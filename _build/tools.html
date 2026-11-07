@@ -1,0 +1,78 @@
+<!-- 05 PLATFORMS -->
+<section class="ch" id="platforms">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">05</div>
+      <h2 class="ch-title" lang="ko">FACT 플랫폼</h2>
+      <h2 class="ch-title" lang="en">FACT Platforms</h2>
+      <p class="ch-desc" lang="ko">센터의 연구를 설계 현장에서 쓸 수 있는 플랫폼으로 만듭니다. 시공 전 공간 행동 시뮬레이터 KAIST NexSpace와 설계공모 심사 보조 도구 FACT Folio를 소개합니다.</p>
+      <p class="ch-desc" lang="en">We turn the center's research into platforms for design practice: KAIST NexSpace, a pre-occupancy spatial behavior simulator, and FACT Folio, a review aid for design competitions.</p>
+      <ol class="tool-index">
+        <li class="on"><a href="#nexspace"><span class="k">P.01</span><span>KAIST NexSpace</span></a></li>
+        <li class="on"><a href="#folio"><span class="k">P.02</span><span>FACT Folio</span></a></li>
+        <li><span class="k">P.03</span><span lang="ko">준비 중</span><span lang="en">In development</span></li>
+      </ol>
+    </aside>
+    <div class="ch-body">
+      <article class="tool" id="nexspace">
+        <div class="tool-meta mono"><span class="acc">P.01</span><span lang="ko">시공 전 시뮬레이션</span><span lang="en">Pre-occupancy simulation</span><span>2026</span><span lang="ko">연구 협력 기관 대상 운영</span><span lang="en">Partner access</span></div>
+        <h3 class="tool-name"><span>KAIST</span> NexSpace</h3>
+        <p class="tool-tag" lang="ko">짓기 전에, 먼저 살아봅니다.</p>
+        <p class="tool-tag" lang="en">Occupied before it is built.</p>
+        {{FIGURE}}
+        <p class="tool-desc" lang="ko">설계 도면 안으로 한국인의 인구 구성을 닮은 AI 에이전트를 들여보내 하루를 미리 살게 합니다. 시간대별 혼잡과 대기, 보행약자의 이동, 화재 시 피난 안전성을 예측하고, 연면적을 늘리지 않는 평면 대안을 찾아 Revit 모델로 되돌려 줍니다. 언어모델, 700만 한국인 합성 페르소나, 역강화학습, 보행 물리와 대기행렬 시뮬레이션을 하나의 엔진으로 결합했고, 공개 데이터와 대조해 정확도를 검증했습니다.</p>
+        <p class="tool-desc" lang="en">NexSpace lets AI agents modeled on Korea's population live through a day inside a design drawing. It predicts congestion and waiting by time of day, the movement of people with reduced mobility and evacuation safety in a fire, then finds plan alternatives that keep the floor area unchanged and writes them back to the Revit model. A language model, 7 million synthetic Korean personas, inverse reinforcement learning, pedestrian physics and queueing simulation run in one engine, checked against public datasets.</p>
+        <span class="tool-kh mono"><span lang="ko">공개 데이터 검증 결과</span><span lang="en">Validated on public data</span></span>
+        <ul class="tool-kpi">
+          <li><b>4.5%</b><span lang="ko">평균 예측 오차 (MAPE)</span><span lang="en">Mean prediction error (MAPE)</span></li>
+          <li><b>0.968</b><span lang="ko">실측 대비 결정계수 (R²)</span><span lang="en">Fit to measured data (R²)</span></li>
+          <li><b lang="ko">700만</b><b lang="en">7M</b><span lang="ko">한국인 합성 페르소나</span><span lang="en">Synthetic Korean personas</span></li>
+        </ul>
+        <ul class="tool-stack" aria-label="Core technologies">
+          <li lang="ko">LLM 시나리오 컴파일러</li><li lang="en">LLM scenario compiler</li>
+          <li>Nemotron-Personas-Korea</li>
+          <li lang="ko">역강화학습 (MaxEnt IRL)</li><li lang="en">Inverse RL (MaxEnt)</li>
+          <li lang="ko">사회력 보행 모델</li><li lang="en">Social force model</li>
+          <li lang="ko">M/M/c 대기행렬</li><li lang="en">M/M/c queueing</li>
+          <li lang="ko">몬테카를로 P95</li><li lang="en">Monte Carlo P95</li>
+          <li lang="ko">IFC4, Revit 양방향 연동</li><li lang="en">IFC4 and Revit bridge</li>
+        </ul>
+        <div class="tool-cta">
+          <a class="btn acc" href="nexspace/" data-keep-lang><span lang="ko">NexSpace 자세히 보기</span><span lang="en">Explore NexSpace</span> <span aria-hidden="true">&rarr;</span></a>
+          <a class="btn" href="#contact"><span lang="ko">시연 및 협력 문의</span><span lang="en">Request a demo</span></a>
+        </div>
+      </article>
+      <article class="tool" id="folio">
+        <div class="tool-meta mono"><span class="acc">P.02</span><span lang="ko">설계공모 심사 보조</span><span lang="en">Competition review support</span><span>2026</span><span lang="ko">합성 자료 검증 완료</span><span lang="en">Verified on synthetic data</span></div>
+        <h3 class="tool-name"><span>FACT</span> Folio</h3>
+        <p class="tool-tag" lang="ko">같은 지침으로, 나란히 읽습니다.</p>
+        <p class="tool-tag" lang="en">Two entries, one brief, read side by side.</p>
+        {{FO_FIGURE}}
+        <p class="tool-desc" lang="ko">설계공모 출품안의 면적표를 같은 공모지침에 비추어 나란히 읽게 해 주는 심사 보조 도구입니다. 실별 요구면적과 허용범위, 최소 수량, 필수 공간을 두 안에 같은 규칙으로 적용하고, 항목마다 단위 환산과 면적 산정 기준, 제출 근거를 함께 남깁니다. 빠진 자료는 0으로 읽지 않고 판정을 보류하며, 점수와 순위, 당락은 만들지 않습니다. 이 검토 엔진은 합성 자료로 검증을 마쳤고, 11월 7일에는 프로젝트 자료 입력과 검토 의견을 담은 작업 파일 인계를 더했습니다. 근거와 기록 인계를 먼저 다듬고 실제 자료로 검증한 뒤, 법규 검토와 행태 시뮬레이션 결과를 같은 비교표에 연결해 생활 동선, 보행약자 피난, 로봇 대응까지 넓혀 갈 계획입니다.</p>
+        <p class="tool-desc" lang="en">FACT Folio lets a jury read the area schedules of competition entries side by side against the same brief. It applies required room areas and tolerances, minimum counts and required spaces to both entries with one set of rules, and keeps the unit conversion, area definition and submitted source for every item. Missing data is held rather than read as zero, and it produces no scores, rankings or verdicts. The review engine has been verified on synthetic data, and on November 7 it gained project data entry and a work file that carries reviewer notes to the next reviewer. Evidence and handoff come first, then testing with real data, before code-check and behavior simulation results are linked to the same comparison to cover daily circulation, evacuation for people with reduced mobility and robot readiness.</p>
+        <span class="tool-kh mono"><span lang="ko">합성 자료 검증 결과</span><span lang="en">Verified on synthetic data</span></span>
+        <ul class="tool-kpi">
+          <li><b>94</b><span lang="ko">자동 검사 모두 통과 (11월 7일)</span><span lang="en">Automated tests, all passed (Nov 7)</span></li>
+          <li><b>8</b><span lang="ko">별도 실행 점검 모두 통과 (11월 2일)</span><span lang="en">Separate-run checks, all passed (Nov 2)</span></li>
+          <li><b>14</b><span lang="ko">브라우저 과업 모두 통과 (11월 4일)</span><span lang="en">Browser tasks, all passed (Nov 4)</span></li>
+        </ul>
+        <ul class="tool-stack" aria-label="Core features">
+          <li lang="ko">공모지침 규칙화</li><li lang="en">Brief-to-rule mapping</li>
+          <li lang="ko">면적 단위 환산</li><li lang="en">Area unit conversion</li>
+          <li lang="ko">면적 산정 기준 대조</li><li lang="en">Area definition check</li>
+          <li lang="ko">자료 누락 보류</li><li lang="en">Missing data held</li>
+          <li lang="ko">민감도 9조건</li><li lang="en">9-condition sensitivity</li>
+          <li lang="ko">SHA-256 재현 해시</li><li lang="en">SHA-256 reproducibility</li>
+          <li lang="ko">심사 의견 기록</li><li lang="en">Reviewer notes</li>
+          <li lang="ko">작업 파일 인계</li><li lang="en">Work file handoff</li>
+          <li lang="ko">CSV, JSON 내보내기</li><li lang="en">CSV and JSON export</li>
+        </ul>
+        <div class="tool-cta">
+          <a class="btn acc" href="folio/" data-keep-lang><span lang="ko">Folio 자세히 보기</span><span lang="en">Explore Folio</span> <span aria-hidden="true">&rarr;</span></a>
+          <a class="btn" href="#contact"><span lang="ko">시연 및 실증 협력 문의</span><span lang="en">Request a demo</span></a>
+        </div>
+      </article>
+      <div class="tool-next"><span class="k">P.03</span><span lang="ko">다음 플랫폼을 준비하고 있습니다.</span><span lang="en">The next platform is in development.</span></div>
+    </div>
+  </div>
+</section>

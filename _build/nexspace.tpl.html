@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0C0D10">
+<title>KAIST NexSpace | 시공 전 공간 행동 시뮬레이터 | FACT, KAIST</title>
+<meta name="description" content="KAIST NexSpace는 설계 도면 단계에서 한국인 인구 구성을 닮은 AI 에이전트로 건물의 혼잡, 대기, 보행약자 이동, 피난 안전성을 미리 예측하는 FACT 연구센터의 시공 전 공간 행동 시뮬레이터입니다.">
+<meta property="og:title" content="KAIST NexSpace | FACT Research Center, KAIST">
+<meta property="og:description" content="A pre-occupancy spatial behavior simulator that predicts congestion, waiting, accessibility and evacuation safety at the drawing stage, with AI agents modeled on Korea's population.">
+<meta property="og:type" content="website">
+<link rel="icon" href="{{FAVICON}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+{{CSS}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span lang="ko">본문으로 건너뛰기</span><span lang="en">Skip to content</span></a>
+
+<header class="header">
+  <div class="wrap">
+    <a class="brand" href="../" data-keep-lang aria-label="FACT Research Center">
+      {{MARK}}
+      <span>
+        <span class="wm">FACT</span>
+        <span class="sub" lang="ko">미래건축 융합기술 연구센터</span>
+        <span class="sub" lang="en">Future Architecture Convergence Technology Research Center</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <div class="nav-links" id="navLinks">
+        <a href="../#about" data-keep-lang><i>01</i><span lang="ko">소개</span><span lang="en">About</span></a>
+        <a href="../#research" data-keep-lang><i>02</i><span lang="ko">연구</span><span lang="en">Research</span></a>
+        <a href="../#people" data-keep-lang><i>03</i><span lang="ko">구성원</span><span lang="en">People</span></a>
+        <a href="../#projects" data-keep-lang><i>04</i><span lang="ko">과제</span><span lang="en">Projects</span></a>
+        <a class="cur" href="../#platforms" data-keep-lang><i>05</i><span lang="ko">플랫폼</span><span lang="en">Platforms</span></a>
+        <a href="../#news" data-keep-lang><i>06</i><span lang="ko">소식</span><span lang="en">News</span></a>
+        <a href="../#partners" data-keep-lang><i>07</i><span lang="ko">협력</span><span lang="en">Partners</span></a>
+        <a href="../#roadmap" data-keep-lang><i>08</i><span lang="ko">일정</span><span lang="en">Roadmap</span></a>
+        <a href="../#contact" data-keep-lang><i>09</i><span lang="ko">연락처</span><span lang="en">Contact</span></a>
+      </div>
+      <button class="lang" id="langBtn" type="button" aria-label="Switch language"><span class="on" data-l="ko">KO</span> / <span data-l="en">EN</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navLinks"><span lang="ko">메뉴</span><span lang="en">Menu</span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="nxh" id="top">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <nav class="crumb mono" aria-label="Breadcrumb"><a href="../" data-keep-lang>FACT</a><span class="sep">/</span><a href="../#platforms" data-keep-lang><span lang="ko">플랫폼</span><span lang="en">Platforms</span></a><span class="sep">/</span><span class="cur">P.01</span></nav>
+    <div class="nxh-head">
+      <div>
+        <h1><span>KAIST</span>NexSpace</h1>
+        <p class="tag" lang="ko">짓기 전에, 먼저 살아봅니다.</p>
+        <p class="tag" lang="en">Occupied before it is built.</p>
+        <p class="lede jt" lang="ko">KAIST NexSpace는 설계 도면 단계에서 건물의 하루를 미리 돌려 보는 시공 전 공간 행동 시뮬레이터입니다. 한국인의 인구 구성을 닮은 AI 에이전트가 도면 속 복도를 걷고, 창구 앞에 줄을 서고, 화재 시 대피합니다. 어디서 혼잡이 생기고 누가 가장 오래 기다리는지, 연면적을 늘리지 않고 무엇을 바꾸면 되는지를 수치로 보여 줍니다.</p>
+        <p class="lede jt" lang="en">KAIST NexSpace is a pre-occupancy spatial behavior simulator that runs a building's day while it is still a drawing. AI agents modeled on Korea's population walk its corridors, queue at its counters and evacuate it in a fire. It shows, in numbers, where congestion forms, who waits longest and what to change without adding floor area.</p>
+      </div>
+      <dl class="spec">
+        <div><dt lang="ko">유형</dt><dt lang="en">Type</dt><dd><span lang="ko">시공 전 공간 행동 시뮬레이터</span><span lang="en">Pre-occupancy spatial behavior simulator</span></dd></div>
+        <div><dt lang="ko">입력</dt><dt lang="en">Input</dt><dd><span lang="ko">Revit, IFC4, DXF, 면적표 CSV, 스캔 도면 이미지</span><span lang="en">Revit, IFC4, DXF, area schedule CSV, scanned plans</span></dd></div>
+        <div><dt lang="ko">출력</dt><dt lang="en">Output</dt><dd><span lang="ko">시간대별 혼잡과 대기, 무장애 점검, 피난 안전성, 평면 대안, Revit 반영, PDF 보고서</span><span lang="en">Congestion and waits by hour, accessibility audit, evacuation safety, plan alternatives, Revit write-back, PDF report</span></dd></div>
+        <div><dt lang="ko">규모</dt><dt lang="en">Scale</dt><dd><span lang="ko">최대 16개 층, 3,200실</span><span lang="en">Up to 16 floors and 3,200 rooms</span></dd></div>
+        <div><dt>AI</dt><dd><span lang="ko">LLM 시나리오 컴파일러 (Gemini, NVIDIA NIM, OpenAI 또는 오프라인 엔진)</span><span lang="en">LLM scenario compiler (Gemini, NVIDIA NIM, OpenAI or an offline engine)</span></dd></div>
+        <div><dt lang="ko">개발</dt><dt lang="en">Team</dt><dd><span lang="ko">KAIST 미래공간연구실, FACT 연구센터</span><span lang="en">KAIST Future Space Lab, FACT Research Center</span></dd></div>
+        <div><dt lang="ko">운영</dt><dt lang="en">Access</dt><dd><span lang="ko">연구 협력 기관 대상</span><span lang="en">Research partners</span></dd></div>
+      </dl>
+    </div>
+    {{FIGURE}}
+  </div>
+</section>
+
+<!-- 01 PROBLEM -->
+<section class="ch" id="problem">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">01</div>
+      <h2 class="ch-title" lang="ko">준공 첫날에야 드러나는 문제</h2>
+      <h2 class="ch-title" lang="en">Problems that surface on opening day</h2>
+      <p class="ch-desc" lang="ko">도면은 면적과 치수를 말하지만, 사람이 몰리는 시간과 기다림은 말하지 않습니다.</p>
+      <p class="ch-desc" lang="en">Drawings state areas and dimensions. They say nothing about when people arrive or how long they wait.</p>
+    </aside>
+    <div class="ch-body">
+      <p class="big" lang="ko">병원 외래부, 공항, 환승센터처럼 사람이 몰리는 건물에서 가장 비싼 실수는 대개 준공 뒤에 발견됩니다. 오전 9시 반 채혈실 대기열이 복도까지 밀려 나오고, 지팡이를 짚은 어르신은 수납 창구까지 수십 미터를 더 걷습니다. 하루 평균 이용자 수로 면적을 정하는 관행으로는 이런 피크와 꼬리위험이 보이지 않습니다.</p>
+      <p class="big" lang="en">In buildings where people converge, such as outpatient departments, airports and transit hubs, the costliest mistakes usually appear after completion. At 9:30 a.m. the blood-draw queue spills into the corridor, and an older patient with a cane walks tens of extra meters to the payment desk. Sizing rooms by average daily visitors hides these peaks and tail risks.</p>
+      <div class="rows" style="margin-top:36px">
+        <div class="row"><span class="k">01</span><div><h3 lang="ko">평균으로는 피크가 보이지 않습니다</h3><h3 lang="en">Peaks hide inside averages</h3><p lang="ko">평균 대기가 짧아 보이는 공간도 도착이 한꺼번에 몰리는 날에는 대기열이 복도까지 넘칩니다. 설계 기준은 평균이 아니라 피크와 꼬리위험이어야 합니다.</p><p lang="en">A room with a short average wait can still overflow into the corridor when arrivals bunch up. Design criteria should follow peaks and tail risk, not averages.</p></div></div>
+        <div class="row"><span class="k">02</span><div><h3 lang="ko">보행약자는 다르게 움직입니다</h3><h3 lang="en">People move differently</h3><p lang="ko">외래 병원 이용자의 상당수는 고령자, 유모차를 끄는 보호자, 휠체어 이용자입니다. 성인 보행속도 하나로 계산한 시뮬레이션은 이들이 겪는 거리와 대기를 과소평가합니다.</p><p lang="en">Many outpatient visitors are older adults, parents with strollers and wheelchair users. A simulation built on a single adult walking speed underestimates the distances and waits they face.</p></div></div>
+        <div class="row"><span class="k">03</span><div><h3 lang="ko">고치려면 면적이 늘어납니다</h3><h3 lang="en">Fixes usually add area</h3><p lang="ko">병목을 넓혀서 해결하면 골조와 공사비가 함께 늘어납니다. 같은 면적 안에서 실의 위치와 용도를 바꾸는 대안은 근거가 부족해 검토조차 되지 못하는 경우가 많습니다.</p><p lang="en">Widening a bottleneck adds structure and cost. Alternatives that rearrange rooms within the same area are often dismissed for lack of evidence.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 HOW IT WORKS -->
+<section class="ch" id="how">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">02</div>
+      <h2 class="ch-title" lang="ko">도면에서 처방까지 네 단계</h2>
+      <h2 class="ch-title" lang="en">From drawing to prescription in four steps</h2>
+      <p class="ch-desc" lang="ko">무거운 BIM 모델을 가볍게 읽고, 사람의 하루를 시뮬레이션한 뒤, 고친 결과를 원본 모델로 돌려보냅니다.</p>
+      <p class="ch-desc" lang="en">It reads heavy BIM models lightly, simulates a day of human activity, and sends the fixes back to the original model.</p>
+    </aside>
+    <div class="ch-body">
+      <ol class="pipe">
+        <li><span class="n">01 / PARSE</span><h3 lang="ko">BIM 위상 해석</h3><h3 lang="en">BIM topology parsing</h3><p lang="ko">Revit, IFC4, DXF, 면적표, 스캔 도면에서 실, 문, 복도, 수직 동선의 연결 관계만 추출합니다. 1GB가 넘는 모델도 수백 KB의 위상 데이터로 가벼워집니다.</p><p lang="en">Extracts only how rooms, doors, corridors and vertical circulation connect, from Revit, IFC4, DXF, area schedules or scanned plans. A model over 1 GB becomes a few hundred kilobytes of topology.</p><dl class="io"><dt>IN</dt><dd>RVT, IFC4, DXF, CSV, PNG</dd><dt>OUT</dt><dd>Topology JSON, ~380 KB</dd></dl></li>
+        <li><span class="n">02 / COMPILE</span><h3 lang="ko">인구와 시나리오 구성</h3><h3 lang="en">Population and scenario</h3><p lang="ko">700만 한국인 합성 페르소나에서 이용자 집단을 뽑고, “월요일 오전 비, 고령 환자 30% 증가” 같은 말로 적은 조건을 LLM이 시뮬레이션 설정으로 바꿉니다.</p><p lang="en">Samples visitor cohorts from 7 million synthetic Korean personas, while an LLM turns plain-language conditions such as “rainy Monday morning, 30% more older patients” into simulation settings.</p><dl class="io"><dt>IN</dt><dd>Personas, plain-language brief</dd><dt>OUT</dt><dd>Scenario schema, JSON</dd></dl></li>
+        <li><span class="n">03 / SIMULATE</span><h3 lang="ko">하이브리드 행동 시뮬레이션</h3><h3 lang="en">Hybrid behavior simulation</h3><p lang="ko">에이전트마다 하루 일정, 경로 선택, 보행 물리, 대기를 차례로 계산합니다. 최대 10만 회의 확률 반복으로 평균뿐 아니라 가장 붐비는 날의 상위 5%, 1% 대기까지 구합니다.</p><p lang="en">Computes each agent's schedule, route choice, walking physics and queueing in turn. Up to 100,000 stochastic runs give not just the average but the 95th and 99th percentile waits of the busiest days.</p><dl class="io"><dt>IN</dt><dd>Topology, scenario</dd><dt>OUT</dt><dd>Waits, density, P95, P99, spillover</dd></dl></li>
+        <li><span class="n">04 / PRESCRIBE</span><h3 lang="ko">AI 처방과 Revit 반영</h3><h3 lang="en">AI prescription and write-back</h3><p lang="ko">연면적과 외벽, 구조 코어를 고정한 채 실의 위치와 용도를 바꾸는 대안을 찾고, 결과를 Revit 공유 매개변수와 PDF 보고서로 돌려줍니다.</p><p lang="en">Searches for alternatives that move or repurpose rooms while floor area, envelope and structural cores stay fixed, then returns them as Revit shared parameters and a PDF report.</p><dl class="io"><dt>IN</dt><dd>Constraint ΔGFA = 0</dd><dt>OUT</dt><dd>Revit parameters, IFC4, PDF</dd></dl></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 03 AGENTS -->
+<section class="ch" id="agents">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">03</div>
+      <h2 class="ch-title" lang="ko">사람을 네 겹으로 모델링합니다</h2>
+      <h2 class="ch-title" lang="en">People, modeled in four layers</h2>
+      <p class="ch-desc" lang="ko">누구인지, 어디로 갈지, 어떻게 걷는지, 얼마나 기다리는지. 에이전트 하나 안에서 네 개의 모델이 차례로 작동합니다.</p>
+      <p class="ch-desc" lang="en">Who they are, where they go, how they walk and how long they wait. Four models run in sequence inside every agent.</p>
+      <div class="layers-fig">{{LAYERS_SVG}}</div>
+    </aside>
+    <div class="ch-body">
+      <ol class="layer-list">
+          <li data-l="1"><span class="k">L1</span><div><h3 lang="ko">정체성과 하루 일정</h3><h3 lang="en">Identity and daily schedule</h3></div><span class="src">NVIDIA Nemotron-Personas-Korea, MIMICEL (PhysioNet)</span><p lang="ko">통계청 인구 구조를 반영한 700만 합성 페르소나에서 나이, 이동 능력, 동반자 여부를 가진 이용자를 뽑습니다. 실제 병원 진료 이벤트 로그로 학습한 마르코프 연쇄가 접수, 검사, 진료, 수납으로 이어지는 하루 일정을 만듭니다.</p><p lang="en">Visitors with age, mobility and companions are drawn from 7 million synthetic personas grounded in Korean census statistics. A Markov chain learned from real hospital event logs builds each visit: registration, tests, consultation, payment.</p></li>
+          <li data-l="2"><span class="k">L2</span><div><h3 lang="ko">경로 선택</h3><h3 lang="en">Route choice</h3></div><span class="src">Discrete choice, MaxEnt inverse RL</span><p lang="ko">보행 거리, 앞쪽 복도의 혼잡, 방향을 꺾는 횟수, 시야가 트인 정도에 대한 선호를 사람들이 실제로 고른 경로에서 역강화학습으로 추정합니다. 에이전트는 최단 경로가 아니라 사람이 고를 법한 길을 걷습니다.</p><p lang="en">Inverse reinforcement learning recovers preferences for walking distance, crowding ahead, number of turns and open sightlines from routes people actually chose. Agents take the path a person would likely pick, not merely the shortest one.</p></li>
+          <li data-l="3"><span class="k">L3</span><div><h3 lang="ko">보행 물리</h3><h3 lang="en">Locomotion</h3></div><span class="src">Helbing social force, FZ Jülich density-speed</span><p lang="ko">사회력 모델로 서로 피하고 밀리는 움직임을 계산하고, 복도 밀도가 높아지거나 문이 좁아지면 독일 율리히 연구소 실측식에 따라 보행속도가 비선형으로 줄어듭니다.</p><p lang="en">A social force model handles avoidance and pushing. As corridors crowd or doors narrow, walking speed drops non-linearly following measurements from Forschungszentrum Jülich.</p></li>
+          <li data-l="4"><span class="k">L4</span><div><h3 lang="ko">대기와 꼬리위험</h3><h3 lang="en">Queueing and tail risk</h3></div><span class="src">M/M/c, Kingman, Monte Carlo P95/P99</span><p lang="ko">창구 수와 처리 속도가 바뀌면 대기행렬 공식으로 즉시 응답하고, 몬테카를로 반복으로 몰려 도착하는 날의 대기 분포와 복도로 넘치는 인원까지 계산합니다.</p><p lang="en">Queueing formulas respond instantly when counters or service rates change, and Monte Carlo runs give the wait distribution on bunched-arrival days, including people spilling into the corridor.</p></li>
+      </ol>
+      <div class="cohorts">
+        <div class="hd" aria-hidden="true"><span><span lang="ko">이용자 집단</span><span lang="en">Cohort</span></span><span><span lang="ko">자유 보행속도</span><span lang="en">Free walking speed</span></span><span>m/s</span><span><span lang="ko">점유 면적</span><span lang="en">Space</span></span><span><span lang="ko">비중</span><span lang="en">Share</span></span></div>
+        <ul>
+          {{COHORTS}}
+        </ul>
+        <p class="cap" lang="ko">보행속도와 점유 면적 배율은 IMO MSC.1/Circ.1533, SFPE Handbook, 국내 무장애(BF) 기준을 따르며, 비중은 외래 진료부 예시 시나리오 기준입니다. 밀도가 높아지면 율리히 실측식에 따라 속도가 줄어듭니다.</p>
+        <p class="cap" lang="en">Speeds and space multipliers follow IMO MSC.1/Circ.1533, the SFPE Handbook and Korean barrier-free standards. Shares are for the example outpatient scenario. Speeds fall with density according to the Jülich measurements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PRINCIPLES -->
+<section class="ch" id="principles">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">04</div>
+      <h2 class="ch-title" lang="ko">신뢰를 위한 세 가지 원칙</h2>
+      <h2 class="ch-title" lang="en">Three principles for trust</h2>
+      <p class="ch-desc" lang="ko">그럴듯한 답보다 확인할 수 있는 답을 내도록 설계했습니다.</p>
+      <p class="ch-desc" lang="en">Built to give answers that can be checked, not answers that merely sound right.</p>
+    </aside>
+    <div class="ch-body">
+      <ol class="prin">
+        <li><span class="k">01</span><h3 lang="ko">LLM은 해석하고, 계산은 엔진이 합니다</h3><h3 lang="en">The LLM interprets. The engine computes.</h3><p lang="ko">언어모델은 사용자가 말로 적은 조건을 정해진 시나리오 형식으로 옮기는 일만 맡습니다. 보행, 대기, 피난의 수치는 모두 재현 가능한 시뮬레이션 엔진이 계산하므로, 언어모델이 수치를 지어낼 여지를 구조적으로 없앴습니다.</p><p lang="en">The language model only translates plain-language conditions into a fixed scenario schema. Every figure for walking, waiting and evacuation comes from a reproducible simulation engine, so the model has no way to invent numbers.</p></li>
+        <li><span class="k">02</span><h3 lang="ko">사람은 역강화학습으로, 설계안은 강화학습으로</h3><h3 lang="en">Inverse RL for people, RL for plans</h3><p lang="ko">보행자를 강화학습으로 반복 훈련하면 지도를 외운 게임 캐릭터처럼 움직이게 됩니다. NexSpace는 사람의 경로 선택을 관찰된 행동에서 거꾸로 추정하고, 강화학습과 최적화 탐색은 설계 AI가 실 배치를 바꿔 볼 때만 사용합니다.</p><p lang="en">Pedestrians trained by repeated reinforcement learning end up moving like game bots that memorized the map. NexSpace infers route choice from observed behavior, and keeps reinforcement learning and optimization for the design AI that tries room arrangements.</p></li>
+        <li><span class="k">03</span><h3 lang="ko">무거운 BIM은 가볍게, 원본은 그대로</h3><h3 lang="en">Light on BIM, gentle on the original</h3><p lang="ko">시뮬레이션에 필요한 공간 위상만 추출해 일반 PC의 웹 브라우저에서 수천 실 규모를 실시간으로 계산합니다. 원본 Revit 모델의 형상과 패밀리는 건드리지 않고 결과를 공유 매개변수로만 기록합니다. 계산은 사용자 컴퓨터 안에서 이루어지며, 외부 언어모델 연결은 선택 사항입니다.</p><p lang="en">Only the spatial topology the simulation needs is extracted, so thousands of rooms run in real time in a browser on an ordinary PC. Geometry and families in the original Revit model are left untouched, and results are written back only as shared parameters. Computation stays on the user's machine, and connecting an external language model is optional.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 05 VALIDATION -->
+<section class="ch" id="validation">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">05</div>
+      <h2 class="ch-title" lang="ko">공개 데이터로 검증했습니다</h2>
+      <h2 class="ch-title" lang="en">Validated on public data</h2>
+      <p class="ch-desc" lang="ko">미국 MIT의 병원 이벤트 로그, 독일 율리히 연구소의 보행 실험, 한국 통계청 인구 통계, buildingSMART의 IFC 시험 모델에 대조했습니다.</p>
+      <p class="ch-desc" lang="en">Checked against hospital event logs from MIT, pedestrian experiments from Germany's Forschungszentrum Jülich, Korean census statistics and buildingSMART IFC test models.</p>
+    </aside>
+    <div class="ch-body">
+      <div class="vbig">
+        <div><b>4.5%</b><span lang="ko">평균 절대 백분율 오차 (MAPE). 낮을수록 정확합니다.</span><span lang="en">Mean absolute percentage error (MAPE). Lower is better.</span></div>
+        <div><b>0.968</b><span lang="ko">결정계수 (R²). 1에 가까울수록 실측과 일치합니다.</span><span lang="en">Coefficient of determination (R²). Closer to 1 means closer to measurements.</span></div>
+        <div><b><small>p =</small>0.36</b><span lang="ko">콜모고로프-스미르노프 검정. 예측 분포와 실측 분포가 통계적으로 구분되지 않습니다 (p &gt; 0.05).</span><span lang="en">Kolmogorov-Smirnov test. Predicted and observed distributions are statistically indistinguishable (p &gt; 0.05).</span></div>
+      </div>
+      <div class="vtab">
+        <div class="vrow"><span class="k">V.01</span><div><h3 lang="ko">병원 진료 흐름</h3><h3 lang="en">Hospital care process</h3><div class="ds">MIMICEL, MIMIC-IV ED event log, MIT LCP, PhysioNet</div></div><p lang="ko">접수부터 검사, 처치, 퇴실까지 이어지는 단계별 도착률과 처리 시간을 실제 병원 이벤트 로그와 대조했습니다.</p><p lang="en">Arrival rates and service times for each step, from registration through tests and treatment to discharge, were compared with real hospital event logs.</p><div class="r"><b>5.4%</b><span>MAPE, R² 0.954</span></div></div>
+        <div class="vrow"><span class="k">V.02</span><div><h3 lang="ko">보행 밀도와 병목</h3><h3 lang="en">Crowd density and bottlenecks</h3><div class="ds">Forschungszentrum Jülich IAS-7, pedestrian dynamics data archive</div></div><p lang="ko">밀도에 따른 보행속도 감소와 문 폭에 따른 통과 유량을 실험 데이터와 대조했습니다. 문 폭을 1.0m에서 1.4m로 넓힐 때 유량은 실측 38.5%, 예측 40.2% 늘었습니다.</p><p lang="en">Speed loss with density and flow through doors of different widths were compared with experiments. Widening a door from 1.0 m to 1.4 m raised flow by 38.5% observed and 40.2% predicted.</p><div class="r"><b>4.8%</b><span>MAPE, R² 0.962</span></div></div>
+        <div class="vrow"><span class="k">V.03</span><div><h3 lang="ko">한국인 인구 구성</h3><h3 lang="en">Korean population mix</h3><div class="ds">KOSIS, NVIDIA Nemotron-Personas-Korea</div></div><p lang="ko">샘플링한 이용자 집단의 연령과 이동 능력 분포를 국가 통계와 대조했습니다. 고령층 비율은 통계 31.4%, 샘플 32.0%입니다.</p><p lang="en">Age and mobility distributions of sampled visitors were compared with national statistics. Share of older adults: 31.4% in statistics, 32.0% sampled.</p><div class="r"><b>2.1%</b><span>MAPE, R² 0.988</span></div></div>
+        <div class="vrow"><span class="k">V.04</span><div><h3 lang="ko">BIM 형상과 위상</h3><h3 lang="en">BIM geometry and topology</h3><div class="ds">buildingSMART International, IFC4 test models</div></div><p lang="ko">IFC4 시험 모델에서 추출한 실 면적과 실, 문의 연결 관계를 원본 데이터와 대조했습니다.</p><p lang="en">Room areas and room-door connectivity extracted from IFC4 test models were compared with the source data.</p><div class="r"><b>0.0%</b><span lang="ko">면적 오차, R² 0.994</span><span lang="en">Area error, R² 0.994</span></div></div>
+      </div>
+      <p class="fine" lang="ko">검증 수치는 KAIST 미래공간연구실의 자체 벤치마크(2026) 결과이며, 데이터셋별 조건과 세부 결과는 기술 백서에 정리되어 있습니다.</p>
+      <p class="fine" lang="en">Figures come from an internal benchmark by the KAIST Future Space Lab (2026). Conditions and detailed results for each dataset are documented in the technical white paper.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 COMPARISON -->
+<section class="ch" id="compare">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">06</div>
+      <h2 class="ch-title" lang="ko">접근 방식별 정확도</h2>
+      <h2 class="ch-title" lang="en">Accuracy by approach</h2>
+      <p class="ch-desc" lang="ko">건물 이용 예측에 쓰여 온 대표적인 방식들과 같은 검증 시나리오에서 평균 오차를 비교했습니다.</p>
+      <p class="ch-desc" lang="en">Mean error compared with the main approaches used to predict how buildings are used, on the same validation scenario.</p>
+    </aside>
+    <div class="ch-body">
+      <ol class="cmp" aria-label="MAPE by approach">
+        {{CMP}}
+      </ol>
+      <div class="cmp-axis" aria-hidden="true"><span></span><span class="t"><span>0%</span><span>10%</span><span>20%</span><span>30%</span></span><span></span></div>
+      <ul class="cmp-why">
+        <li><b>One engine</b><span lang="ko">보행과 대기를 따로 계산하지 않습니다. 복도로 넘친 대기열이 보행을 느리게 만드는 연쇄까지 한 번에 계산합니다.</span><span lang="en">Walking and waiting are not computed apart. The engine captures the chain in which an overflowing queue slows the corridor.</span></li>
+        <li><b>Population</b><span lang="ko">평균적인 성인 한 명이 아니라 실제 인구 구성을 닮은 여섯 집단이 도면을 걷습니다.</span><span lang="en">Six cohorts shaped like the real population walk the plan, not one average adult.</span></li>
+        <li><b>Tail risk</b><span lang="ko">평균 하나가 아니라 최대 10만 회 반복으로 대기시간 분포 전체를 맞춥니다.</span><span lang="en">It matches the whole distribution of waits over up to 100,000 runs, not a single average.</span></li>
+      </ul>
+      <p class="fine" lang="ko">KAIST 미래공간연구실의 자체 평가로, 같은 검증 시나리오에서 접근 방식별 대표 구현의 평균 오차를 비교했습니다. 특정 상용 제품에 대한 공식 평가가 아닙니다.</p>
+      <p class="fine" lang="en">Internal evaluation by the KAIST Future Space Lab, comparing a representative implementation of each approach on the same validation scenario. It is not an official rating of any commercial product.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 CAPABILITIES -->
+<section class="ch" id="capabilities">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">07</div>
+      <h2 class="ch-title" lang="ko">설계 현장의 질문에 답하는 기능</h2>
+      <h2 class="ch-title" lang="en">Built for the questions designers ask</h2>
+      <p class="ch-desc" lang="ko">기획 단계의 면적표부터 실시설계의 Revit 모델까지, 같은 플랫폼으로 이어서 검토합니다.</p>
+      <p class="ch-desc" lang="en">From an early area schedule to a detailed Revit model, one platform carries the review through.</p>
+    </aside>
+    <div class="ch-body">
+      <ul class="feat">
+        <li><span class="k">F.01</span><h3 lang="ko">다섯 가지 도면 입력</h3><h3 lang="en">Five input formats</h3><p lang="ko">Revit, IFC4, DXF, 면적표 CSV, 스캔 도면 이미지를 읽어 실, 문, 복도의 디지털 모델을 자동으로 만듭니다. 한글 실명 라벨도 인식합니다.</p><p lang="en">Reads Revit, IFC4, DXF, area schedule CSV and scanned plan images, and builds the room, door and corridor model automatically, Korean room labels included.</p></li>
+        <li><span class="k">F.02</span><h3 lang="ko">말로 만드는 시나리오</h3><h3 lang="en">Scenarios in plain language</h3><p lang="ko">“검진센터 인원이 두 배로 늘면?”처럼 회의 중에 나온 질문을 그대로 입력하면 곧바로 스트레스 테스트 결과를 보여 줍니다.</p><p lang="en">Type a question raised in a meeting, such as “what if check-up visitors double?”, and see a stress test right away.</p></li>
+        <li><span class="k">F.03</span><h3 lang="ko">피크와 꼬리위험 진단</h3><h3 lang="en">Peak and tail-risk diagnosis</h3><p lang="ko">오전 8시부터 오후 5시까지 15분 단위로 실별 대기, 사용률, 복도 역류를 추적하고, 상위 5%와 1% 대기시간까지 계산합니다.</p><p lang="en">Tracks waits, utilization and corridor spillover room by room in 15-minute steps from 8 a.m. to 5 p.m., up to the 95th and 99th percentile waits.</p></li>
+        <li><span class="k">F.04</span><h3 lang="ko">연면적 그대로, 평면 재배치</h3><h3 lang="en">Re-planning at zero added area</h3><p lang="ko">연면적과 외벽, 구조 코어를 고정한 채 남는 공간을 붐비는 공간으로 옮기고 실 위치를 맞바꾸는 대안을 찾습니다.</p><p lang="en">Keeps floor area, envelope and structural cores fixed, and finds alternatives that shift spare space to crowded rooms and swap room positions.</p></li>
+        <li><span class="k">F.05</span><h3 lang="ko">무장애 설계 자동 점검</h3><h3 lang="en">Barrier-free audit</h3><p lang="ko">모든 실에서 휠체어 회전 지름 1.5m가 확보되는지, 출입문과 복도의 유효폭이 기준을 넘는지 기하학적으로 검사합니다.</p><p lang="en">Checks geometrically that every room fits a 1.5 m wheelchair turning circle and that doors and corridors meet clear-width criteria.</p></li>
+        <li><span class="k">F.06</span><h3 lang="ko">화재 피난 안전성</h3><h3 lang="en">Fire evacuation safety</h3><p lang="ko">연기 하강과 가시거리 감소를 반영해 피난에 걸리는 시간(RSET)과 허용되는 시간(ASET)을 비교하고, FDS와 Pathfinder 입력 파일로 내보냅니다.</p><p lang="en">Compares required and available safe egress time (RSET, ASET) with smoke descent and visibility loss, and exports input files for FDS and Pathfinder.</p></li>
+        <li><span class="k">F.07</span><h3 lang="ko">다층 건물과 수직 동선</h3><h3 lang="en">Multi-storey circulation</h3><p lang="ko">최대 16개 층, 3,200실 규모에서 엘리베이터와 계단의 층간 병목까지 함께 계산합니다.</p><p lang="en">Handles up to 16 floors and 3,200 rooms, including bottlenecks at elevators and stairs between floors.</p></li>
+        <li><span class="k">F.08</span><h3 lang="ko">비용, 효과, Revit 연동</h3><h3 lang="en">Cost, value and Revit link</h3><p lang="ko">구조 보강 공사비와 투자 회수 기간을 함께 산출하고, 결과를 Revit 공유 매개변수와 PDF 보고서로 전달합니다.</p><p lang="en">Estimates structural retrofit cost and payback, and delivers results as Revit shared parameters and a PDF report.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 08 IN PRACTICE -->
+<section class="ch" id="practice">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">08</div>
+      <h2 class="ch-title" lang="ko">설계 단계와 사무소 규모에 맞게</h2>
+      <h2 class="ch-title" lang="en">For every stage and every practice</h2>
+      <p class="ch-desc" lang="ko">도면이 없는 기획 단계부터 쓸 수 있고, 소규모 사무소에서 대형 설계사까지 각자의 방식으로 활용합니다.</p>
+      <p class="ch-desc" lang="en">Usable before a drawing exists, by practices from small studios to large firms.</p>
+    </aside>
+    <div class="ch-body">
+      <ol class="lod">
+        <li><span class="k">LOD 100</span><h3 lang="ko">기획설계</h3><h3 lang="en">Pre-design</h3><p lang="ko">면적표만으로 복도 축 양쪽에 실을 배치한 조닝 다이어그램과 매스를 만들고, 실별 예상 피크 대기를 표시해 사업성 검토와 초기 건축주 보고에 씁니다.</p><p lang="en">From an area schedule alone, it lays out a zoning diagram and massing along a corridor spine and marks expected peak waits per room, for feasibility reviews and first client briefings.</p></li>
+        <li><span class="k">LOD 200</span><h3 lang="ko">계획설계</h3><h3 lang="en">Schematic design</h3><p lang="ko">벽체, 칸막이, 출입문 유효폭, 코어가 들어간 평면 위에 무장애 회전반경, 피난 경로, 재배치 전후 면적을 표시해 현상설계 도판과 심의 자료에 활용합니다.</p><p lang="en">On plans with walls, partitions, door widths and cores, it marks turning circles, egress routes and before-and-after areas for competition boards and review documents.</p></li>
+        <li><span class="k">LOD 300+</span><h3 lang="ko">실시설계</h3><h3 lang="en">Detailed design</h3><p lang="ko">확정된 평면을 IFC4, DXF, Revit, FDS, Pathfinder 형식으로 내보내 실시설계 모델과 방재 검토로 이어 갑니다.</p><p lang="en">Exports the settled plan to IFC4, DXF, Revit, FDS and Pathfinder formats, carrying it into detailed design and fire safety review.</p></li>
+      </ol>
+      <span class="sub-h mono"><span lang="ko">건물 유형</span><span lang="en">Building types</span></span>
+      <ul class="types">
+        <li lang="ko">종합병원</li><li lang="en">General hospitals</li>
+        <li lang="ko">의원과 클리닉</li><li lang="en">Clinics</li>
+        <li lang="ko">요양시설</li><li lang="en">Care facilities</li>
+        <li lang="ko">공항</li><li lang="en">Airports</li>
+        <li lang="ko">복합환승센터</li><li lang="en">Transit hubs</li>
+        <li lang="ko">백화점</li><li lang="en">Department stores</li>
+        <li lang="ko">공공청사</li><li lang="en">Civic buildings</li>
+        <li lang="ko">교육연구시설</li><li lang="en">Education and research</li>
+        <li lang="ko">오피스</li><li lang="en">Offices</li>
+      </ul>
+      <span class="sub-h mono"><span lang="ko">사무소 규모별 활용</span><span lang="en">By size of practice</span></span>
+      <ul class="firms">
+        <li><h3><span lang="ko">소규모 사무소</span><span lang="en">Small studios</span><small lang="ko">1~15인</small><small lang="en">1 to 15 people</small></h3><p lang="ko">별도의 고가 소프트웨어 없이 웹 브라우저에서 면적표나 스캔 도면만으로 시작합니다. 건축주와의 첫 미팅에서 실 배치를 바꿀 때 대기시간이 어떻게 달라지는지 바로 보여 줄 수 있습니다.</p><p lang="en">Start in a web browser from an area schedule or a scanned plan, without costly software. In the first client meeting, show how waits change when rooms move.</p></li>
+        <li><h3><span lang="ko">중소, 중견 사무소</span><span lang="en">Mid-size firms</span><small lang="ko">15~150인</small><small lang="en">15 to 150 people</small></h3><p lang="ko">외부 용역 없이 사내에서 동선과 피난 시뮬레이션을 돌리고, 공개 데이터 검증 결과와 함께 현상설계 도판과 심의 자료에 정량 근거를 담습니다.</p><p lang="en">Run circulation and evacuation studies in-house rather than outsourcing them, and put quantitative evidence, backed by public-data validation, into competition boards and review documents.</p></li>
+        <li><h3><span lang="ko">대형 설계사</span><span lang="en">Large practices</span><small lang="ko">150인 이상</small><small lang="en">150+ people</small></h3><p lang="ko">1GB가 넘는 Revit 모델과 수천 실 규모의 병원, 공항 마스터플랜에서 층간 수직 동선, 감염 동선 분리, 구조 보강 비용, 방재 해석 연계를 한 플랫폼에서 검토합니다.</p><p lang="en">Review vertical circulation, infection-control separation, retrofit cost and fire-engineering handoff in one platform, for Revit models over 1 GB and hospital or airport master plans with thousands of rooms.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 09 ACCESS -->
+<section class="ch access" id="access">
+  <div class="wrap ch-grid">
+    <aside class="ch-side">
+      <div class="ch-num">09</div>
+      <h2 class="ch-title" lang="ko">이용 안내</h2>
+      <h2 class="ch-title" lang="en">Access</h2>
+      <p class="ch-desc" lang="ko">NexSpace는 일반에 공개하지 않으며, 연구 협력 기관과 함께 운영합니다.</p>
+      <p class="ch-desc" lang="en">NexSpace is not publicly released. It is operated together with research partners.</p>
+    </aside>
+    <div class="ch-body">
+      <p class="big" lang="ko">공동 연구, 실증 프로젝트, 시연 요청을 받고 있습니다. 검토하려는 건물 유형과 설계 단계를 알려 주시면 그에 맞는 시나리오로 시연을 준비하겠습니다.</p>
+      <p class="big" lang="en">We welcome joint research, pilot projects and demo requests. Tell us the building type and design stage you have in mind, and we will prepare a demo with a matching scenario.</p>
+      <div class="reach">
+        <span class="mono"><span lang="ko">문의 이메일</span><span lang="en">Email</span></span>
+        <p class="reach-mail"><a class="mail" href="{{MAIL_KO}}" lang="ko">fact.kaist@gmail.com</a><a class="mail" href="{{MAIL_EN}}" lang="en">fact.kaist@gmail.com</a><button type="button" class="copy-mail" data-copy="fact.kaist@gmail.com"><span class="c0"><span lang="ko">주소 복사</span><span lang="en">Copy</span></span><span class="c1"><span lang="ko">복사했습니다</span><span lang="en">Copied</span></span></button></p>
+        <p class="reach-who"><span lang="ko">센터장 차승현 교수, KAIST 문화기술대학원</span><span lang="en">Director, Prof. Seung Hyun Cha, KAIST Graduate School of Culture Technology</span></p>
+      </div>
+      <div class="tool-cta">
+        <a class="btn acc" href="../#contact" data-keep-lang><span lang="ko">시연 및 협력 문의</span><span lang="en">Request a demo</span> <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <ul class="credits">
+        <li><b>Data</b>NVIDIA Nemotron-Personas-Korea, CC BY 4.0, Hugging Face</li>
+        <li><b>Data</b>MIMICEL, MIMIC-IV Event Log for Emergency Department, MIT Laboratory for Computational Physiology, PhysioNet</li>
+        <li><b>Data</b>Pedestrian Dynamics Data Archive, Forschungszentrum Jülich, IAS-7</li>
+        <li><b>Data</b><span lang="ko">KOSIS 국가통계포털, 통계청</span><span lang="en">KOSIS, Statistics Korea</span></li>
+        <li><b>Standards</b><span lang="ko">buildingSMART IFC4, IMO MSC.1/Circ.1533, SFPE Handbook, 장애물 없는 생활환경(BF) 인증 기준</span><span lang="en">buildingSMART IFC4, IMO MSC.1/Circ.1533, SFPE Handbook, Korean Barrier-Free certification criteria</span></li>
+        <li><b>Note</b><span lang="ko">Revit은 Autodesk, Inc.의 등록 상표입니다. 각 데이터셋과 표준의 권리는 해당 기관에 있습니다.</span><span lang="en">Revit is a registered trademark of Autodesk, Inc. Rights to each dataset and standard remain with their owners.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pfoot">
+  <div class="wrap">
+    <div class="row1">
+      <div class="fb">{{MARK}}<div><div class="wm">FACT</div><div class="sub" lang="ko">미래건축 융합기술 연구센터<br>KAIST 문화기술연구소</div><div class="sub" lang="en">Future Architecture Convergence Technology Research Center<br>KAIST Culture Technology Research Institute</div></div></div>
+      <div class="lk"><a class="link" href="../" data-keep-lang><span lang="ko">FACT 홈</span><span lang="en">FACT home</span></a><a class="link" href="../#platforms" data-keep-lang><span lang="ko">FACT 플랫폼</span><span lang="en">FACT Platforms</span></a><a class="link" href="../folio/" data-keep-lang>FACT Folio</a><a class="link" href="../#contact" data-keep-lang><span lang="ko">연락처</span><span lang="en">Contact</span></a></div>
+    </div>
+    <div class="copy"><span>© 2026 FACT Research Center, KAIST</span><span>KAIST NexSpace, P.01</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('langBtn');
+  var TITLE={ko:'KAIST NexSpace | 시공 전 공간 행동 시뮬레이터 | FACT, KAIST',en:'KAIST NexSpace | Pre-occupancy spatial behavior simulator | FACT, KAIST'};
+  function setLang(l){
+    root.setAttribute('data-lang',l); root.setAttribute('lang',l);
+    btn.querySelectorAll('span').forEach(function(s){s.classList.toggle('on',s.getAttribute('data-l')===l)});
+    document.title=TITLE[l];
+  }
+  var q=new URLSearchParams(location.search).get('lang'); if(q==='en'||q==='ko') setLang(q);
+  btn.addEventListener('click',function(){
+    var l=root.getAttribute('data-lang')==='ko'?'en':'ko'; setLang(l);
+    try{ var u=new URL(location.href); if(l==='en')u.searchParams.set('lang','en'); else u.searchParams.delete('lang'); history.replaceState(null,'',u.pathname+u.search+u.hash); }catch(e){}
+  });
+  var mb=document.getElementById('menuBtn'), nl=document.getElementById('navLinks');
+  mb.addEventListener('click',function(){ var o=nl.classList.toggle('open'); mb.setAttribute('aria-expanded',o); });
+  nl.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nl.classList.remove('open');mb.setAttribute('aria-expanded','false');});});
+
+  /* reveal, and bar charts that grow once visible */
+  var rv=document.querySelectorAll('.ch-side, .ch-body > *');
+  rv.forEach(function(el){el.classList.add('reveal')});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -6% 0px',threshold:.06});
+    rv.forEach(function(el){io.observe(el)});
+  } else { rv.forEach(function(el){el.classList.add('in')}); }
+
+  /* four layers: list <-> figure highlight */
+  var lf=document.getElementById('lf'), lis=document.querySelectorAll('.layer-list li[data-l]');
+  function hl(n){
+    if(!lf) return;
+    lf.classList.toggle('dim',!!n);
+    lf.querySelectorAll('.ly').forEach(function(g){g.classList.toggle('on',g.getAttribute('data-l')===n)});
+    lis.forEach(function(li){li.classList.toggle('on',li.getAttribute('data-l')===n)});
+  }
+  lis.forEach(function(li){ li.addEventListener('mouseenter',function(){hl(li.getAttribute('data-l'))}); li.addEventListener('mouseleave',function(){hl(null)}); });
+  if(lf) lf.querySelectorAll('.ly').forEach(function(g){ g.addEventListener('mouseenter',function(){hl(g.getAttribute('data-l'))}); g.addEventListener('mouseleave',function(){hl(null)}); });
+})();
+</script>
+<script>
+{{SIM_JS}}
+</script>
+</body>
+</html>
