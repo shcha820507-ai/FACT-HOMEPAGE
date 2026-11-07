@@ -133,12 +133,6 @@ FOLIO_NEWS = ("{ date:'2026-11-05', cat:'research',\n"
               "      en:{ title:'Introducing FACT Folio, the second FACT platform', body:'A review aid that reads competition entries side by side against one brief and keeps the evidence for every check. It makes no scores, rankings or verdicts, and has been verified on synthetic data.', link:'folio/?lang=en', linkText:'Folio page' } },\n    ")
 home = once(home, "var NEWS=[\n    { date:'2026-11-20'", "var NEWS=[\n    " + FOLIO_NEWS + "{ date:'2026-11-20'")
 
-# news: Folio update from the November 7 Drive round (model 1.1.0)
-FOLIO_UPD = ("{ date:'2026-11-07', cat:'research',\n"
-             "      ko:{ title:'FACT Folio 기능 보강, 프로젝트 자료 입력과 작업 파일 인계', body:'모델 09.area-review.1.1.0에서 사용자가 제공한 프로젝트 자료를 출처와 함께 입력하고, 입력과 계산 결과, 검토 의견을 하나의 작업 파일로 저장해 다른 담당자에게 넘길 수 있게 했습니다. 비교표 CSV에도 자료 출처와 지침 버전이 담깁니다. 현재 코드로 실행한 자동 검사 94개를 모두 통과했으며, 실제 브라우저와 실제 공모 자료로 하는 검증은 다음 단계입니다.', link:'folio/', linkText:'Folio 소개 페이지' },\n"
-             "      en:{ title:'FACT Folio update: project data entry and work file handoff', body:'Model 09.area-review.1.1.0 accepts user-provided project data with its sources and saves the input, results and reviewer notes as one work file that another reviewer can open. The comparison CSV now carries data sources and the brief version. All 94 automated tests passed on the current code. Checks in a real browser and with real competition data come next.', link:'folio/?lang=en', linkText:'Folio page' } },\n    ")
-home = once(home, "var NEWS=[\n    { date:'2026-11-05'", "var NEWS=[\n    " + FOLIO_UPD + "{ date:'2026-11-05'")
-
 # news: later items are kept in news-extra.js (each entry ends with a comma)
 extra = '\n'.join(l for l in SRC('news-extra.js').splitlines() if not l.lstrip().startswith('//')).strip()
 if extra:
@@ -223,9 +217,9 @@ assert cv_month(CV_SRC['ko']) == (cv_y, cv_m)
 CV_KO_LBL = '%d.%02d' % (cv_y, cv_m)
 CV_EN_LBL = '%s %d' % (MONTHS[cv_m - 1][:3], cv_y)
 home = once(home, '<a class="link" href="cv.pdf" download="Seung-Hyun-Cha-CV.pdf"><span lang="ko">이력서 (PDF)</span><span lang="en">Curriculum Vitae (PDF)</span></a>',
-            '<a class="link cv-ko" href="cv-ko.pdf" download="Seung-Hyun-Cha-CV-KO-%d-%02d.pdf"><span lang="ko">국문 이력서 (%s, PDF)</span><span lang="en">Korean CV, %s</span></a>'
-            '<a class="link cv-en" href="cv.pdf" download="Seung-Hyun-Cha-CV-EN-%d-%02d.pdf"><span lang="ko">영문 CV (%s, PDF)</span><span lang="en">English CV, %s</span></a>'
-            % (cv_y, cv_m, CV_KO_LBL, CV_EN_LBL, cv_y, cv_m, CV_KO_LBL, CV_EN_LBL))
+            '<a class="link" lang="ko" href="cv-ko.pdf" download="Seung-Hyun-Cha-CV-KO-%d-%02d.pdf">이력서 (%s, PDF)</a>'
+            '<a class="link" lang="en" href="cv.pdf" download="Seung-Hyun-Cha-CV-EN-%d-%02d.pdf">Curriculum Vitae (%s, PDF)</a>'
+            % (cv_y, cv_m, CV_KO_LBL, cv_y, cv_m, CV_EN_LBL))
 home = once(home, '<a class="link" href="https://brunch.co.kr/@fslkaist" target="_blank" rel="noopener">Brunch</a>'
                   '<a class="link" href="https://www.threads.com/@fslshcha" target="_blank" rel="noopener">Threads</a>', '')
 
@@ -237,7 +231,7 @@ PEOPLE_CSS = (
     ".grp .g-fac a{border-bottom:1px solid var(--line-2);transition:border-color .2s}\n"
     ".grp .g-fac a:hover,.grp .g-fac a:focus-visible{border-bottom-color:var(--accent-2)}\n"
     ".grp .g-fac a:hover b,.grp .g-fac a:focus-visible b{color:var(--accent-2)}\n"
-    "[data-lang=\"en\"] .roster .cell.dir .links .cv-en{order:-1}\n")
+    )
 
 # ---------------------------------------------------------------- 08 schedule
 home = once(home, '<a href="#roadmap"><i>08</i><span lang="ko">일정</span><span lang="en">Roadmap</span></a>',

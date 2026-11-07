@@ -1,6 +1,6 @@
-/* FACT Folio, review sheet replica for fact.kaist.ac.kr
-   Re-creates how Folio reads two entries against one brief, using the synthetic
-   example of model 09.area-review.1.1.0. Not a real competition or legal standard. */
+/* FACT Folio concept figure for fact.kaist.ac.kr
+   Shows how Folio reads two entries against one brief, using the synthetic
+   example of model 09.area-review.1.1.0. Not the working screen, a real competition or a legal standard. */
 (function(){
 'use strict';
 var root=document.documentElement;
@@ -60,6 +60,7 @@ function pct(b){return (b>0?'+':(b<0?'−':''))+Math.abs(b)+'%';}
 function sq(){return ' m²';}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 
+function unitTxt(u){return u==='m2'?'m²':(u==='cm2'?'cm²':'mm²');}
 function valueText(rule,item){
   var en=L()==='en';
   if(!item)return en?'No data':'자료 없음';
@@ -67,23 +68,64 @@ function valueText(rule,item){
   if(rule.type==='count')return item.n+(en?' spaces':'대');
   return item.p?(en?'Present':'있음'):(en?'Absent':'없음');
 }
-function rawText(rule,item){
+function reqShort(r){
   var en=L()==='en';
-  if(!item)return (en?'Data unconfirmed':'자료 미확인')+'<br>'+(en?'No source given':'입력 근거 미확인');
+  if(r.type==='area')return r.T+sq()+' ±'+r.tol+'%';
+  if(r.type==='count')return (en?'at least ':'최소 ')+r.min+(en?' spaces':'대');
+  return en?'required space':'필수 공간';
+}
+function reqLong(r){
+  var en=L()==='en';
+  if(r.type==='area')return (en?'Allowed ':'허용 ')+num(r.T*(1-r.tol/100))+(en?' to ':'에서 ')+num(r.T*(1+r.tol/100))+sq()+(en?', target ':', 목표 ')+r.T+sq()+(en?', tolerance ':', 허용편차 ')+r.tol+'%';
+  if(r.type==='count')return en?'At least '+r.min+' spaces':'최소 '+r.min+'대';
+  return en?'Required space. A stated absence and missing data are judged differently.':'필수 공간. 없다고 명시한 것과 자료가 빠진 것은 다르게 판정합니다.';
+}
+function srcLine(rule,item){
+  var en=L()==='en';
+  if(!item)return en?'No value submitted, no source':'제출값 없음, 근거 없음';
   var a;
   if(rule.type==='area')a=item.unit==='m2'?num(item.val)+' m2':num(item.val)+' '+item.unit+' × '+FAC[item.unit];
   else if(rule.type==='count')a=item.n+' count';
   else a=item.p?'true':'false';
-  return esc(a)+'<br>'+esc(T(item.ev));
+  return esc(a)+', '+esc(T(item.ev));
 }
+function verdict(rule,c){
+  var en=L()==='en';
+  if(c.st==='na')return en?'On hold. A missing value is never read as zero.':'판정불가. 빈 값을 0으로 읽지 않습니다.';
+  if(rule.type==='area'){
+    if(c.st==='ok')return (en?'Met, ':'충족, ')+(en?'margin to the limit ':'경계까지 ')+num(c.margin)+sq()+(en?', deviation ':', 편차 ')+sign(c.dev)+'%';
+    return (en?'Not met, ':'불충족, ')+(c.A>c.hi?(en?'above the upper limit by ':'상한보다 ')+num(c.A-c.hi)+sq()+(en?'':' 큼'):(en?'below the lower limit by ':'하한보다 ')+num(c.lo-c.A)+sq()+(en?'':' 작음'))+(en?', deviation ':', 편차 ')+sign(c.dev)+'%';
+  }
+  if(rule.type==='count'){
+    if(c.st==='rv')return en?'Not met, '+Math.abs(c.margin)+' short':'불충족, '+Math.abs(c.margin)+'대 부족';
+    return c.margin>0?(en?'Met, '+c.margin+' above the minimum':'충족, 기준보다 '+c.margin+'대 많음'):(en?'Met, exactly the minimum':'충족, 기준과 같음');
+  }
+  return c.p?(en?'Met, space provided':'충족, 공간 있음'):(en?'Not met, stated as absent':'불충족, 없다고 명시');
+}
+/* shared axis per item: the target or minimum sits in the middle for both entries */
+function axis(r){
+  var c=r.type==='area'?r.T:r.min,d=0;
+  DES.forEach(function(e){var it=e.v[r.id];if(!it)return;var v=r.type==='area'?it.val*FAC[it.unit]:it.n;d=Math.max(d,Math.abs(v-c));});
+  var half=r.type==='area'?Math.max(r.T*r.tol/100*1.9,d*1.25):Math.max(r.min*.25,d*1.3);
+  return function(v){return Math.max(3,Math.min(97,50+50*(v-c)/half));};
+}
+function ruler(r,it,c){
+  if(r.type==='presence')return '<span class="ru-p p-'+c.st+'" aria-hidden="true"><i></i></span>';
+  if(!it)return '<span class="ru na" aria-hidden="true"><i class="ru-ax"></i><em>'+(L()==='en'?'no data':'자료 없음')+'</em></span>';
+  var x=axis(r),h='<span class="ru" aria-hidden="true"><i class="ru-ax"></i>';
+  if(r.type==='area'){var a=x(c.lo),b=x(c.hi);h+='<i class="ru-band" style="left:'+a.toFixed(1)+'%;width:'+(b-a).toFixed(1)+'%"></i><i class="ru-t" style="left:50%"></i><i class="ru-m m-'+c.st+'" style="left:'+x(c.A).toFixed(1)+'%"></i>';}
+  else h+='<i class="ru-band open" style="left:50%;width:50%"></i><i class="ru-t solid" style="left:50%"></i><i class="ru-m m-'+c.st+'" style="left:'+x(c.n).toFixed(1)+'%"></i>';
+  return h+'</span>';
+}
+function chip(st){return '<span class="st st-'+st+'"><i aria-hidden="true"></i>'+esc(T(ST[st]))+'</span>';}
 
 var UID=0;
 function Folio(fig){
   var self=this;
-  this.fig=fig; this.wide=fig.hasAttribute('data-wide'); this.uid='fo'+(++UID);
+  this.fig=fig; this.uid='fo'+(++UID);
   this.sel=0; this.timer=null; this.vis=false;
   this.auto=!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
-  this.paper=fig.querySelector('.fo-paper');
+  this.stage=fig.querySelector('.fo-stage'); this.kp=fig.querySelector('.fo-kpis');
   this.render(); this.sync();
   fig.addEventListener('click',function(e){
     if(e.target.closest('.fo-play')){
@@ -91,16 +133,16 @@ function Folio(fig){
       if(self.auto){self.select((self.sel+1)%RULES.length);if(self.vis)self.start();}else self.stop();
       self.sync(); return;
     }
-    var b=e.target.closest('[data-r]'); if(!b||!fig.contains(b))return;
+    var b=e.target.closest('.fo-row'); if(!b||!fig.contains(b))return;
     self.auto=false; self.stop(); self.sync(); self.select(+b.getAttribute('data-i'));
   });
   fig.addEventListener('keydown',function(e){
-    var t=e.target; if(!t.classList||!t.classList.contains('fo-tab'))return;
+    var t=e.target; if(!t.classList||!t.classList.contains('fo-row'))return;
     var n=RULES.length,i=self.sel,k=e.key;
-    if(k==='ArrowRight'||k==='ArrowDown')i=(i+1)%n; else if(k==='ArrowLeft'||k==='ArrowUp')i=(i+n-1)%n;
+    if(k==='ArrowDown'||k==='ArrowRight')i=(i+1)%n; else if(k==='ArrowUp'||k==='ArrowLeft')i=(i+n-1)%n;
     else if(k==='Home')i=0; else if(k==='End')i=n-1; else return;
     e.preventDefault(); self.auto=false; self.stop(); self.sync(); self.select(i);
-    var nb=fig.querySelector('.fo-tab[data-i="'+i+'"]'); if(nb)nb.focus();
+    var nb=fig.querySelector('.fo-row[data-i="'+i+'"]'); if(nb)nb.focus();
   });
   if('IntersectionObserver' in window){
     new IntersectionObserver(function(es){es.forEach(function(e){self.vis=e.isIntersecting;if(self.vis)self.start();else self.stop();});},{threshold:.25}).observe(fig);
@@ -116,87 +158,50 @@ Folio.prototype.stop=function(){if(this.timer){clearInterval(this.timer);this.ti
 Folio.prototype.sync=function(){this.fig.classList.toggle('auto',this.auto);};
 Folio.prototype.select=function(i){
   this.sel=i;
-  var id=RULES[i].id,uid=this.uid;
-  this.fig.querySelectorAll('[data-r]').forEach(function(el){
-    var on=el.getAttribute('data-r')===id; el.classList.toggle('on',on);
-    if(el.classList.contains('fo-tab')){el.setAttribute('aria-selected',String(on));el.tabIndex=on?0:-1;}
+  this.fig.querySelectorAll('.fo-row').forEach(function(el){
+    var on=+el.getAttribute('data-i')===i; el.classList.toggle('on',on);
+    el.setAttribute('aria-selected',String(on)); el.tabIndex=on?0:-1;
   });
-  var n=this.fig.querySelector('.fo-note');
-  if(n){n.innerHTML=this.note(i);n.setAttribute('aria-labelledby',uid+'-t'+i);}
+  var p=this.fig.querySelector('.fo-insp');
+  if(p){p.innerHTML=this.insp(i);p.setAttribute('aria-labelledby',this.uid+'-t'+i);}
 };
 Folio.prototype.render=function(){
-  var en=L()==='en',uid=this.uid,h='';
-  if(this.wide)h+='<div class="fo-margin" aria-hidden="true"><span class="fo-mt'+(en?'':' up')+'">'+(en?'Entry review':'설계안 검토')+'</span><span class="fo-mb">FACT Folio</span></div>';
+  var en=L()==='en',uid=this.uid,h='<div class="fo-board"><div class="fo-head" aria-hidden="true"><span class="c-r">'+(en?'Brief':'지침')+'</span>';
   DES.forEach(function(d){
-    var cnt={ok:0,rv:0,na:0};
-    RULES.forEach(function(r){cnt[check(r,d.v[r.id]).st]++;});
-    h+='<section class="fo-sheet s-'+d.key.toLowerCase()+'" aria-label="'+esc(d.key+' '+T(d.role))+'"><header class="fo-sh"><span class="fo-no">'+d.no+'</span><span class="fo-dk">'+d.key+'</span><span class="fo-role">'+esc(T(d.role))+'</span>'
-      +'<span class="fo-cov">'+(en?'Judged ':'판정 가능 ')+(RULES.length-cnt.na)+'/'+RULES.length+'</span></header><ol class="fo-list">';
-    RULES.forEach(function(r,i){
-      var it=d.v[r.id],c=check(r,it);
-      h+='<li><button type="button" class="fo-e" data-r="'+r.id+'" data-i="'+i+'"><span class="fo-eg">'
-        +'<span class="fo-id">'+r.id+'</span><span class="fo-lb">'+esc(T(r.name))+'</span><span class="fo-st st-'+c.st+'">'+esc(T(ST[c.st]))+'</span>'
-        +'<span class="fo-v'+(it?'':' na')+'">'+esc(valueText(r,it))+'</span><span class="fo-raw">'+rawText(r,it)+'</span></span></button></li>';
-    });
-    h+='</ol></section>';
+    var na=0; RULES.forEach(function(r){if(check(r,d.v[r.id]).st==='na')na++;});
+    h+='<span class="c-'+d.key.toLowerCase()+'"><b>'+d.key+'</b>'+esc(T(d.role))+'<em>'+(en?'judged ':'판정 가능 ')+(RULES.length-na)+'/'+RULES.length+'</em></span>';
   });
-  h+='<div class="fo-tabs" role="tablist" aria-label="'+(en?'Brief items':'지침 항목')+'">';
+  h+='</div><div class="fo-rows" role="tablist" aria-orientation="vertical" aria-label="'+(en?'Brief items':'지침 항목')+'">';
   RULES.forEach(function(r,i){
-    var a=check(r,DES[0].v[r.id]).st,b=check(r,DES[1].v[r.id]).st;
-    h+='<button type="button" role="tab" class="fo-tab" id="'+uid+'-t'+i+'" aria-controls="'+uid+'-note" data-r="'+r.id+'" data-i="'+i+'" aria-selected="false" tabindex="-1"><span class="fo-id">'+r.id+'</span><span class="fo-tl">'+esc(T(r.name))+'</span>'
-      +'<span class="fo-ts"><i class="d-'+a+'" aria-hidden="true"></i><i class="d-'+b+'" aria-hidden="true"></i><span class="fo-tst">'+esc(T(ST[a]))+' / '+esc(T(ST[b]))+'</span></span></button>';
+    h+='<button type="button" role="tab" class="fo-row" id="'+uid+'-t'+i+'" data-i="'+i+'" aria-controls="'+uid+'-in" aria-selected="false" tabindex="-1">'
+      +'<span class="fo-rule"><span class="fo-id">'+r.id+'</span><span class="fo-nm">'+esc(T(r.name))+'</span><span class="fo-rq">'+esc(reqShort(r))+'</span></span>';
+    DES.forEach(function(d){
+      var it=d.v[r.id],c=check(r,it),raw=it&&r.type==='area'&&it.unit!=='m2'?'<small>'+num(it.val)+' '+unitTxt(it.unit)+(en?' converted':' 환산')+'</small>':'';
+      h+='<span class="fo-cell c-'+d.key.toLowerCase()+'"><span class="fo-v'+(it?'':' na')+'"><span class="vh">'+d.key+' '+esc(T(d.role))+', </span>'+esc(valueText(r,it))+raw+'</span>'+chip(c.st)+ruler(r,it,c)+'</span>';
+    });
+    h+='</button>';
   });
-  h+='</div><div class="fo-note" role="tabpanel" id="'+uid+'-note"></div>';
-  this.paper.innerHTML=h;
+  h+='</div></div><div class="fo-insp" role="tabpanel" id="'+uid+'-in"></div>';
+  this.stage.innerHTML=h;
+  var conv=0,miss=0;
+  DES.forEach(function(d){RULES.forEach(function(r){var it=d.v[r.id];if(!it)miss++;else if(r.type==='area'&&it.unit!=='m2')conv++;});});
+  this.kp.innerHTML='<div><span class="l">'+(en?'Brief items, one set of rules':'같은 규칙으로 읽은 지침 항목')+'</span><b>'+RULES.length+'</b></div>'
+    +'<div><span class="l">'+(en?'Values converted between units':'단위를 환산한 제출값')+'</span><b>'+conv+'</b></div>'
+    +'<div><span class="l">'+(en?'Missing values held, not read as zero':'0으로 읽지 않고 보류한 빈 값')+'</span><b>'+miss+'</b></div>'
+    +'<div class="k-no"><span class="l">'+(en?'Scores and rankings':'점수와 순위')+'</span><b>'+(en?'None':'없음')+'</b></div>';
   this.select(this.sel);
 };
-Folio.prototype.note=function(i){
-  var en=L()==='en',r=RULES[i],ia=DES[0].v[r.id],ib=DES[1].v[r.id],a=check(r,ia),b=check(r,ib),n1='',n2='';
-  var who=[[DES[0],a],[DES[1],b]];
-  n1+='<span class="fo-k">'+(en?'Review ':'검토 ')+r.id+'</span><p class="fo-nt">'+esc(T(r.name))+'</p>';
-  n1+='<dl class="fo-nv"><div><dt>'+esc(T(DES[0].role))+'</dt><dd>'+esc(valueText(r,ia))+'</dd></div><div><dt>'+esc(T(DES[1].role))+'</dt><dd>'+esc(valueText(r,ib))+'</dd></div></dl>';
-  if(r.type==='area'){
-    if(a.st!=='na'&&b.st!=='na')n1+='<p class="fo-nd">'+(en?'Alternative minus baseline ':'대안과 기준안의 차이 ')+sign(b.A-a.A)+sq()+'</p>';
-    else n1+='<p class="fo-nd">'+(en?'Difference held, one entry has no data':'한쪽 자료가 없어 차이를 계산하지 않습니다')+'</p>';
-    n1+='<p class="fo-lim">'+(en?'Allowed ':'허용 ')+num(a.lo)+(en?' to ':'에서 ')+num(a.hi)+sq()+(en?', target ':', 목표 ')+r.T+sq()+(en?', tolerance ':', 허용편차 ')+r.tol+'%</p>';
-    n2+=this.range(a,b,r)+'<p class="fo-ax">'+(en?'Both entries share one axis, which may not start at zero.':'두 안은 같은 축을 씁니다. 축은 0에서 시작하지 않을 수 있습니다.')+'</p>';
-    n2+='<ul class="fo-msg">'+who.map(function(p){
-      var c=p[1],t=esc(T(p[0].role))+', ';
-      if(c.st==='na')t+=en?'on hold, no data submitted. Missing data is never read as zero.':'제출 자료가 없어 판정불가. 빠진 자료를 0으로 읽지 않습니다.';
-      else if(c.st==='ok')t+=(en?'met, ':'충족, ')+(en?'margin to the limit ':'경계까지 ')+num(c.margin)+sq()+(en?', deviation ':', 편차 ')+sign(c.dev)+'%';
-      else t+=(en?'not met, ':'불충족, ')+(c.A>c.hi?(en?'above the upper limit by ':'상한보다 ')+num(c.A-c.hi)+sq()+(en?'':' 큼'):(en?'below the lower limit by ':'하한보다 ')+num(c.lo-c.A)+sq()+(en?'':' 작음'))+(en?', deviation ':', 편차 ')+sign(c.dev)+'%';
-      return '<li class="m-'+c.st+'">'+t+'</li>';
-    }).join('')+'</ul>';
-  }else if(r.type==='count'){
-    n1+='<p class="fo-lim">'+(en?'Minimum ':'최소 ')+r.min+(en?' spaces':'대')+'</p>';
-    n2+='<ul class="fo-msg">'+who.map(function(p){
-      var c=p[1];return '<li class="m-'+c.st+'">'+esc(T(p[0].role))+', '+c.n+(en?' spaces, ':'대, ')+(c.margin<0?(en?Math.abs(c.margin)+' short, not met':Math.abs(c.margin)+'대 부족, 불충족'):(en?'met':'충족'))+'</li>';
-    }).join('')+'</ul>';
-  }else{
-    n1+='<p class="fo-lim">'+(en?'Required space':'필수 공간')+'</p>';
-    n2+='<ul class="fo-msg">'+who.map(function(p){
-      var c=p[1];return '<li class="m-'+c.st+'">'+esc(T(p[0].role))+', '+(c.p?(en?'present, met':'있음, 충족'):(en?'stated absent, not met':'없다고 명시, 불충족'))+'</li>';
-    }).join('')+'</ul><p class="fo-ax">'+(en?'A stated absence and missing data are judged differently.':'없다고 명시한 공간과 자료 누락은 다르게 판정합니다.')+'</p>';
-  }
-  n2+='<p class="fo-src">'+(en?'Source, ':'근거, ')+esc(T(r.src))+'</p>';
-  return '<div class="fo-n1">'+n1+'</div><div class="fo-n2">'+n2+'</div>';
-};
-Folio.prototype.range=function(a,b,r){
-  var vals=[a.lo,a.hi]; if(a.st!=='na')vals.push(a.A); if(b.st!=='na')vals.push(b.A);
-  var lo=Math.min.apply(null,vals),hi=Math.max.apply(null,vals),pad=(hi-lo)*0.08;lo-=pad;hi+=pad;
-  var W=300,x0=40,x1=W-8;function x(v){return x0+(x1-x0)*(v-lo)/(hi-lo);}
-  var en=L()==='en',s='<svg class="fo-rg" viewBox="0 0 '+W+' 104" role="img" aria-label="'+(en?'Area of both entries on one axis, with the allowed band':'허용 구간과 두 안의 면적을 같은 축에 표시')+'">';
-  s+='<rect x="'+x(a.lo).toFixed(1)+'" y="10" width="'+(x(a.hi)-x(a.lo)).toFixed(1)+'" height="70" class="rg-band"/>';
-  s+='<line x1="'+x(r.T).toFixed(1)+'" y1="5" x2="'+x(r.T).toFixed(1)+'" y2="85" class="rg-t"/>';
-  [[30,a,'c',en?'Base':'기준'],[60,b,'s',en?'Alt':'대안']].forEach(function(row){
-    var y=row[0],c=row[1];
-    s+='<text x="0" y="'+(y+4)+'" class="rg-l">'+row[3]+'</text><line x1="'+x0+'" y1="'+y+'" x2="'+x1+'" y2="'+y+'" class="rg-ax"/>';
-    if(c.st==='na'){s+='<text x="'+((x0+x1)/2).toFixed(1)+'" y="'+(y-6)+'" class="rg-na" text-anchor="middle">'+(en?'no data':'자료 없음')+'</text>';return;}
-    var cx=x(c.A);
-    s+=row[2]==='c'?'<circle cx="'+cx.toFixed(1)+'" cy="'+y+'" r="5" class="rg-a"/>':'<rect x="'+(cx-4.5).toFixed(1)+'" y="'+(y-4.5)+'" width="9" height="9" class="rg-b"/>';
+Folio.prototype.insp=function(i){
+  var en=L()==='en',r=RULES[i],h='<div class="in-h"><span class="in-k">'+(en?'Review ':'검토 ')+r.id+'</span><span class="in-t">'+esc(T(r.name))+'</span><span class="in-r">'+esc(reqLong(r))+'</span></div><ul class="in-l">';
+  var cs=DES.map(function(d){return check(r,d.v[r.id]);});
+  DES.forEach(function(d,k){
+    var it=d.v[r.id],c=cs[k];
+    h+='<li><span class="in-e"><b>'+d.key+'</b>'+esc(T(d.role))+'</span><span class="in-s">'+srcLine(r,it)+'</span><span class="in-v">'+esc(valueText(r,it))+'</span><span class="in-m m-'+c.st+'"><i aria-hidden="true"></i>'+esc(verdict(r,c))+'</span></li>';
   });
-  s+='<text x="'+x0+'" y="100" class="rg-e">'+num(lo)+sq()+'</text><text x="'+x1+'" y="100" class="rg-e" text-anchor="end">'+num(hi)+sq()+'</text></svg>';
-  return s;
+  var a=cs[0],b=cs[1],diff='';
+  if(r.type==='area')diff=(a.st!=='na'&&b.st!=='na')?(en?'Alternative minus baseline ':'대안과 기준안의 차이 ')+sign(b.A-a.A)+sq():(en?'Difference held, one entry has no data':'한쪽 자료가 없어 차이를 계산하지 않습니다');
+  else if(r.type==='count')diff=(en?'Alternative minus baseline ':'대안과 기준안의 차이 ')+sign(b.n-a.n)+(en?' spaces':'대');
+  return h+'</ul><div class="in-f"><span>'+esc(diff)+'</span><span>'+(en?'Source, ':'근거, ')+esc(T(r.src))+'</span></div>';
 };
 
 /* sensitivity: tolerance x common area bias, the nine conditions of the example */
