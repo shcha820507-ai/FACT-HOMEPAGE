@@ -247,8 +247,8 @@ home = once(home, '''      <div class="empty">
       </div>''', '      <div class="sched" id="schedList"></div>')
 SCHED_JS = r"""  /* =====================================================================
      운영 일정 추가하는 곳
-     아래 SCHEDULE 배열에 항목을 하나 추가하면 다가오는 일정이 날짜순으로 먼저 나오고,
-     지난 일정은 그 아래에 흐리게 표시됩니다. 예정, 오늘, 종료 표시는 방문한 날의 한국 날짜에 맞춰 바뀝니다.
+     아래 SCHEDULE 배열에 항목을 하나 추가하면 날짜가 늦은 일정이 위에 오도록 정렬되고,
+     지난 일정은 아래쪽에 흐리게 표시됩니다. 예정, 오늘, 종료 표시는 방문한 날의 한국 날짜에 맞춰 바뀝니다.
      형식:
      { date:'YYYY-MM-DD', time:'15:20',     날짜 (필수), 시작 시각 (선택)
        cat:'forum',                          분류: agreement(협약) forum(포럼) seminar(세미나) workshop(워크숍)
@@ -266,9 +266,8 @@ SCHED_JS = r"""  /* ============================================================
     var DK=['일','월','화','수','목','금','토'], DE=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
     var today=new Date(Date.now()+9*36e5).toISOString().slice(0,10);
     function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-    function asc(a,b){return a.date<b.date?-1:(a.date>b.date?1:0)}
-    var items=SCHEDULE.filter(function(x){return x.date>=today}).sort(asc)
-      .concat(SCHEDULE.filter(function(x){return x.date<today}).sort(function(a,b){return asc(b,a)}));
+    function desc(a,b){var x=a.date+(a.time||''), y=b.date+(b.time||''); return x<y?1:(x>y?-1:0)}
+    var items=SCHEDULE.slice().sort(desc);
     if(!items.length){ box.innerHTML='<div class="empty"><p lang="ko">추진 일정은 운영위원회에서 확정하는 대로 게시합니다.</p><p lang="en">The schedule will be posted once confirmed by the steering committee.</p></div>'; return; }
     function row(n){
       var p=n.date.split('-'), wd=new Date(Date.UTC(+p[0],+p[1]-1,+p[2])).getUTCDay();
