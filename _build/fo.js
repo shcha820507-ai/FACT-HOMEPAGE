@@ -1,6 +1,7 @@
 /* FACT Folio concept figure for fact.kaist.ac.kr
-   Shows how Folio reads two entries against one brief, using the synthetic
-   example of model 09.area-review.1.1.0. Not the working screen, a real competition or a legal standard. */
+   Shows how Folio reads two entries against one brief (module 09) and one set of entered design rules
+   (module 02 Section), using the synthetic example of model 09.area-review.1.1.0 and
+   synthetic_rules_2026.11.02_v1. Not the working screen, a real competition or a legal standard. */
 (function(){
 'use strict';
 var root=document.documentElement;
@@ -43,6 +44,21 @@ var DES=[
 var FAC={m2:1,cm2:0.0001,mm2:0.000001};
 var ST={ok:{ko:'충족',en:'Met'},rv:{ko:'불충족',en:'Not met'},na:{ko:'판정불가',en:'On hold'}};
 
+/* module 02 Section: the entered design rules of the same synthetic example.
+   The limits are test assumptions, not Korean law, and pass or fail is only a numeric comparison. */
+var SET='synthetic_rules_2026.11.02_v1';
+var SEC=[
+  {id:'SYN_COVERAGE_01',mod:'02',type:'max',m:'cov',T:55,u:'%',name:{ko:'가상 건폐율 상한',en:'Virtual building coverage cap'}},
+  {id:'SYN_FAR_01',mod:'02',type:'max',m:'far',T:300,u:'%',name:{ko:'가상 용적률 상한',en:'Virtual floor area ratio cap'}},
+  {id:'SYN_DOOR_01',mod:'02',type:'min',m:'door',T:950,u:'mm',name:{ko:'가상 출입문 유효폭 하한',en:'Virtual door clear width minimum'}}
+];
+var ST2={ok:{ko:'적합',en:'Pass'},rv:{ko:'부적합',en:'Fail'},na:{ko:'정보 부족',en:'Insufficient information'}};
+/* site, building area, total floor area, test exclusion, floor area for the ratio, one door */
+DES[0].s={site:2000,bldg:1080,gfa:6600,ex:900,far:5700,door:{val:900,unit:'mm'}};
+DES[1].s={site:2000,bldg:1000,gfa:6800,ex:900,far:5900,door:{val:1,unit:'m'}};
+RULES.forEach(function(r){r.mod='09';});
+var ROWS=RULES.concat(SEC);
+
 /* one rule, one entry: inclusive bounds, null held as unknown */
 function check(rule,item,tol,bias){
   if(tol==null)tol=rule.tol; bias=bias||0;
@@ -54,6 +70,16 @@ function check(rule,item,tol,bias){
   if(rule.type==='count')return {st:item.n>=rule.min?'ok':'rv',n:item.n,margin:item.n-rule.min};
   return {st:item.p?'ok':'rv',p:item.p};
 }
+/* one design rule, one entry: the limit is inclusive */
+function checkS(r,d){
+  var b=d.s,v;
+  if(!b)return {st:'na'};
+  if(r.m==='cov')v=100*b.bldg/b.site;
+  else if(r.m==='far')v=100*b.far/b.site;
+  else{if(!b.door)return {st:'na'};v=b.door.val*(b.door.unit==='m'?1000:1);}
+  return {st:(r.type==='max'?v<=r.T+1e-9:v>=r.T-1e-9)?'ok':'rv',v:v,margin:r.type==='max'?r.T-v:v-r.T};
+}
+function ev(r,d){return r.mod==='02'?checkS(r,d):check(r,d.v[r.id]);}
 function num(x){var r=Math.round(x*100)/100;return Math.abs(r)>=1000?r.toLocaleString('en-US'):String(r);}
 function sign(x){var r=Math.round(x*100)/100,s=num(Math.abs(r));return r>0?'+'+s:(r<0?'−'+s:'0');}
 function pct(b){return (b>0?'+':(b<0?'−':''))+Math.abs(b)+'%';}
@@ -117,7 +143,39 @@ function ruler(r,it,c){
   else h+='<i class="ru-band open" style="left:50%;width:50%"></i><i class="ru-t solid" style="left:50%"></i><i class="ru-m m-'+c.st+'" style="left:'+x(c.n).toFixed(1)+'%"></i>';
   return h+'</span>';
 }
-function chip(st){return '<span class="st st-'+st+'"><i aria-hidden="true"></i>'+esc(T(ST[st]))+'</span>';}
+function chip(st,mod){return '<span class="st st-'+st+'"><i aria-hidden="true"></i>'+esc(T((mod==='02'?ST2:ST)[st]))+'</span>';}
+
+/* design rule rows: value, limit, calculation and verdict */
+function valS(r,c){return c.st==='na'?(L()==='en'?'No data':'자료 없음'):num(c.v)+(r.u==='%'?'%':' mm');}
+function limS(r,cap){var en=L()==='en';return (r.type==='max'?(en?(cap?'Cap ':'cap '):'상한 '):(en?(cap?'Minimum ':'min '):'하한 '))+r.T+(r.u==='%'?'%':' mm');}
+function reqLongS(r){
+  var en=L()==='en',f={cov:{ko:'건축면적 ÷ 대지면적 × 100',en:'building area ÷ site area × 100'},
+    far:{ko:'산정용 연면적 ÷ 대지면적 × 100',en:'floor area for the ratio ÷ site area × 100'},
+    door:{ko:'공개 출입 조건에서 출입문 한 개의 유효폭',en:'clear width of one door where public access applies'}}[r.m];
+  return limS(r,true)+', '+T(f)+(en?'. A test assumption, not a legal standard.':'. 계산 시험용 가정이며 법규 기준이 아닙니다.');
+}
+function srcS(r,d){
+  var en=L()==='en',b=d.s;
+  if(r.m==='cov')return esc(num(b.bldg)+' m2 ÷ '+num(b.site)+' m2 × 100, '+(en?'synthetic building and site area':'합성 건축면적과 대지'));
+  if(r.m==='far')return esc(num(b.far)+' m2 ÷ '+num(b.site)+' m2 × 100, '+(en?'floor area for the ratio, '+num(b.gfa)+' m2 less a '+num(b.ex)+' m2 test exclusion':'산정용 연면적, 전체 '+num(b.gfa)+' m2에서 시험용 제외 '+num(b.ex)+' m2를 뺀 값'));
+  return esc((b.door.unit==='m'?num(b.door.val)+' m × 1000':num(b.door.val)+' mm')+', '+(en?'one synthetic door':'합성 문 한 개'));
+}
+function verdS(r,c){
+  var en=L()==='en',d=num(Math.abs(c.margin)),u;
+  if(c.st==='na')return en?'Insufficient information. A missing value is never read as zero.':'정보 부족. 빈 값을 0으로 읽지 않습니다.';
+  if(Math.abs(c.margin)<1e-9)return en?'Pass, equal to the limit':'적합, 기준과 같음';
+  u=r.u==='%'?(en?(d==='1'?' point':' points'):'%p'):' mm';
+  if(r.type==='max')return c.st==='ok'?(en?'Pass, '+d+u+' under the cap':'적합, 상한보다 '+d+u+' 낮음'):(en?'Fail, '+d+u+' over the cap':'부적합, 상한보다 '+d+u+' 높음');
+  return c.st==='ok'?(en?'Pass, '+d+u+' wider than the minimum':'적합, 하한보다 '+d+u+' 넓음'):(en?'Fail, '+d+u+' narrower than the minimum':'부적합, 하한보다 '+d+u+' 좁음');
+}
+/* shared axis per rule: the limit sits in the middle, the allowed side is hatched */
+function rulerS(r,c){
+  if(c.st==='na')return '<span class="ru na" aria-hidden="true"><i class="ru-ax"></i><em>'+(L()==='en'?'no data':'자료 없음')+'</em></span>';
+  var d=0;DES.forEach(function(e){var k=checkS(r,e);if(k.v!=null)d=Math.max(d,Math.abs(k.v-r.T));});
+  var half=Math.max(r.T*.06,d*1.3),x=Math.max(3,Math.min(97,50+50*(c.v-r.T)/half));
+  return '<span class="ru" aria-hidden="true"><i class="ru-ax"></i>'+(r.type==='max'?'<i class="ru-band open-l" style="left:0;width:50%"></i>':'<i class="ru-band open" style="left:50%;width:50%"></i>')
+    +'<i class="ru-t solid" style="left:50%"></i><i class="ru-m m-'+c.st+'" style="left:'+x.toFixed(1)+'%"></i></span>';
+}
 
 var UID=0;
 function Folio(fig){
@@ -130,7 +188,7 @@ function Folio(fig){
   fig.addEventListener('click',function(e){
     if(e.target.closest('.fo-play')){
       self.auto=!self.auto;
-      if(self.auto){self.select((self.sel+1)%RULES.length);if(self.vis)self.start();}else self.stop();
+      if(self.auto){self.select((self.sel+1)%ROWS.length);if(self.vis)self.start();}else self.stop();
       self.sync(); return;
     }
     var b=e.target.closest('.fo-row'); if(!b||!fig.contains(b))return;
@@ -138,7 +196,7 @@ function Folio(fig){
   });
   fig.addEventListener('keydown',function(e){
     var t=e.target; if(!t.classList||!t.classList.contains('fo-row'))return;
-    var n=RULES.length,i=self.sel,k=e.key;
+    var n=ROWS.length,i=self.sel,k=e.key;
     if(k==='ArrowDown'||k==='ArrowRight')i=(i+1)%n; else if(k==='ArrowUp'||k==='ArrowLeft')i=(i+n-1)%n;
     else if(k==='Home')i=0; else if(k==='End')i=n-1; else return;
     e.preventDefault(); self.auto=false; self.stop(); self.sync(); self.select(i);
@@ -152,7 +210,7 @@ function Folio(fig){
 }
 Folio.prototype.start=function(){
   var self=this; if(!this.auto||this.timer)return;
-  this.timer=setInterval(function(){self.select((self.sel+1)%RULES.length);},3600);
+  this.timer=setInterval(function(){self.select((self.sel+1)%ROWS.length);},3600);
 };
 Folio.prototype.stop=function(){if(this.timer){clearInterval(this.timer);this.timer=null;}};
 Folio.prototype.sync=function(){this.fig.classList.toggle('auto',this.auto);};
@@ -166,42 +224,56 @@ Folio.prototype.select=function(i){
   if(p){p.innerHTML=this.insp(i);p.setAttribute('aria-labelledby',this.uid+'-t'+i);}
 };
 Folio.prototype.render=function(){
-  var en=L()==='en',uid=this.uid,h='<div class="fo-board"><div class="fo-head" aria-hidden="true"><span class="c-r">'+(en?'Brief':'지침')+'</span>';
+  var en=L()==='en',uid=this.uid,h='<div class="fo-board"><div class="fo-head" aria-hidden="true"><span class="c-r">'+(en?'Brief and rules':'지침과 규칙')+'</span>';
   DES.forEach(function(d){
-    var na=0; RULES.forEach(function(r){if(check(r,d.v[r.id]).st==='na')na++;});
-    h+='<span class="c-'+d.key.toLowerCase()+'"><b>'+d.key+'</b>'+esc(T(d.role))+'<em>'+(en?'judged ':'판정 가능 ')+(RULES.length-na)+'/'+RULES.length+'</em></span>';
+    var fu=0; ROWS.forEach(function(r){if(ev(r,d).st!=='ok')fu++;});
+    h+='<span class="c-'+d.key.toLowerCase()+'"><b>'+d.key+'</b>'+esc(T(d.role))+'<em>'+(en?'follow-up ':'후속 검토 ')+fu+'/'+ROWS.length+'</em></span>';
   });
-  h+='</div><div class="fo-rows" role="tablist" aria-orientation="vertical" aria-label="'+(en?'Brief items':'지침 항목')+'">';
-  RULES.forEach(function(r,i){
-    h+='<button type="button" role="tab" class="fo-row" id="'+uid+'-t'+i+'" data-i="'+i+'" aria-controls="'+uid+'-in" aria-selected="false" tabindex="-1">'
-      +'<span class="fo-rule"><span class="fo-id">'+r.id+'</span><span class="fo-nm">'+esc(T(r.name))+'</span><span class="fo-rq">'+esc(reqShort(r))+'</span></span>';
+  h+='</div><div class="fo-rows" role="tablist" aria-orientation="vertical" aria-label="'+(en?'Brief items and design rules':'지침 항목과 설계 규칙')+'">';
+  ROWS.forEach(function(r,i){
+    var s=r.mod==='02';
+    h+='<button type="button" role="tab" class="fo-row'+(i===RULES.length?' g2':'')+'" id="'+uid+'-t'+i+'" data-i="'+i+'" aria-controls="'+uid+'-in" aria-selected="false" tabindex="-1">'
+      +'<span class="fo-rule"><span class="fo-id">'+r.mod+' / '+r.id+'</span><span class="fo-nm">'+esc(T(r.name))+'</span><span class="fo-rq">'+esc(s?limS(r):reqShort(r))+'</span></span>';
     DES.forEach(function(d){
-      var it=d.v[r.id],c=check(r,it),raw=it&&r.type==='area'&&it.unit!=='m2'?'<small>'+num(it.val)+' '+unitTxt(it.unit)+(en?' converted':' 환산')+'</small>':'';
-      h+='<span class="fo-cell c-'+d.key.toLowerCase()+'"><span class="fo-v'+(it?'':' na')+'"><span class="vh">'+d.key+' '+esc(T(d.role))+', </span>'+esc(valueText(r,it))+raw+'</span>'+chip(c.st)+ruler(r,it,c)+'</span>';
+      var c=ev(r,d),it=s?null:d.v[r.id],raw='',vt,ru,na;
+      if(s){
+        vt=valS(r,c);ru=rulerS(r,c);na=c.st==='na';
+        if(r.m==='door'&&d.s.door.unit!=='mm')raw='<small>'+num(d.s.door.val)+' m'+(en?' converted':' 환산')+'</small>';
+      }else{
+        vt=valueText(r,it);ru=ruler(r,it,c);na=!it;
+        if(it&&r.type==='area'&&it.unit!=='m2')raw='<small>'+num(it.val)+' '+unitTxt(it.unit)+(en?' converted':' 환산')+'</small>';
+      }
+      h+='<span class="fo-cell c-'+d.key.toLowerCase()+'"><span class="fo-v'+(na?' na':'')+'"><span class="vh">'+d.key+' '+esc(T(d.role))+', </span>'+esc(vt)+raw+'</span>'+chip(c.st,r.mod)+ru+'</span>';
     });
     h+='</button>';
   });
   h+='</div></div><div class="fo-insp" role="tabpanel" id="'+uid+'-in"></div>';
   this.stage.innerHTML=h;
   var conv=0,miss=0;
-  DES.forEach(function(d){RULES.forEach(function(r){var it=d.v[r.id];if(!it)miss++;else if(r.type==='area'&&it.unit!=='m2')conv++;});});
-  this.kp.innerHTML='<div><span class="l">'+(en?'Brief items, one set of rules':'같은 규칙으로 읽은 지침 항목')+'</span><b>'+RULES.length+'</b></div>'
+  DES.forEach(function(d){
+    RULES.forEach(function(r){var it=d.v[r.id];if(!it)miss++;else if(r.type==='area'&&it.unit!=='m2')conv++;});
+    if(d.s&&d.s.door&&d.s.door.unit!=='mm')conv++;
+  });
+  this.kp.innerHTML='<div><span class="l">'+(en?'Records, both entries on one basis':'두 안을 같은 근거로 읽은 기록')+'</span><b>'+(ROWS.length*DES.length)+'</b></div>'
     +'<div><span class="l">'+(en?'Values converted between units':'단위를 환산한 제출값')+'</span><b>'+conv+'</b></div>'
     +'<div><span class="l">'+(en?'Missing values held, not read as zero':'0으로 읽지 않고 보류한 빈 값')+'</span><b>'+miss+'</b></div>'
-    +'<div class="k-no"><span class="l">'+(en?'Scores and rankings':'점수와 순위')+'</span><b>'+(en?'None':'없음')+'</b></div>';
+    +'<div class="k-no"><span class="l">'+(en?'Scores, rankings, automatic legal verdicts':'점수, 순위, 자동 법규 판정')+'</span><b>'+(en?'None':'없음')+'</b></div>';
   this.select(this.sel);
 };
 Folio.prototype.insp=function(i){
-  var en=L()==='en',r=RULES[i],h='<div class="in-h"><span class="in-k">'+(en?'Review ':'검토 ')+r.id+'</span><span class="in-t">'+esc(T(r.name))+'</span><span class="in-r">'+esc(reqLong(r))+'</span></div><ul class="in-l">';
-  var cs=DES.map(function(d){return check(r,d.v[r.id]);});
+  var en=L()==='en',r=ROWS[i],s=r.mod==='02';
+  var h='<div class="in-h"><span class="in-k">'+(en?'Module ':'모듈 ')+r.mod+' / '+r.id+'</span><span class="in-t">'+esc(T(r.name))+'</span><span class="in-r">'+esc(s?reqLongS(r):reqLong(r))+'</span></div><ul class="in-l">';
+  var cs=DES.map(function(d){return ev(r,d);});
   DES.forEach(function(d,k){
-    var it=d.v[r.id],c=cs[k];
-    h+='<li><span class="in-e"><b>'+d.key+'</b>'+esc(T(d.role))+'</span><span class="in-s">'+srcLine(r,it)+'</span><span class="in-v">'+esc(valueText(r,it))+'</span><span class="in-m m-'+c.st+'"><i aria-hidden="true"></i>'+esc(verdict(r,c))+'</span></li>';
+    var it=s?null:d.v[r.id],c=cs[k];
+    h+='<li><span class="in-e"><b>'+d.key+'</b>'+esc(T(d.role))+'</span><span class="in-s">'+(s?srcS(r,d):srcLine(r,it))+'</span><span class="in-v">'+esc(s?valS(r,c):valueText(r,it))+'</span><span class="in-m m-'+c.st+'"><i aria-hidden="true"></i>'+esc(s?verdS(r,c):verdict(r,c))+'</span></li>';
   });
-  var a=cs[0],b=cs[1],diff='';
-  if(r.type==='area')diff=(a.st!=='na'&&b.st!=='na')?(en?'Alternative minus baseline ':'대안과 기준안의 차이 ')+sign(b.A-a.A)+sq():(en?'Difference held, one entry has no data':'한쪽 자료가 없어 차이를 계산하지 않습니다');
+  var a=cs[0],b=cs[1],diff='',held=en?'Difference held, one entry has no data':'한쪽 자료가 없어 차이를 계산하지 않습니다';
+  if(s)diff=(a.st!=='na'&&b.st!=='na')?(en?'Alternative minus baseline ':'대안과 기준안의 차이 ')+sign(b.v-a.v)+(r.u==='%'?(en?' points':'%p'):' mm'):held;
+  else if(r.type==='area')diff=(a.st!=='na'&&b.st!=='na')?(en?'Alternative minus baseline ':'대안과 기준안의 차이 ')+sign(b.A-a.A)+sq():held;
   else if(r.type==='count')diff=(en?'Alternative minus baseline ':'대안과 기준안의 차이 ')+sign(b.n-a.n)+(en?' spaces':'대');
-  return h+'</ul><div class="in-f"><span>'+esc(diff)+'</span><span>'+(en?'Source, ':'근거, ')+esc(T(r.src))+'</span></div>';
+  var src=s?(en?'Source, synthetic rule set ':'근거, 합성 규칙집 ')+SET:(en?'Source, ':'근거, ')+T(r.src);
+  return h+'</ul><div class="in-f"><span>'+esc(diff)+'</span><span>'+esc(src)+'</span></div>';
 };
 
 /* sensitivity: tolerance x common area bias, the nine conditions of the example */

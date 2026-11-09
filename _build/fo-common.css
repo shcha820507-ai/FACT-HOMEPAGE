@@ -55,6 +55,8 @@
 .fo .ru-ax{left:0;right:0;top:50%;height:1px;background:rgba(255,255,255,.16)}
 .fo .ru-band{top:3px;bottom:3px;background-color:rgba(143,176,255,.1);background-image:repeating-linear-gradient(135deg,rgba(143,176,255,.34) 0 1px,transparent 1px 5px);border-left:1px solid rgba(143,176,255,.6);border-right:1px solid rgba(143,176,255,.6)}
 .fo .ru-band.open{border-right:0}
+.fo .ru-band.open-l{border-left:0}
+.fo .fo-row.g2{margin-top:-1px;border-top:1px solid var(--line-2)}
 .fo .ru-t{top:0;bottom:0;width:0;border-left:1px dashed var(--accent-2)}
 .fo .ru-t.solid{border-left-style:solid}
 .fo .ru-m{top:50%;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 2px var(--bg)}
