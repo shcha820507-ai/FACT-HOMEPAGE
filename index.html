@@ -226,6 +226,7 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
 .news-more button{background:none;border:1px solid var(--line-2);border-radius:2px;padding:10px 16px;font:inherit;font-family:var(--grot);font-size:.84rem;cursor:pointer;color:inherit}
 .news-more button:hover{background:#fff;color:#000}
 @media (max-width:860px){.news{grid-template-columns:1fr}}
+.news .l{margin-right:18px}
 .news.has-th{grid-template-columns:120px minmax(0,1fr) 112px}
 .news .th{display:block;align-self:start;border:1px solid var(--line);transition:border-color .2s,opacity .2s}
 .news .th:hover{border-color:var(--accent-2)}
@@ -1014,7 +1015,11 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
      처음 다섯 건만 보이고 나머지는 "이전 소식 더 보기" 버튼으로 펼쳐집니다.
      ===================================================================== */
   var NEWS=[
-    { date:'2026-11-05', cat:'research',
+    { date:'2026-11-10', cat:'research', poster:'news/2026-11-10-book-cover.jpg', thumb:'news/2026-11-10-book-cover-thumb.jpg',
+      alt:'『미래 건축 설계 총론』 표지, cover of Comprehensive Introduction to Future Architectural Design',
+      ko:{ title:'차승현 센터장, 『미래 건축 설계 총론』 출간', body:'차승현 센터장이 『미래 건축 설계 총론: 데이터, 인공지능, 새로운 이용 주체』를 11월 10일 시공문화사에서 출간했습니다. 데이터와 인공지능, 로봇과 자율주행체의 등장이 건축설계에 요구하는 변화를 다룬 책으로, 설계 방법뿐 아니라 건물을 생산하고 이용하는 방식, 운영과 제도의 변화까지 함께 살펴봅니다. 다섯 부, 열네 장에 걸쳐 데이터 기반 설계와 AI, BIM과 디지털 트윈, 모듈러 건축과 건설 자동화, 로봇과 자율주행체를 고려한 공간, 가변형 건축과 스마트빌딩을 다루며, 기술의 적용 가능성과 한계를 검토하면서 건축가의 역할과 설계의 책임을 함께 짚습니다.', link:'https://product.kyobobook.co.kr/detail/S000221894451', linkText:'교보문고에서 보기', links:[{ href:'https://www.yes24.com/product/goods/200092931', text:'YES24에서 보기' }] },
+      en:{ title:'Seung Hyun Cha publishes Comprehensive Introduction to Future Architectural Design', body:'FACT director Seung Hyun Cha published Comprehensive Introduction to Future Architectural Design: Data, Artificial Intelligence, and New User Agents, a book in Korean, with Sigongmunhwasa on November 10. It looks at what data, artificial intelligence, robots and autonomous vehicles ask of architectural design, covering not only design methods but also how buildings are produced, used and operated, and how institutions change. Across five parts and fourteen chapters it treats data-driven design and AI, BIM and digital twins, modular construction and construction automation, spaces planned for robots and autonomous vehicles, and adaptable architecture and smart buildings, weighing what each technology can and cannot do along with the role of the architect and the responsibility of design.', link:'https://product.kyobobook.co.kr/detail/S000221894451', linkText:'Kyobo Book Centre', links:[{ href:'https://www.yes24.com/product/goods/200092931', text:'YES24' }] } },
+        { date:'2026-11-05', cat:'research',
       ko:{ title:'두 번째 FACT 플랫폼 FACT Folio 소개', body:'설계공모 출품안의 면적표를 같은 공모지침에 비추어 나란히 읽고, 항목마다 근거를 남기는 심사 보조 도구입니다. 점수와 순위, 당락은 만들지 않으며, 합성 자료로 검증을 마쳤습니다.', link:'folio/', linkText:'Folio 소개 페이지' },
       en:{ title:'Introducing FACT Folio, the second FACT platform', body:'A review aid that reads competition entries side by side against one brief and keeps the evidence for every check. It makes no scores, rankings or verdicts, and has been verified on synthetic data.', link:'folio/?lang=en', linkText:'Folio page' } },
     { date:'2026-11-20', cat:'event', poster:'news/2026-11-20-gwangju-forum.jpg', thumb:'news/2026-11-20-gwangju-forum-thumb.jpg',
@@ -1049,8 +1054,9 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
       function side(l){ var x=n[l]||{}; var h='<span class="t" lang="'+l+'">'+esc(x.title)+'</span>';
         if(x.body) h+='<p class="b" lang="'+l+'">'+esc(x.body)+'</p>';
         if(x.link) h+='<a class="l" lang="'+l+'" href="'+esc(x.link)+'"'+(/^https?:|\.(jpe?g|png|pdf)$/i.test(x.link)?' target="_blank" rel="noopener"':'')+'>'+esc(x.linkText||(l==='ko'?'자세히 보기':'Read more'))+' &rarr;</a>';
+        (x.links||[]).forEach(function(k){ h+='<a class="l" lang="'+l+'" href="'+esc(k.href)+'"'+(/^https?:|\.(jpe?g|png|pdf)$/i.test(k.href)?' target="_blank" rel="noopener"':'')+'>'+esc(k.text)+' &rarr;</a>'; });
         return h; }
-      var th=n.poster?'<a class="th" href="'+esc(n.poster)+'" target="_blank" rel="noopener"><img src="'+esc(n.thumb||n.poster)+'" alt="'+esc(((n.ko||{}).title||'')+' 포스터, '+((n.en||{}).title||'')+' poster')+'" loading="lazy" width="300" height="424"></a>':'';
+      var th=n.poster?'<a class="th" href="'+esc(n.poster)+'" target="_blank" rel="noopener"><img src="'+esc(n.thumb||n.poster)+'" alt="'+esc(n.alt||(((n.ko||{}).title||'')+' 포스터, '+((n.en||{}).title||'')+' poster'))+'" loading="lazy" width="300" height="424"></a>':'';
       return '<article class="row news'+(th?' has-th':'')+'"'+(i>=5?' hidden data-more':'')+'><span class="d">'+esc(n.date.replace(/-/g,'.'))+'</span><div><span class="c"><span lang="ko">'+c[0]+'</span><span lang="en">'+c[1]+'</span></span>'+side('ko')+side('en')+'</div>'+th+'</article>';
     }
     list.innerHTML=items.map(row).join('');

@@ -59,6 +59,8 @@ python3 _build/build.py
 
 - 항목마다 끝에 쉼표를 붙입니다. `cat`은 notice, event, research, press, recruit 중 하나입니다.
 - 포스터는 `news/`에 원본(긴 변 1600px 안팎 JPEG)과 폭 300px 미리보기(`-thumb.jpg`)를 함께 올립니다.
+- 링크를 둘 이상 걸 때는 `links:[{ href:'주소', text:'이름' }]`를 더합니다. 첫 링크(`link`) 뒤에 차례로 붙습니다.
+- 포스터가 아닌 이미지(책 표지 등)는 `alt:'국문 설명, English description'`으로 이미지 설명을 따로 적습니다. 없으면 '제목 포스터'로 붙습니다.
 
 ## 문장 원칙
 

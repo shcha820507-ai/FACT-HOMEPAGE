@@ -109,6 +109,9 @@ NEWS_ITEM = ("{ date:'2026-10-26', cat:'research',\n"
 home = once(home, "var NEWS=[\n    { date:'2026-06-30'", "var NEWS=[\n    " + NEWS_ITEM + "{ date:'2026-06-30'")
 home = once(home, """href="'+esc(x.link)+'" target="_blank" rel="noopener">'""",
             """href="'+esc(x.link)+'"'+(/^https?:|\\.(jpe?g|png|pdf)$/i.test(x.link)?' target="_blank" rel="noopener"':'')+'>'""")
+# news: more links after the main one, links:[{ href, text }, ...]
+home = once(home, """' &rarr;</a>';\n        return h; }""",
+            """' &rarr;</a>';\n        (x.links||[]).forEach(function(k){ h+='<a class="l" lang="'+l+'" href="'+esc(k.href)+'"'+(/^https?:|\\.(jpe?g|png|pdf)$/i.test(k.href)?' target="_blank" rel="noopener"':'')+'>'+esc(k.text)+' &rarr;</a>'; });\n        return h; }""")
 
 # news: seminar items with posters (same date keeps the order written here)
 SEMINARS = (
@@ -143,7 +146,7 @@ if extra:
 home = once(home, "var items=NEWS.slice().sort(function(a,b){return a.date<b.date?1:-1});",
             "var items=NEWS.slice().sort(function(a,b){return a.date<b.date?1:(a.date>b.date?-1:0)});")
 home = once(home, """      return '<article class="row news"'+(i>=5?' hidden data-more':'')+'><span class="d">'+esc(n.date.replace(/-/g,'.'))+'</span><div><span class="c"><span lang="ko">'+c[0]+'</span><span lang="en">'+c[1]+'</span></span>'+side('ko')+side('en')+'</div></article>';""",
-            """      var th=n.poster?'<a class="th" href="'+esc(n.poster)+'" target="_blank" rel="noopener"><img src="'+esc(n.thumb||n.poster)+'" alt="'+esc(((n.ko||{}).title||'')+' 포스터, '+((n.en||{}).title||'')+' poster')+'" loading="lazy" width="300" height="424"></a>':'';
+            """      var th=n.poster?'<a class="th" href="'+esc(n.poster)+'" target="_blank" rel="noopener"><img src="'+esc(n.thumb||n.poster)+'" alt="'+esc(n.alt||(((n.ko||{}).title||'')+' 포스터, '+((n.en||{}).title||'')+' poster'))+'" loading="lazy" width="300" height="424"></a>':'';
       return '<article class="row news'+(th?' has-th':'')+'"'+(i>=5?' hidden data-more':'')+'><span class="d">'+esc(n.date.replace(/-/g,'.'))+'</span><div><span class="c"><span lang="ko">'+c[0]+'</span><span lang="en">'+c[1]+'</span></span>'+side('ko')+side('en')+'</div>'+th+'</article>';""")
 home = once(home, "       cat:'notice',                       분류: notice(공지) event(행사) research(연구) press(언론) recruit(채용)\n",
             "       cat:'notice',                       분류: notice(공지) event(행사) research(연구) press(언론) recruit(채용)\n"
@@ -151,7 +154,8 @@ home = once(home, "       cat:'notice',                       분류: notice(공
 home = once(home, "     body, link, linkText 는 비워도 됩니다. 항목이 하나도 없으면 안내 문구가 대신 표시됩니다.\n",
             "     body, link, linkText, poster, thumb 는 비워도 됩니다. 항목이 하나도 없으면 안내 문구가 대신 표시됩니다.\n"
             "     날짜가 같은 소식은 아래 배열에 적은 순서대로 표시됩니다.\n")
-NEWS_CSS = (".news.has-th{grid-template-columns:120px minmax(0,1fr) 112px}\n"
+NEWS_CSS = (".news .l{margin-right:18px}\n"
+            ".news.has-th{grid-template-columns:120px minmax(0,1fr) 112px}\n"
             ".news .th{display:block;align-self:start;border:1px solid var(--line);transition:border-color .2s,opacity .2s}\n"
             ".news .th:hover{border-color:var(--accent-2)}\n"
             ".news .th img{display:block;width:100%;height:auto}\n"
