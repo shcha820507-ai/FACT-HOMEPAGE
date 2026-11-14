@@ -1,6 +1,6 @@
 /* FACT Folio concept figure for fact.kaist.ac.kr
    Shows how Folio reads two entries against one brief (module 09) and one set of entered design rules
-   (module 02 Section), using the synthetic example of model 09.area-review.1.1.0 and
+   (module 02 Section), using the synthetic example of model 09.area-review.1.2.0 and
    synthetic_rules_2026.11.02_v1. Not the working screen, a real competition or a legal standard. */
 (function(){
 'use strict';

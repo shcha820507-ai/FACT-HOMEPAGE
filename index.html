@@ -852,7 +852,7 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
         <figure class="fo" data-fo>
         <div class="fo-bar">
           <span class="fo-scn mono"><i aria-hidden="true"></i><span lang="ko">합성 예제, 같은 지침과 규칙으로 읽는 두 설계안</span><span lang="en">Synthetic example, two entries, one brief and one rule set</span></span>
-          <span class="fo-ctl"><span class="fo-model">model 09.area-review.1.1.0</span><button type="button" class="fo-play"><i aria-hidden="true"></i><span class="p-on"><span lang="ko">멈춤</span><span lang="en">Pause</span></span><span class="p-off"><span lang="ko">자동 넘김</span><span lang="en">Auto</span></span></button></span>
+          <span class="fo-ctl"><span class="fo-model">model 09.area-review.1.2.0</span><button type="button" class="fo-play"><i aria-hidden="true"></i><span class="p-on"><span lang="ko">멈춤</span><span lang="en">Pause</span></span><span class="p-off"><span lang="ko">자동 넘김</span><span lang="en">Auto</span></span></button></span>
         </div>
         <div class="fo-stage"></div>
         <div class="fo-kpis"></div>
@@ -862,9 +862,9 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
         <p class="tool-desc" lang="en">FACT Folio compares design options on the same criteria and gathers the evidence checked and the items still to review into one record. It applies the brief's required room areas and tolerances, minimum counts and required spaces, together with the design rules entered for the project, to both entries in the same way, lays them out in a review register by entry, and keeps the unit conversion, area definition and source for every item. Missing data is held rather than read as zero, and it produces no scores, rankings, verdicts or legal compliance judgments. The area review engine and its link with the design rule module have been verified on synthetic data. After testing with real data, external code review and behavior simulation results are planned to join the same comparison, covering daily circulation, evacuation for people with reduced mobility and robot readiness.</p>
         <span class="tool-kh mono"><span lang="ko">합성 자료 검증 결과</span><span lang="en">Verified on synthetic data</span></span>
         <ul class="tool-kpi">
+          <li><b>45</b><span lang="ko">모델 1.2.0 자동 검사 모두 통과 (11월 13일)</span><span lang="en">Tests on model 1.2.0, all passed (Nov 13)</span></li>
           <li><b>12</b><span lang="ko">규칙 연결 검사 모두 통과 (11월 8일)</span><span lang="en">Rule link tests, all passed (Nov 8)</span></li>
           <li><b>15</b><span lang="ko">수정 뒤 재검사 모두 통과 (11월 8일)</span><span lang="en">Re-tests after a fix, all passed (Nov 8)</span></li>
-          <li><b>94</b><span lang="ko">엔진 자동 검사 모두 통과 (11월 7일)</span><span lang="en">Engine tests, all passed (Nov 7)</span></li>
         </ul>
         <ul class="tool-stack" aria-label="Core features">
           <li lang="ko">공모지침 규칙화</li><li lang="en">Brief-to-rule mapping</li>
@@ -1084,7 +1084,10 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15;letter-spacing:-.02em}
       en:{ title:'Memorandum of understanding with LECTUS', place:'KAIST main campus, Daejeon', note:'Cooperation on research, development and validation of AI-driven BIM for the building industry.', link:'https://www.donga.com/news/Economy/article/all/20261113/135021597/1', linkText:'Article (in Korean)' } },
     { date:'2026-11-20', time:'15:20', cat:'forum',
       ko:{ title:'2026 광주건축도시포럼 FUTURE 2046 포럼 「AI와 도시공간의 혁신」', place:'전남대학교 코스모스홀', note:'차승현 센터장이 토론자로 참여합니다.', link:'news/2026-11-20-gwangju-forum.jpg', linkText:'포스터 보기' },
-      en:{ title:'2026 Gwangju Architecture and Urban Forum, FUTURE 2046 forum “AI and Innovation in Urban Space”', place:'Cosmos Hall, Chonnam National University', note:'FACT director Seung Hyun Cha joins the panel.', link:'news/2026-11-20-gwangju-forum.jpg', linkText:'View poster' } }
+      en:{ title:'2026 Gwangju Architecture and Urban Forum, FUTURE 2046 forum “AI and Innovation in Urban Space”', place:'Cosmos Hall, Chonnam National University', note:'FACT director Seung Hyun Cha joins the panel.', link:'news/2026-11-20-gwangju-forum.jpg', linkText:'View poster' } },
+    { date:'2026-11-30', time:'14:00', cat:'lecture',
+      ko:{ title:'G아티언스 2026 KAIST CTSCAPE 마스터스 토크', place:'KAIST 학술문화관', note:'차승현 센터장이 「도시에 새로운 손님이 온다」를 주제로 발표하고 연사 대담에 참여합니다.' },
+      en:{ title:'KAIST CTSCAPE 2026 Masters\' Talk', place:'Academic Cultural Complex, KAIST', note:'FACT director Seung Hyun Cha speaks on new guests arriving in the city and joins the speakers\' roundtable.' } }
   ];
   (function renderSchedule(){
     var box=document.getElementById('schedList'); if(!box) return;
@@ -1509,7 +1512,7 @@ if(document.fonts&&document.fonts.ready){document.fonts.ready.then(function(){do
 <script>
 /* FACT Folio concept figure for fact.kaist.ac.kr
    Shows how Folio reads two entries against one brief (module 09) and one set of entered design rules
-   (module 02 Section), using the synthetic example of model 09.area-review.1.1.0 and
+   (module 02 Section), using the synthetic example of model 09.area-review.1.2.0 and
    synthetic_rules_2026.11.02_v1. Not the working screen, a real competition or a legal standard. */
 (function(){
 'use strict';
