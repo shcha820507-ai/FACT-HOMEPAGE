@@ -126,8 +126,8 @@ home = once(home, "{ date:'2026-06-30'", SEMINARS + "{ date:'2026-06-30'")
 # news: upcoming forum (dated by the event, like the seminars)
 FORUM = (
     "{ date:'2026-11-20', cat:'event', poster:'news/2026-11-20-gwangju-forum.jpg', thumb:'news/2026-11-20-gwangju-forum-thumb.jpg',\n"
-    "      ko:{ title:'2026 광주건축도시포럼 「AI와 사람, 도시의 미래를 잇다」', body:'11월 20일(금) 15:20 전남대학교 코스모스홀에서 열리는 2026 광주건축도시포럼의 FUTURE 2046 포럼 「AI와 도시공간의 혁신」에 차승현 센터장이 토론자로 참여합니다. 조영태 박사(LH토지주택연구원, 한국도시설계학회 연구부회장)가 발제하고 오세규 교수(한국도시설계학회 회장, 전남대학교)가 좌장을 맡으며, 박종현 교수(호남대학교), 이건원 교수(고려대학교), 추승연 교수(경북대학교)가 함께 토론합니다. 이어 이정재 대한건축학회 회장의 특별강연 「AI 활용 인간참여형 도시미기후 예측 및 통합 관리」가 있습니다. 주최는 전남광주통합특별시, 주관은 대한건축학회 광주전남지회, 광주건축단체연합회, 한국도시설계학회 광주전남지회입니다.', link:'news/2026-11-20-gwangju-forum.jpg', linkText:'포스터 보기' },\n"
-    "      en:{ title:'2026 Gwangju Architecture and Urban Forum', body:'FACT director Seung Hyun Cha joins the panel of the FUTURE 2046 forum, \"AI and Innovation in Urban Space\", at the 2026 Gwangju Architecture and Urban Forum, held on November 20 from 15:20 at Cosmos Hall, Chonnam National University. The panel follows a keynote presentation and is chaired by the president of the Urban Design Institute of Korea. A special lecture by the president of the Architectural Institute of Korea on AI-based, participatory prediction and management of urban microclimate closes the program.', link:'news/2026-11-20-gwangju-forum.jpg', linkText:'View poster' } },\n    ")
+    "      ko:{ title:'2026 광주건축도시포럼 「AI와 사람, 도시의 미래를 잇다」', body:'11월 20일(금) 15:20 전남대학교 코스모스홀에서 열린 2026 광주건축도시포럼의 FUTURE 2046 포럼 「AI와 도시공간의 혁신」에 차승현 센터장이 토론자로 참여했습니다. 조영태 박사(LH토지주택연구원, 한국도시설계학회 연구부회장)가 발제하고 오세규 교수(한국도시설계학회 회장, 전남대학교)가 좌장을 맡았으며, 박종현 교수(호남대학교), 이건원 교수(고려대학교), 추승연 교수(경북대학교)가 함께 토론했습니다. 이어 이정재 대한건축학회 회장의 특별강연 「AI 활용 인간참여형 도시미기후 예측 및 통합 관리」가 있었습니다. 주최는 전남광주통합특별시, 주관은 대한건축학회 광주전남지회, 광주건축단체연합회, 한국도시설계학회 광주전남지회입니다.', link:'news/2026-11-20-gwangju-forum.jpg', linkText:'포스터 보기' },\n"
+    "      en:{ title:'2026 Gwangju Architecture and Urban Forum', body:'FACT director Seung Hyun Cha joined the panel of the FUTURE 2046 forum, \"AI and Innovation in Urban Space\", at the 2026 Gwangju Architecture and Urban Forum, held on November 20 from 15:20 at Cosmos Hall, Chonnam National University. The panel followed a keynote presentation and was chaired by the president of the Urban Design Institute of Korea. A special lecture by the president of the Architectural Institute of Korea on AI-based, participatory prediction and management of urban microclimate closed the program.', link:'news/2026-11-20-gwangju-forum.jpg', linkText:'View poster' } },\n    ")
 home = once(home, "var NEWS=[\n    { date:'2026-10-26'", "var NEWS=[\n    " + FORUM + "{ date:'2026-10-26'")
 
 # news: second platform
@@ -179,7 +179,7 @@ FACULTY = [  # Korean name, English name, homepage
     ('윤상호', 'Sang Ho Yoon', 'https://hcitech.org/team'),
     ('배석형', 'Seok-Hyung Bae', 'https://sketch.kaist.ac.kr/people/seokhyungbae'),
     ('김영철', 'Youngchul Kim', 'https://urbandesignlab.kaist.ac.kr/'),
-    ('임리사', 'Lisa Lim', 'https://www.healthdesign.kaist.ac.kr/about'),
+    ('임리사', 'Lisa Lim', 'https://www.healthdesign.kaist.ac.kr/members'),
 ]
 ARROW = ('<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false">'
          '<path d="M3 1.5h5.5V7M8.5 1.5 1.5 8.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>')
